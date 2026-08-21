@@ -5,13 +5,9 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
-    inputs:
-      version:
-        description: "Version to release (e.g. 1.0.0)"
-        required: true
 
 jobs:
-  release:
+  release-win:
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -20,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
@@ -28,12 +24,7 @@ jobs:
       - name: Build packages
         run: npm run build --workspaces --if-present
 
-      - name: Build Electron app
-        run: npm run build:win --workspace=apps/desktop
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to GitHub Releases
+      - name: Build + Release Electron app
         run: npm run release:win --workspace=apps/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,7 +38,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
@@ -55,12 +46,7 @@ jobs:
       - name: Build packages
         run: npm run build --workspaces --if-present
 
-      - name: Build Electron app
-        run: npm run build:mac --workspace=apps/desktop
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to GitHub Releases
+      - name: Build + Release Electron app
         run: npm run release:mac --workspace=apps/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,7 +60,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
@@ -82,12 +68,7 @@ jobs:
       - name: Build packages
         run: npm run build --workspaces --if-present
 
-      - name: Build Electron app
-        run: npm run build:linux --workspace=apps/desktop
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to GitHub Releases
+      - name: Build + Release Electron app
         run: npm run release:linux --workspace=apps/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
