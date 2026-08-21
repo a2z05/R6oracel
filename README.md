@@ -1,105 +1,47 @@
-# ORACLE — Rainbow Six Siege Tactical Companion
+# ORACLE
 
-Premium desktop companion for Rainbow Six Siege. Reads your compass via OCR and shows tactical intel in real-time.
+A companion utility for tactical planning and map reference.
 
-## Quick Start
+![ORACLE](https://img.shields.io/badge/ORACLE-v1.0.0-gold?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge)
 
-### For Users — Install ORACLE
+## About
 
-1. Go to [Releases](../../releases/latest)
-2. Download `ORACLE-1.0.0-win-x64.exe`
-3. Run the installer
-4. ORACLE auto-updates on launch
+ORACLE is a desktop companion app that provides interactive maps, tactical callouts, and strategic reference material for Rainbow Six Siege players. It reads on-screen compass indicators via OCR to display contextual map information in real-time.
 
-### For Developers — Build from Source
+## Features
+
+- **Live Compass Detection** — Reads compass text via screen capture to identify your current position
+- **Interactive Tactical Map** — Zoomable, pannable maps with room callouts and floor switching
+- **Strategy Cards** — Context-aware tactical suggestions for defense and attack phases
+- **Transparent Overlay** — Lightweight always-on-top widget that stays out of your way
+- **Mobile Companion** — Scan a QR code to mirror tactical data to your phone
+- **Auto-Updates** — Seamless updates via GitHub Releases
+
+## Installation
+
+Download the latest installer from [Releases](https://github.com/a2z05/R6oracel/releases/latest).
+
+Run `ORACLE-1.0.0-win-x64.exe` and follow the setup wizard.
+
+## Development
 
 ```bash
 # Install dependencies
 npm install
 
-# Run in dev mode (Electron + Vite HMR)
+# Start in development mode
 npm run dev
-
-# Build for Windows (.exe installer)
-npm run build:release
-```
-
-## Release Workflow
-
-### Option 1: GitHub Actions (Recommended)
-
-1. Set `publish.owner` in `apps/desktop/electron-builder.yml` to your GitHub username
-2. Push a version tag:
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-3. GitHub Actions builds for Windows/Mac/Linux and publishes to Releases
-4. Users auto-update on next launch
-
-### Option 2: Manual Build
-
-```bash
-# Set GitHub token
-export GITHUB_TOKEN=ghp_your_token_here
-
-# Build + release
-npm run build:release
-```
-
-### How Auto-Update Works
-
-1. On launch, ORACLE checks GitHub Releases for newer versions
-2. If an update exists, it downloads silently in the background
-3. A banner appears: "Update ready! Restart to install."
-4. User clicks "Restart & Install" — app restarts with new version
-5. No manual re-download needed
-
-### Version Bumping
-
-```bash
-# Bump version (updates all package.json files)
-npm version patch   # 1.0.0 → 1.0.1
-npm version minor   # 1.0.0 → 1.1.0
-npm version major   # 1.0.0 → 2.0.0
-
-# Then push the tag
-git push origin main --tags
-```
-
-## Architecture
-
-```
-oracle/
-├── apps/
-│   ├── desktop/          # Electron app (main + renderer + preload)
-│   └── mobile/           # PWA for phone (connects via QR)
-├── packages/
-│   ├── domain/           # Shared types (maps, OCR, settings)
-│   ├── shared/           # Fuzzy matching, map utilities
-│   ├── db/               # Drizzle ORM + SQLite (10 tables)
-│   ├── ocr/              # Tesseract.js compass reader
-│   ├── overlay/          # Click-through game overlay
-│   ├── providers/        # R6 community data adapters
-│   └── ui-tokens/        # 5 themes, CSS vars, design system
-├── server/               # Express + WebSocket (mobile sync)
-├── scripts/              # Build + release automation
-└── .github/workflows/    # CI/CD for all platforms
 ```
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Desktop | Electron 33 + React 19 + TypeScript |
-| Build | electron-vite + electron-builder |
-| UI | TailwindCSS v4 + Framer Motion + Lucide |
-| State | Zustand 5 |
-| Database | Drizzle ORM + SQLite (WAL mode) |
-| OCR | Tesseract.js 5 (WASM, no install needed) |
-| Server | Express + WebSocket |
-| Mobile | React PWA (connects via QR) |
-| Updates | electron-updater → GitHub Releases |
+- **Electron** + **React** + **TypeScript**
+- **TailwindCSS** for styling
+- **Tesseract.js** for OCR processing
+- **SQLite** via Drizzle ORM
+- **Zustand** for state management
 
 ## License
 
