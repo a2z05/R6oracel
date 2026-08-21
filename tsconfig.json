@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {},
+  "references": [
+    { "path": "packages/domain" },
+    { "path": "packages/shared" },
+    { "path": "packages/db" },
+    { "path": "packages/ui-tokens" },
+    { "path": "packages/ocr" },
+    { "path": "packages/overlay" },
+    { "path": "packages/providers" },
+    { "path": "apps/desktop" },
+    { "path": "server" }
+  ],
+  "exclude": ["node_modules", "**/dist/**", "**/dist-*/**"]
+}

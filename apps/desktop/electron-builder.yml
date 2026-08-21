@@ -1,0 +1,56 @@
+appId: com.oracle.r6
+productName: ORACLE
+copyright: Copyright © 2026 ORACLE
+directories:
+  buildResources: build
+  output: release
+files:
+  - "!**/.vscode/*"
+  - "!src/*"
+  - "!electron.vite.config.{js,ts,mjs,cjs}"
+  - "!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}"
+  - "!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}"
+  - "!{vitest.config.ts,vitest.config.mts}"
+asarUnpack:
+  - resources/**
+win:
+  executableName: ORACLE
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: "ORACLE-${version}-win-${arch}.exe"
+nsis:
+  artifactName: "ORACLE-${version}-win-${arch}.exe"
+  shortcutName: ORACLE
+  uninstallDisplayName: ORACLE
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  shortcutFolderName: ORACLE
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  deleteAppDataOnUninstall: false
+  keepInstallationDir: true
+linux:
+  target:
+    - AppImage
+    - deb
+  maintainer: a2z05
+  category: Game
+mac:
+  target:
+    - dmg
+    - zip
+  entitlementsInherit: build/entitlements.mac.plist
+  notarize: false
+
+# Auto-update: publish to GitHub Releases
+publish:
+  provider: github
+  owner: "a2z05"
+  repo: "R6oracel"
+  releaseType: release
+  publishAutoUpdate: true

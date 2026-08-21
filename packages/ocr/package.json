@@ -1,0 +1,17 @@
+{
+  "name": "@oracle/ocr",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@oracle/domain": "*",
+    "@oracle/shared": "*",
+    "tesseract.js": "^5.1.0",
+    "sharp": "^0.33.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}

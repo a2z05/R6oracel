@@ -1,0 +1,15 @@
+{
+  "name": "@oracle/overlay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@oracle/domain": "*",
+    "electron": "^33.0.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}

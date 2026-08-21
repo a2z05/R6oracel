@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --oracle-bg-primary: #0a0a0f;
+  --oracle-bg-surface: #12131a;
+  --oracle-bg-card: #1a1c25;
+  --oracle-bg-glass: rgba(18,19,26,0.85);
+  --oracle-bg-overlay: rgba(10,10,15,0.95);
+  --oracle-text-primary: #e8eaed;
+  --oracle-text-secondary: #9ca0ab;
+  --oracle-text-muted: #5a5f6d;
+  --oracle-accent: #f0b132;
+  --oracle-accent-strong: #ffc940;
+  --oracle-accent-dim: rgba(240,177,50,0.15);
+  --oracle-success: #3ba55d;
+  --oracle-warning: #faa81a;
+  --oracle-danger: #ed4245;
+  --oracle-info: #5865f2;
+  --oracle-border: rgba(255,255,255,0.06);
+  --oracle-border-strong: rgba(255,255,255,0.12);
+  --oracle-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --oracle-font-heading: 'Rajdhani', 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--oracle-font);
+  background: var(--oracle-bg-primary);
+  color: var(--oracle-text-primary);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--oracle-border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--oracle-text-muted); }
+
+.glass {
+  background: var(--oracle-bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--oracle-border);
+}
+
+.glass-card {
+  background: var(--oracle-bg-card);
+  border: 1px solid var(--oracle-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.accent-glow {
+  box-shadow: 0 0 20px var(--oracle-accent-dim);
+}
+
+.app-region-drag { app-region: drag; }
+.app-region-no-drag { app-region: no-drag; }
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}

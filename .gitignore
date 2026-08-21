@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-*/
+release/
+*.tsbuildinfo
+
+# Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temp
+tmp/
+temp/
+
+# Electron
+out/
+
+# Coverage
+coverage/
+
+# Assets (downloaded at runtime)
+assets/maps/*
+assets/rooms/*
+!assets/maps/.gitkeep
+!assets/rooms/.gitkeep
+!assets/icons/.gitkeep
