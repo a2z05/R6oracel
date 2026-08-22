@@ -2,132 +2,71 @@
 
 # 🔮 ORACLE
 
-### *Tactical Intelligence for Rainbow Six Siege*
+*A second-screen companion for Rainbow Six Siege*
 
----
+![Version](https://img.shields.io/badge/version-1.0.19-gold?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge)
 
-![Version](https://img.shields.io/badge/version-1.0.4-gold?style=for-the-badge&logo=semver)
-![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=opensource)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge&logo=windows)
-![Electron](https://img.shields.io/badge/Electron-33-47848F?style=for-the-badge&logo=electron)
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript)
-
-<br/>
-
-**[📥 Download Latest Release](https://github.com/a2z05/R6oracel/releases/latest)**
+**[Download the latest build](https://github.com/a2z05/R6oracel/releases/latest)**
 
 </div>
 
 ---
 
-## ✨ Features
+## What is this?
 
-<table>
-<tr>
-<td width="50%">
+ORACLE sits on your second monitor (or your phone) and shows you map callouts, bomb sites, and tactical tips while you play. It reads your compass to figure out where you are, then pulls up the relevant info automatically.
 
-### 🗺️ Interactive Tactical Maps
-Zoomable, pannable SVG maps with room callouts, floor switching, and animated player markers.
-
-</td>
-<td width="50%">
-
-### 🎯 Smart Compass Detection
-Reads on-screen compass indicators to identify your current position in real-time.
-
-</td>
-</tr>
-<tr>
-<td>
-
-### 📋 Strategy Cards
-Context-aware tactical suggestions for every phase — defense prep, spawn peeks, post-plant.
-
-</td>
-<td>
-
-### 🔲 Transparent Overlay
-Always-on-top minimap that stays out of your crosshair. Fully customizable.
-
-</td>
-</tr>
-<tr>
-<td>
-
-### 📱 Mobile Companion
-Scan a QR code to mirror tactical data to your phone. Same intel, second screen.
-
-</td>
-<td>
-
-### 🔄 Auto-Updates
-Seamless updates via GitHub Releases. Never miss a new map or feature.
-
-</td>
-</tr>
-</table>
+No memory reading. No DLL injection. No game modification. It just looks at your screen like a person would.
 
 ---
 
-## 🚀 Quick Start
+## Features
 
-### Install
+- **Map callouts** — pick a map, see every room with callouts and positions
+- **Compass detection** — OCR reads your compass to figure out your room in real time
+- **Attack/defense detection** — knows which side you're on from the UI colors
+- **Tactical cards** — defense prep tips, spawn peek warnings, post-plant spots
+- **Transparent overlay** — a small minimap that floats above the game, click-through
+- **Phone companion** — scan a QR code, get the same info on your phone
+- **Auto-updates** — downloads new versions from GitHub when they're available
 
-1. Download `ORACLE-1.0.4-win-x64.exe` from [Releases](https://github.com/a2z05/R6oracel/releases/latest)
-2. Run the installer
-3. Launch ORACLE from your desktop
+---
 
-### Build from Source
+## Install
+
+1. Grab the `.exe` from [Releases](https://github.com/a2z05/R6oracel/releases/latest)
+2. Run it
+3. That's it
+
+---
+
+## Building from source
 
 ```bash
-# Clone
 git clone https://github.com/a2z05/R6oracel.git
 cd R6oracel
-
-# Install & Run
 npm install
 npm run dev
 ```
 
 ---
 
-## ⚙️ Tech Stack
+## How the compass detection works
 
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| Desktop | Electron 33 | Cross-platform shell |
-| UI | React 19 + TailwindCSS v4 | Component rendering |
-| Animations | Framer Motion 12 | 120fps transitions |
-| State | Zustand 5 | Lightweight stores |
-| Database | Drizzle ORM + SQLite | Local data persistence |
-| OCR | Tesseract.js 5 | Compass text recognition |
-| Map | SVG + Canvas hybrid | Interactive tactical maps |
-| Server | Express + WebSocket | Mobile companion sync |
-| Build | electron-vite + electron-builder | Dev + production builds |
-| Updates | electron-updater | GitHub Releases auto-update |
+ORACLE captures a small region of your screen (just the compass area), runs OCR on it, and matches the text against known room names. It supports fuzzy matching so small OCR errors don't break things.
+
+The side detection works by sampling colors in the compass and timer regions — attackers show blue, defenders show orange. It handles colorblind modes by checking multiple hue ranges.
 
 ---
 
-## 🎨 Themes
+## Tech
 
-| Siege Classic | OLED Black | Cyber Blue | Crimson | Emerald |
-|:---:|:---:|:---:|:---:|:---:|
-| 🟡 `#f0b132` | ⚪ `#ffffff` | 🔵 `#00d4ff` | 🔴 `#ff3060` | 🟢 `#00e090` |
-| Matte black | Pure black | Deep blue | Dark red | Forest dark |
+Built with Electron, React, TypeScript, TailwindCSS, and Tesseract.js for OCR. Data lives in SQLite via sql.js (no native compilation needed). The mobile companion is a simple PWA that connects over WebSocket.
 
 ---
 
-## 📜 License
+## License
 
-MIT License — see [LICENSE](LICENSE) for details.
-
----
-
-<div align="center">
-
-**Built with 🔮 for the Rainbow Six Siege community**
-
-[Report Bug](https://github.com/a2z05/R6oracel/issues) · [Request Feature](https://github.com/a2z05/R6oracel/issues)
-
-</div>
+MIT
