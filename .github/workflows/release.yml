@@ -20,8 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        env:
-          npm_config_msvs_version: "2022"
+
+      - name: Ensure app-builder binary
+        run: npx electron-builder install-app-deps
+        continue-on-error: true
 
       - name: Build + Release
         run: npm run release:win
@@ -44,6 +46,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Ensure app-builder binary
+        run: npx electron-builder install-app-deps
+        continue-on-error: true
+
       - name: Build + Release
         run: npm run release:mac
         working-directory: apps/desktop
@@ -63,6 +69,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Ensure app-builder binary
+        run: npx electron-builder install-app-deps
+        continue-on-error: true
 
       - name: Build + Release
         run: npm run release:linux
