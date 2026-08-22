@@ -21,9 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Ensure app-builder binary
-        run: npx electron-builder install-app-deps
-        continue-on-error: true
+      - name: Rebuild native modules and app-builder
+        run: npm rebuild && node node_modules/app-builder-bin/install-app-builder.js
+        env:
+          npm_config_msvs_version: "2022"
 
       - name: Build + Release
         run: npm run release:win
@@ -46,9 +47,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Ensure app-builder binary
-        run: npx electron-builder install-app-deps
-        continue-on-error: true
+      - name: Rebuild and ensure app-builder
+        run: npm rebuild && node node_modules/app-builder-bin/install-app-builder.js
 
       - name: Build + Release
         run: npm run release:mac
@@ -70,9 +70,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Ensure app-builder binary
-        run: npx electron-builder install-app-deps
-        continue-on-error: true
+      - name: Rebuild and ensure app-builder
+        run: npm rebuild && node node_modules/app-builder-bin/install-app-builder.js
 
       - name: Build + Release
         run: npm run release:linux
