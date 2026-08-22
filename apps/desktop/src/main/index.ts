@@ -190,25 +190,37 @@ function registerIpcHandlers(): void {
   ipcMain.handle(IPC.OVERLAY_CONFIG, (_e, args) => { overlay?.updateConfig(args as Partial<OverlayConfig>); return { ok: true }; });
 
   // Maps
-  ipcMain.handle(IPC.MAP_LIST, () => db?.all`SELECT * FROM maps ORDER BY name` ?? []);
+  ipcMain.handle(IPC.MAP_LIST, () => {
+    if (!db) return [];
+    return db.all("SELECT * FROM maps ORDER BY name");
+  });
   ipcMain.handle(IPC.MAP_ROOMS, (_e, args) => {
     const { mapId, floor } = args as { mapId: string; floor?: number };
     if (!db) return [];
-    if (floor !== undefined) return db.all`SELECT * FROM rooms WHERE map_id = ${mapId} AND floor = ${floor}`;
-    return db.all`SELECT * FROM rooms WHERE map_id = ${mapId}`;
+    if (floor !== undefined) {
+      return db.all("SELECT * FROM rooms WHERE map_id = ? AND floor = ?", [mapId, floor]);
+    }
+    return db.all("SELECT * FROM rooms WHERE map_id = ?", [mapId]);
   });
 
   // Settings
   ipcMain.handle(IPC.SETTINGS_GET, (_e, args) => {
     const { key } = args as { key?: string };
     if (!db) return null;
-    return key ? db.get`SELECT * FROM settings WHERE key = ${key}` : db.all`SELECT * FROM settings`;
+    if (key) {
+      return db.get("SELECT * FROM settings WHERE key = ?", [key]);
+    }
+    return db.all("SELECT * FROM settings");
   });
   ipcMain.handle(IPC.SETTINGS_SET, (_e, args) => {
     const { key, value } = args as { key: string; value: unknown };
     if (!db) return;
     const v = JSON.stringify(value);
-    db.run`INSERT INTO settings (key, value, category, updated_at) VALUES (${key}, ${v}, 'general', ${Date.now()}) ON CONFLICT(key) DO UPDATE SET value = ${v}, updated_at = ${Date.now()}`;
+    const now = Date.now();
+    db.run(
+      "INSERT INTO settings (key, value, category, updated_at) VALUES (?, ?, 'general', ?) ON CONFLICT(key) DO UPDATE SET value = ?, updated_at = ?",
+      [key, v, now, v, now]
+    );
     return { ok: true };
   });
 
