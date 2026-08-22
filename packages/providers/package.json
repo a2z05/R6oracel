@@ -6,8 +6,7 @@
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "dependencies": {
-    "@oracle/domain": "*",
-    "sharp": "0.33.5"
+    "@oracle/domain": "*"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

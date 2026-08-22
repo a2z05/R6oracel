@@ -79,41 +79,6 @@ Requires Node.js 20+ and npm.
 
 ---
 
-## Architecture
-
-ORACLE is built as a pnpm-compatible npm workspace monorepo with clean package boundaries:
-
-| Package | Purpose |
-|---------|---------|
-| `@oracle/domain` | Shared TypeScript types (maps, OCR, settings, operators) |
-| `@oracle/shared` | Fuzzy matching, map utilities, QR generation |
-| `@oracle/db` | SQLite database via sql.js + Drizzle ORM (10 tables) |
-| `@oracle/ocr` | Tesseract.js WASM engine + compass preprocessing pipeline |
-| `@oracle/overlay` | Transparent always-on-top Electron overlay window |
-| `@oracle/providers` | Community data adapters (r6maps.com, etc.) |
-| `@oracle/ui-tokens` | Design system with 5 themes + CSS variables |
-
-The desktop app (`apps/desktop`) ties everything together with Electron 33, React 19, TailwindCSS v4, and Zustand for state management.
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Runtime | Electron 33 |
-| UI | React 19 + TailwindCSS v4 |
-| Animations | Framer Motion 12 |
-| State | Zustand 5 |
-| Database | sql.js (WASM) + Drizzle ORM |
-| OCR | Tesseract.js 5 (WASM) |
-| Map Rendering | SVG + Canvas hybrid |
-| Mobile | Express + WebSocket + PWA |
-| Build | electron-vite + electron-builder |
-| Updates | electron-updater → GitHub Releases |
-
----
-
 ## Themes
 
 | Siege Classic | OLED Black | Cyber Blue | Crimson | Emerald |
