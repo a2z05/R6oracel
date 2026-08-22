@@ -1,17 +1,15 @@
 #!/usr/bin/env node
 /**
- * ORACLE Build + Release Script
+ * ORACLE Build + Release Script (Windows only)
  *
  * Usage:
- *   npm run build:release          # Build for Windows
- *   npm run build:release -- --mac # Build for macOS
- *   npm run build:release -- --linux # Build for Linux
+ *   npm run build:release
  *
  * Prerequisites:
  *   1. Set GITHUB_TOKEN env var with a GitHub personal access token
  *      (needs repo + workflow permissions)
  *   2. Set the publish.owner in electron-builder.yml to your GitHub username
- *   3. Create a GitHub repo named "oracle"
+ *   3. Create a GitHub repo named "R6oracel"
  *
  * What it does:
  *   1. Builds the TypeScript packages
@@ -34,13 +32,10 @@ function run(cmd: string, cwd: string = ROOT): void {
 }
 
 function main(): void {
-  const args = process.argv.slice(2);
-  const platform = args.includes("--mac") ? "mac" : args.includes("--linux") ? "linux" : "win";
-
   console.log("╔══════════════════════════════════════╗");
   console.log("║     ORACLE Build + Release           ║");
   console.log("╚══════════════════════════════════════╝");
-  console.log(`Platform: ${platform}`);
+  console.log("Platform: win");
 
   // 1. Check prerequisites
   if (!process.env["GITHUB_TOKEN"]) {
@@ -63,17 +58,11 @@ function main(): void {
 
   // 5. Build + package Electron app
   console.log("\n🏗️  Building Electron app...");
-  const builderArgs = platform === "mac"
-    ? "build:mac"
-    : platform === "linux"
-      ? "build:linux"
-      : "build:win";
-
-  run(`npm run ${builderArgs} --workspace=apps/desktop`);
+  run("npm run build:win --workspace=apps/desktop");
 
   // 6. Publish to GitHub Releases
   console.log("\n🚀 Publishing to GitHub Releases...");
-  run(`npm run release:${platform} --workspace=apps/desktop`);
+  run("npm run release:win --workspace=apps/desktop");
 
   console.log("\n✅ Release complete!");
   console.log(`   Version: v${pkg.version}`);
