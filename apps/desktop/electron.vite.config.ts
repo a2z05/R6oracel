@@ -3,26 +3,29 @@ import { defineConfig, externalizeDepsPlugin } from "electron-vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
+const oracleAliases: Record<string, string> = {
+  "@oracle/domain": resolve(__dirname, "../../packages/domain/src"),
+  "@oracle/shared": resolve(__dirname, "../../packages/shared/src"),
+  "@oracle/db": resolve(__dirname, "../../packages/db/src"),
+  "@oracle/ocr": resolve(__dirname, "../../packages/ocr/src"),
+  "@oracle/overlay": resolve(__dirname, "../../packages/overlay/src"),
+  "@oracle/providers": resolve(__dirname, "../../packages/providers/src"),
+  "@oracle/ui-tokens": resolve(__dirname, "../../packages/ui-tokens/src"),
+};
+
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()],
     build: {
       rollupOptions: {
         input: {
           index: resolve(__dirname, "src/main/index.ts"),
         },
+        // Keep electron/electron-updater external, bundle everything else
+        external: ["electron", "electron-updater", "sharp"],
       },
     },
     resolve: {
-      alias: {
-        "@oracle/domain": resolve(__dirname, "../../packages/domain/src"),
-        "@oracle/shared": resolve(__dirname, "../../packages/shared/src"),
-        "@oracle/db": resolve(__dirname, "../../packages/db/src"),
-        "@oracle/ocr": resolve(__dirname, "../../packages/ocr/src"),
-        "@oracle/overlay": resolve(__dirname, "../../packages/overlay/src"),
-        "@oracle/providers": resolve(__dirname, "../../packages/providers/src"),
-        "@oracle/ui-tokens": resolve(__dirname, "../../packages/ui-tokens/src"),
-      },
+      alias: oracleAliases,
     },
   },
   preload: {
@@ -46,11 +49,7 @@ export default defineConfig({
     },
     plugins: [react(), tailwindcss()],
     resolve: {
-      alias: {
-        "@oracle/domain": resolve(__dirname, "../../packages/domain/src"),
-        "@oracle/shared": resolve(__dirname, "../../packages/shared/src"),
-        "@oracle/ui-tokens": resolve(__dirname, "../../packages/ui-tokens/src"),
-      },
+      alias: oracleAliases,
     },
   },
 });
