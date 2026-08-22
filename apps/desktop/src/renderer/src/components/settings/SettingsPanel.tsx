@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X, Keyboard, Monitor, Eye, Palette, ToggleLeft, Database, QrCode } from "lucide-react";
 import { useUIStore } from "../../stores/ui-store.js";
 import { useSettingsStore } from "../../stores/settings-store.js";
-import { themes, type ThemeId } from "../../../../packages/ui-tokens/src/tokens.js";
+import { themes, type ThemeId } from "@oracle/ui-tokens";
 
 type SettingsTab = "hotkeys" | "overlay" | "ocr" | "theme" | "modules" | "data";
 

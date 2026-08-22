@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { ThemeId } from "../../../../packages/ui-tokens/src/tokens.js";
+import type { ThemeId } from "@oracle/ui-tokens";
 
 interface SettingsStore {
   theme: ThemeId;

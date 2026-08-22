@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { OcrResult } from "../../../../packages/domain/src/ocr.js";
+import type { OcrResult } from "@oracle/domain";
 
 interface OcrStore {
   isRunning: boolean;
