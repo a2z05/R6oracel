@@ -25,11 +25,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build packages
-        run: npm run build --workspaces --if-present
+      - name: Build Desktop
+        run: npx electron-vite build
+        working-directory: apps/desktop
 
-      - name: Build + Release Electron app
-        run: npm run release:win --workspace=apps/desktop
+      - name: Build + Release
+        run: npm run release:win
+        working-directory: apps/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -47,11 +49,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build packages
-        run: npm run build --workspaces --if-present
+      - name: Build Desktop
+        run: npx electron-vite build
+        working-directory: apps/desktop
 
-      - name: Build + Release Electron app
-        run: npm run release:mac --workspace=apps/desktop
+      - name: Build + Release
+        run: npm run release:mac
+        working-directory: apps/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -69,10 +73,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build packages
-        run: npm run build --workspaces --if-present
+      - name: Build Desktop
+        run: npx electron-vite build
+        working-directory: apps/desktop
 
-      - name: Build + Release Electron app
-        run: npm run release:linux --workspace=apps/desktop
+      - name: Build + Release
+        run: npm run release:linux
+        working-directory: apps/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
