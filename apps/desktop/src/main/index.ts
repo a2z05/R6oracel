@@ -14,7 +14,7 @@ const isDev = !app.isPackaged;
 let mainWindow: BrowserWindow | null = null;
 let overlay: OverlayWindow | null = null;
 let pipeline: OcrPipeline | null = null;
-let db: ReturnType<typeof createDatabase> | null = null;
+let db: Awaited<ReturnType<typeof createDatabase>> | null = null;
 let tray: Tray | null = null;
 
 // ─── Auto Updater ─────────────────────────────────────────────────────
@@ -85,10 +85,10 @@ function initAutoUpdater(): void {
 
 // ─── Database ─────────────────────────────────────────────────────────
 
-function initDatabase(): void {
+async function initDatabase(): Promise<void> {
   const dbPath = path.join(app.getPath("userData"), "oracle.db");
   console.log(`[main] Database: ${dbPath}`);
-  db = createDatabase(dbPath);
+  db = await createDatabase(dbPath);
   seedDatabase(db);
 }
 
@@ -220,6 +220,7 @@ function registerIpcHandlers(): void {
       "INSERT INTO settings (key, value, category, updated_at) VALUES (?, ?, 'general', ?) ON CONFLICT(key) DO UPDATE SET value = ?, updated_at = ?",
       [key, v, now, v, now]
     );
+    db.save();
     return { ok: true };
   });
 
@@ -268,7 +269,7 @@ function registerIpcHandlers(): void {
 // ─── App Lifecycle ────────────────────────────────────────────────────
 
 app.whenReady().then(() => {
-  initDatabase();
+  await initDatabase();
   createMainWindow();
   createTray();
   registerIpcHandlers();

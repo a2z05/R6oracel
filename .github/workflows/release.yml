@@ -8,7 +8,7 @@ on:
 
 jobs:
   release-win:
-    runs-on: windows-2022
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,18 +18,14 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies (skip native builds)
-        run: npm install --ignore-scripts
-
-      - name: Download app-builder binary
-        run: node node_modules/app-builder-bin/install-app-builder.js
+      - name: Install dependencies
+        run: npm install
 
       - name: Build + Release
         run: npm run release:win
         working-directory: apps/desktop
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          npm_config_msvs_version: "2022"
 
   release-mac:
     runs-on: macos-latest
@@ -42,11 +38,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies (skip native builds)
-        run: npm install --ignore-scripts
-
-      - name: Download app-builder binary
-        run: node node_modules/app-builder-bin/install-app-builder.js
+      - name: Install dependencies
+        run: npm install
 
       - name: Build + Release
         run: npm run release:mac
@@ -65,11 +58,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies (skip native builds)
-        run: npm install --ignore-scripts
-
-      - name: Download app-builder binary
-        run: node node_modules/app-builder-bin/install-app-builder.js
+      - name: Install dependencies
+        run: npm install
 
       - name: Build + Release
         run: npm run release:linux
