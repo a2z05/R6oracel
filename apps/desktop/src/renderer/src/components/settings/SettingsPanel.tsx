@@ -1,12 +1,13 @@
-import { useState } from "react";
-import { X, Keyboard, Monitor, Eye, Palette, ToggleLeft, Database, QrCode } from "lucide-react";
+import { useState, useCallback, useRef, useEffect } from "react";
+import { X, Keyboard, Monitor, Eye, Palette, ToggleLeft, Database, Crosshair, Move } from "lucide-react";
 import { useUIStore } from "../../stores/ui-store.js";
 import { useSettingsStore } from "../../stores/settings-store.js";
 import { themes, type ThemeId } from "@oracle/ui-tokens";
 
-type SettingsTab = "hotkeys" | "overlay" | "ocr" | "theme" | "modules" | "data";
+type SettingsTab = "hotkeys" | "overlay" | "ocr" | "calibrate" | "theme" | "modules" | "data";
 
 const TABS: Array<{ id: SettingsTab; label: string; icon: React.ReactNode }> = [
+  { id: "calibrate", label: "Calibrate", icon: <Crosshair size={14} /> },
   { id: "hotkeys", label: "Hotkeys", icon: <Keyboard size={14} /> },
   { id: "overlay", label: "Overlay", icon: <Monitor size={14} /> },
   { id: "ocr", label: "OCR", icon: <Eye size={14} /> },
@@ -51,6 +52,7 @@ export function SettingsPanel() {
 
         {/* Tab content */}
         <div className="flex-1 p-6 overflow-y-auto">
+          {activeTab === "calibrate" && <CalibrateTab />}
           {activeTab === "theme" && <ThemeTab />}
           {activeTab === "hotkeys" && <HotkeysTab />}
           {activeTab === "overlay" && <OverlayTab />}
@@ -207,6 +209,223 @@ function DataTab() {
         <button className="w-full py-2 px-4 rounded-lg bg-[var(--oracle-danger)]/10 border border-[var(--oracle-danger)]/30 text-sm text-[var(--oracle-danger)] hover:bg-[var(--oracle-danger)]/20 transition-colors">
           Clear Cache
         </button>
+      </div>
+    </div>
+  );
+}
+
+function CalibrateTab() {
+  const s = useSettingsStore();
+  const [captureRegion, setCaptureRegion] = useState({ x: 0, y: 85, width: 100, height: 10 });
+  const [sideRegion, setSideRegion] = useState({ x: 0, y: 0, width: 100, height: 5 });
+  const [isCapturing, setIsCapturing] = useState(false);
+  const previewRef = useRef<HTMLCanvasElement>(null);
+
+  // Compass is at bottom center of screen in R6 Siege
+  // Based on screenshot: compass shows "2F Construction" at bottom
+  const COMPASS_PRESETS = [
+    { label: "Bottom Center (Default)", x: 35, y: 88, width: 30, height: 8 },
+    { label: "Top Center", x: 35, y: 2, width: 30, height: 6 },
+    { label: "Custom", x: captureRegion.x, y: captureRegion.y, width: captureRegion.width, height: captureRegion.height },
+  ];
+
+  const handleCapture = useCallback(async () => {
+    setIsCapturing(true);
+    try {
+      const result = await window.oracle?.invoke("ocr:calibrate", {
+        cropRegion: {
+          x: captureRegion.x / 100,
+          y: captureRegion.y / 100,
+          width: captureRegion.width / 100,
+          height: captureRegion.height / 100,
+        },
+      });
+    } catch (err) {
+      console.error("Calibration failed:", err);
+    } finally {
+      setIsCapturing(false);
+    }
+  }, [captureRegion]);
+
+  return (
+    <div className="space-y-6">
+      <h2 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Calibration</h2>
+      <p className="text-xs text-[var(--oracle-text-muted)]">
+        Configure where ORACLE looks on your screen. The compass position varies by resolution and settings.
+      </p>
+
+      {/* Team Color */}
+      <div className="glass-card p-4 space-y-3">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Team Color</h3>
+        <p className="text-xs text-[var(--oracle-text-muted)]">
+          Your team's accent color. ORACLE uses this to detect if you're attacking or defending.
+          Match it to your in-game colorblind settings.
+        </p>
+        <div className="flex items-center gap-3">
+          <label className="text-sm text-[var(--oracle-text-secondary)]">My team color:</label>
+          <input
+            type="color"
+            value={s.teamColor}
+            onChange={(e) => s.setTeamColor(e.target.value)}
+            className="w-10 h-10 rounded-lg border border-[var(--oracle-border)] cursor-pointer"
+          />
+          <span className="text-xs text-[var(--oracle-text-muted)] font-mono">{s.teamColor}</span>
+        </div>
+        <div className="flex gap-2">
+          {[
+            { label: "Blue (Default)", color: "#4488ff" },
+            { label: "Orange", color: "#ff8c00" },
+            { label: "Purple", color: "#9944ff" },
+            { label: "Green", color: "#44cc44" },
+            { label: "Yellow", color: "#ffcc00" },
+            { label: "Red", color: "#ff4444" },
+          ].map((preset) => (
+            <button
+              key={preset.label}
+              onClick={() => s.setTeamColor(preset.color)}
+              className={`px-2 py-1 rounded text-xs border transition-colors ${
+                s.teamColor === preset.color
+                  ? "border-[var(--oracle-accent)] bg-[var(--oracle-accent)]/10"
+                  : "border-[var(--oracle-border)] hover:bg-white/5"
+              }`}
+            >
+              <div className="w-3 h-3 rounded-full mx-auto mb-1" style={{ backgroundColor: preset.color }} />
+              {preset.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Compass Region */}
+      <div className="glass-card p-4 space-y-3">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Compass Region</h3>
+        <p className="text-xs text-[var(--oracle-text-muted)]">
+          Where the compass text appears on your screen. Adjust if ORACLE isn't reading the room name.
+        </p>
+
+        <div className="space-y-2">
+          <label className="text-sm text-[var(--oracle-text-secondary)]">Preset:</label>
+          <div className="flex gap-2">
+            {COMPASS_PRESETS.map((preset) => (
+              <button
+                key={preset.label}
+                onClick={() => setCaptureRegion({ x: preset.x, y: preset.y, width: preset.width, height: preset.height })}
+                className="px-3 py-1.5 rounded-lg text-xs border border-[var(--oracle-border)] hover:bg-white/5 transition-colors"
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">X Position (%)</label>
+            <input
+              type="number"
+              value={captureRegion.x}
+              onChange={(e) => setCaptureRegion({ ...captureRegion, x: parseInt(e.target.value) || 0 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">Y Position (%)</label>
+            <input
+              type="number"
+              value={captureRegion.y}
+              onChange={(e) => setCaptureRegion({ ...captureRegion, y: parseInt(e.target.value) || 0 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">Width (%)</label>
+            <input
+              type="number"
+              value={captureRegion.width}
+              onChange={(e) => setCaptureRegion({ ...captureRegion, width: parseInt(e.target.value) || 10 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">Height (%)</label>
+            <input
+              type="number"
+              value={captureRegion.height}
+              onChange={(e) => setCaptureRegion({ ...captureRegion, height: parseInt(e.target.value) || 5 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+        </div>
+
+        {/* Preview */}
+        <div className="relative w-full h-32 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center text-xs text-[var(--oracle-text-muted)]">
+            Screen preview — compass region highlighted
+          </div>
+          <div
+            className="absolute border-2 border-[var(--oracle-accent)] bg-[var(--oracle-accent)]/10 rounded"
+            style={{
+              left: `${captureRegion.x}%`,
+              top: `${captureRegion.y}%`,
+              width: `${captureRegion.width}%`,
+              height: `${captureRegion.height}%`,
+            }}
+          />
+        </div>
+
+        <button
+          onClick={handleCapture}
+          disabled={isCapturing}
+          className="w-full py-2 px-4 rounded-lg bg-[var(--oracle-accent)]/10 border border-[var(--oracle-accent)]/30 text-sm text-[var(--oracle-accent)] hover:bg-[var(--oracle-accent)]/20 transition-colors disabled:opacity-50"
+        >
+          {isCapturing ? "Capturing..." : "Test Capture"}
+        </button>
+      </div>
+
+      {/* Side Detection Region */}
+      <div className="glass-card p-4 space-y-3">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Side Detection Region</h3>
+        <p className="text-xs text-[var(--oracle-text-muted)]">
+          Where ORACLE looks to detect your team color. Default is the score area at the top.
+        </p>
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">X Position (%)</label>
+            <input
+              type="number"
+              value={sideRegion.x}
+              onChange={(e) => setSideRegion({ ...sideRegion, x: parseInt(e.target.value) || 0 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">Y Position (%)</label>
+            <input
+              type="number"
+              value={sideRegion.y}
+              onChange={(e) => setSideRegion({ ...sideRegion, y: parseInt(e.target.value) || 0 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">Width (%)</label>
+            <input
+              type="number"
+              value={sideRegion.width}
+              onChange={(e) => setSideRegion({ ...sideRegion, width: parseInt(e.target.value) || 10 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-[var(--oracle-text-muted)]">Height (%)</label>
+            <input
+              type="number"
+              value={sideRegion.height}
+              onChange={(e) => setSideRegion({ ...sideRegion, height: parseInt(e.target.value) || 5 })}
+              className="w-full mt-1 px-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)]"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

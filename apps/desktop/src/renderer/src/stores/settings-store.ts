@@ -11,6 +11,8 @@ interface SettingsStore {
   ocrSensitivity: number;
   debugMode: boolean;
   modules: Record<string, boolean>;
+  teamColor: string;
+  compassPreset: string;
   setTheme: (theme: ThemeId) => void;
   setAccentColor: (color: string) => void;
   setOverlayOpacity: (v: number) => void;
@@ -32,6 +34,8 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
   ocrSensitivity: 60,
   debugMode: false,
   modules: { spawnPeek: true, siteSetup: true, plantTips: true, rotateRoutes: true, roomImages: true, neighborRooms: true, operatorTips: true },
+  teamColor: "#9944ff",
+  compassPreset: "bottom-center",
   setTheme: (theme) => set({ theme }),
   setAccentColor: (accentColor) => set({ accentColor }),
   setOverlayOpacity: (overlayOpacity) => set({ overlayOpacity }),
@@ -41,4 +45,6 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
   setOcrSensitivity: (ocrSensitivity) => set({ ocrSensitivity }),
   setDebugMode: (debugMode) => set({ debugMode }),
   toggleModule: (name) => set((s) => ({ modules: { ...s.modules, [name]: !s.modules[name] } })),
+  setTeamColor: (teamColor) => set({ teamColor }),
+  setCompassPreset: (compassPreset) => set({ compassPreset }),
 }));
