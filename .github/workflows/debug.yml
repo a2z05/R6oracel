@@ -1,0 +1,39 @@
+name: Debug Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install 2>&1
+
+      - name: List node_modules/.bin
+        run: dir node_modules\.bin 2>&1 | head -20
+        working-directory: apps/desktop
+
+      - name: Check electron
+        run: npx electron --version 2>&1
+        working-directory: apps/desktop
+
+      - name: Check electron-vite
+        run: npx electron-vite --version 2>&1
+        working-directory: apps/desktop
+
+      - name: Try build
+        run: npx electron-vite build 2>&1
+        working-directory: apps/desktop
+
+      - name: List files
+        run: dir src\main 2>&1
+        working-directory: apps/desktop
