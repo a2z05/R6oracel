@@ -268,7 +268,7 @@ function registerIpcHandlers(): void {
 
 // ─── App Lifecycle ────────────────────────────────────────────────────
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
   await initDatabase();
   createMainWindow();
   createTray();

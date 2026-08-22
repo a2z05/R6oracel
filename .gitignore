@@ -49,3 +49,4 @@ assets/rooms/*
 !assets/maps/.gitkeep
 !assets/rooms/.gitkeep
 !assets/icons/.gitkeep
+.claude/
