@@ -26,14 +26,12 @@ nsis:
   uninstallDisplayName: ORACLE
   createDesktopShortcut: always
   createStartMenuShortcut: true
-  shortcutFolderName: ORACLE
   oneClick: false
   allowToChangeInstallationDirectory: true
   installerIcon: build/icon.ico
   uninstallerIcon: build/icon.ico
   installerHeaderIcon: build/icon.ico
   deleteAppDataOnUninstall: false
-  keepInstallationDir: true
 linux:
   target:
     - AppImage
