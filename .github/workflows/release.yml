@@ -21,6 +21,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Ensure app-builder binary exists
+        run: |
+          if not exist "node_modules\app-builder-bin\win\x64\app-builder.exe" (
+            echo Downloading app-builder binary...
+            node -e "require('child_process').execSync('node node_modules/app-builder-bin/install-app-builder.js', {stdio: 'inherit'})"
+          )
+        shell: cmd
+        working-directory: .
+        continue-on-error: true
+
       - name: Build + Release
         run: npm run release:win
         working-directory: apps/desktop
@@ -41,6 +51,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Ensure app-builder binary exists
+        run: |
+          if [ ! -f "node_modules/app-builder-bin/mac/app-builder" ]; then
+            echo "Downloading app-builder binary..."
+            node node_modules/app-builder-bin/install-app-builder.js || true
+          fi
+        working-directory: .
+
       - name: Build + Release
         run: npm run release:mac
         working-directory: apps/desktop
@@ -60,6 +78,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Ensure app-builder binary exists
+        run: |
+          if [ ! -f "node_modules/app-builder-bin/linux/app-builder" ]; then
+            echo "Downloading app-builder binary..."
+            node node_modules/app-builder-bin/install-app-builder.js || true
+          fi
+        working-directory: .
 
       - name: Build + Release
         run: npm run release:linux

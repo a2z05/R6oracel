@@ -49,6 +49,7 @@
     "electron": "33.4.11",
     "electron-builder": "^25.1.0",
     "electron-vite": "^2.3.0",
+    "app-builder-bin": "^25.0.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.0",
     "vitest": "^3.0.0"
