@@ -18,8 +18,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (skip native builds)
+        run: npm install --ignore-scripts
+
+      - name: Download app-builder binary
+        run: node node_modules/app-builder-bin/install-app-builder.js
 
       - name: Build + Release
         run: npm run release:win
@@ -39,8 +42,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (skip native builds)
+        run: npm install --ignore-scripts
+
+      - name: Download app-builder binary
+        run: node node_modules/app-builder-bin/install-app-builder.js
 
       - name: Build + Release
         run: npm run release:mac
@@ -59,8 +65,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (skip native builds)
+        run: npm install --ignore-scripts
+
+      - name: Download app-builder binary
+        run: node node_modules/app-builder-bin/install-app-builder.js
 
       - name: Build + Release
         run: npm run release:linux
