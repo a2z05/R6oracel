@@ -21,11 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Rebuild native modules and app-builder
-        run: npm rebuild && node node_modules/app-builder-bin/install-app-builder.js
-        env:
-          npm_config_msvs_version: "2022"
-
       - name: Build + Release
         run: npm run release:win
         working-directory: apps/desktop
@@ -47,9 +42,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Rebuild and ensure app-builder
-        run: npm rebuild && node node_modules/app-builder-bin/install-app-builder.js
-
       - name: Build + Release
         run: npm run release:mac
         working-directory: apps/desktop
@@ -69,9 +61,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Rebuild and ensure app-builder
-        run: npm rebuild && node node_modules/app-builder-bin/install-app-builder.js
 
       - name: Build + Release
         run: npm run release:linux

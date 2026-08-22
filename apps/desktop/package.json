@@ -26,7 +26,6 @@
     "@oracle/overlay": "*",
     "@oracle/providers": "*",
     "@oracle/ui-tokens": "*",
-    "better-sqlite3": "11.7.0",
     "electron-store": "^8.2.0",
     "electron-updater": "^6.3.0",
     "express": "^4.21.0",
@@ -35,7 +34,6 @@
     "qrcode": "^1.5.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sharp": "0.33.5",
     "tesseract.js": "^5.1.0",
     "ws": "^8.18.0",
     "zustand": "^5.0.0"
