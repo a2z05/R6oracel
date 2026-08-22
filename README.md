@@ -6,7 +6,7 @@
 
 ---
 
-![Version](https://img.shields.io/badge/version-1.0.3-gold?style=for-the-badge&logo=semver)
+![Version](https://img.shields.io/badge/version-1.0.4-gold?style=for-the-badge&logo=semver)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=opensource)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge&logo=windows)
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?style=for-the-badge&logo=electron)
@@ -70,80 +70,11 @@ Seamless updates via GitHub Releases. Never miss a new map or feature.
 
 ---
 
-## 🖼️ Interface Preview
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🔮 ORACLE                              ● OCR Active    — □ ✕  │
-├──────────┬────────────────────────────────┬─────────────────────┤
-│          │                                │                     │
-│  MAPS    │    ┌──────────────────────┐    │   📍 Room Info      │
-│  ─────── │    │                      │    │   ────────────      │
-│  ▸ Bank  │    │    ╔════╗  ╔════╗    │    │   Executive Lounge  │
-│  ▸ Border│    │    ║ 📍 ║──║    ║    │    │   Floor: 1F         │
-│  ▸ Chalet│    │    ╚════╝  ╚════╝    │    │   Map: Bank         │
-│  ▸ Club  │    │       │              │    │                     │
-│  ▸ Consul│    │    ╔════╗            │    │   Connected Rooms:  │
-│  ▸ ...   │    │    ║    ║            │    │   → CEO Office      │
-│          │    │    ╚════╝            │    │   → Servers         │
-│  FLOOR   │    │                      │    │   → Janitor         │
-│  [B1][G] │    └──────────────────────┘    │                     │
-│  [1F][2F]│                                │   ────────────      │
-│          │    🔍 +  −  ⟳                  │   🃏 Tactical Intel │
-│  MODULES │    ─────── 100% ───────        │   ────────────      │
-│  □ Spawn │    Floor 1F — Bank             │   ▸ Defense Prep    │
-│  □ Site  │                                │   ▸ Attack Entry    │
-│  □ Plant │                                │   ▸ Spawn Peek      │
-│          │                                │   ▸ Post Plant      │
-├──────────┴────────────────────────────────┴─────────────────────┤
-│  ● OCR Running  │  Confidence: 94%  │  Detected: Executive  │  v1.0.3  │
-└─────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🎬 Workflow
-
-```
-   ┌──────────┐     ┌──────────┐     ┌──────────┐     ┌──────────┐
-   │  Start   │────▶│  Detect  │────▶│  Match   │────▶│  Display │
-   │  OCR     │     │  Compass │     │  Room    │     │  Intel   │
-   └──────────┘     └──────────┘     └──────────┘     └──────────┘
-        │                │                │                │
-        ▼                ▼                ▼                ▼
-   Screen Capture   Preprocess +     Fuzzy Match +     Map + Cards
-   (250ms cycle)    Grayscale        Alias Lookup       + Overlay
-```
-
----
-
-## 🏗️ Architecture
-
-```
-oracle/
-├── apps/
-│   ├── desktop/          ⚡ Electron 33 + React 19 + TailwindCSS v4
-│   └── mobile/           📱 PWA companion (connects via QR)
-├── packages/
-│   ├── domain/           📐 Shared TypeScript types
-│   ├── shared/           🔧 Fuzzy matching + map utilities
-│   ├── db/               🗄️ Drizzle ORM + SQLite (10 tables)
-│   ├── ocr/              👁️ Tesseract.js compass reader
-│   ├── overlay/          🔲 Transparent game overlay
-│   ├── providers/        📡 Community data adapters
-│   └── ui-tokens/        🎨 5 themes + design system
-├── server/               🌐 Express + WebSocket (mobile sync)
-├── scripts/              🚀 Build + release automation
-└── .github/workflows/    ⚙️ CI/CD for all platforms
-```
-
----
-
 ## 🚀 Quick Start
 
 ### Install
 
-1. Download `ORACLE-1.0.3-win-x64.exe` from [Releases](https://github.com/a2z05/R6oracel/releases/latest)
+1. Download `ORACLE-1.0.4-win-x64.exe` from [Releases](https://github.com/a2z05/R6oracel/releases/latest)
 2. Run the installer
 3. Launch ORACLE from your desktop
 
