@@ -2,12 +2,11 @@ import { app, BrowserWindow, ipcMain, Tray, Menu, globalShortcut, desktopCapture
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { autoUpdater, type UpdateInfo } from "electron-updater";
-import { createDatabase } from "../../packages/db/src/driver.js";
-import { seedDatabase } from "../../packages/db/src/seed.js";
-import { OverlayWindow } from "../../packages/overlay/src/overlay-window.js";
-import { OcrPipeline } from "../../packages/ocr/src/pipeline.js";
-import type { OcrResult, OverlayConfig } from "../../packages/domain/src/index.js";
-import { IPC } from "../../packages/domain/src/index.js";
+import { createDatabase, seedDatabase } from "@oracle/db";
+import { OverlayWindow } from "@oracle/overlay";
+import { OcrPipeline } from "@oracle/ocr";
+import type { OcrResult, OverlayConfig } from "@oracle/domain";
+import { IPC } from "@oracle/domain";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isDev = !app.isPackaged;
@@ -232,7 +231,7 @@ function registerIpcHandlers(): void {
 
   // Mobile QR
   ipcMain.handle(IPC.MOBILE_QR, async () => {
-    const { getBestLocalIp, buildConnectionUrl, generateQrDataUrl } = await import("../../../server/src/qr.js");
+    const { getBestLocalIp, buildConnectionUrl, generateQrDataUrl } = await import("@oracle/shared");
     const ip = getBestLocalIp();
     if (!ip) return { qr: null, url: null };
     const url = buildConnectionUrl(ip, 3847);
