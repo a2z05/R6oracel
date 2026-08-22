@@ -1,7 +1,8 @@
 import { OcrWorker } from "./worker.js";
 import { preprocessForOcr, cropRegion, toPreviewDataUrl } from "./preprocess.js";
 import { matchRoom, type MatchEntry, type MatchResult } from "./matcher.js";
-import type { Rect, OcrResult, OcrDebugInfo } from "@oracle/domain";
+import { detectSide, detectPhase } from "./side-detect.js";
+import type { Rect, OcrResult, OcrDebugInfo, PlayerSide, RoundPhase } from "@oracle/domain";
 
 export interface PipelineConfig {
   intervalMs: number;
@@ -24,6 +25,8 @@ export class OcrPipeline {
   private lastText: string = "";
   private aliases: MatchEntry[] = [];
   private currentMapId: string | null = null;
+  private currentSide: PlayerSide = "unknown";
+  private currentPhase: RoundPhase = "unknown";
   private onResultCb: PipelineCallback | null = null;
   private onPreviewCb: PreviewCallback | null = null;
   private captureFn: (() => Promise<Buffer>) | null = null;
@@ -99,32 +102,42 @@ export class OcrPipeline {
     const totalStart = performance.now();
 
     try {
-      // 1. Capture
+      // 1. Capture full screen
       const captureStart = performance.now();
-      let rawBuffer = await this.captureFn();
+      const fullScreen = await this.captureFn();
 
-      // 2. Crop to compass region
+      // 2. Detect side + phase from full screen (before cropping)
+      const sideStart = performance.now();
+      const [side, phase] = await Promise.all([
+        detectSide(fullScreen, 1920, 1080),
+        detectPhase(fullScreen, 1920, 1080),
+      ]);
+      this.currentSide = side;
+      this.currentPhase = phase;
+
+      // 3. Crop to compass region for OCR
+      let compassBuffer = fullScreen;
       if (this.config.cropRegion) {
-        rawBuffer = await cropRegion(rawBuffer, this.config.cropRegion);
+        compassBuffer = await cropRegion(fullScreen, this.config.cropRegion);
       }
       const captureTimeMs = performance.now() - captureStart;
 
-      // 3. Preprocess
+      // 4. Preprocess
       const preprocessStart = performance.now();
-      const processed = await preprocessForOcr(rawBuffer);
+      const processed = await preprocessForOcr(compassBuffer);
       const preprocessTimeMs = performance.now() - preprocessStart;
 
-      // 4. OCR
+      // 5. OCR
       const ocrStart = performance.now();
       const { text, confidence, words } = await this.worker.recognize(processed);
       const ocrTimeMs = performance.now() - ocrStart;
 
-      // 5. Match against known rooms
+      // 6. Match against known rooms
       const match: MatchResult = matchRoom(text, this.aliases, 2, this.config.sensitivity);
 
-      // 6. Dedup: only emit if text changed
+      // 7. Dedup: only emit if text or side changed
       const normalized = text.toLowerCase().trim();
-      if (normalized && normalized !== this.lastText) {
+      if (normalized && (normalized !== this.lastText || side !== this.currentSide)) {
         this.lastText = normalized;
 
         const result: OcrResult = {
@@ -135,12 +148,14 @@ export class OcrPipeline {
           mapId: this.currentMapId,
           timestamp: Date.now(),
           words,
+          side,
+          roundPhase: phase,
         };
 
         this.onResultCb?.(result);
       }
 
-      // 7. Debug preview
+      // 8. Debug preview
       if (this.config.debugMode && this.onPreviewCb) {
         const totalTimeMs = performance.now() - totalStart;
         const previewDataUrl = await toPreviewDataUrl(processed);
@@ -153,6 +168,8 @@ export class OcrPipeline {
           rawText: text,
           confidence,
           previewDataUrl,
+          detectedSide: side,
+          detectedPhase: phase,
         };
         this.onPreviewCb(previewDataUrl, debug);
       }
