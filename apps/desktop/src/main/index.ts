@@ -1,7 +1,9 @@
 import { app, BrowserWindow, ipcMain, Tray, Menu, globalShortcut, desktopCapturer, shell } from "electron";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { autoUpdater, type UpdateInfo } from "electron-updater";
+// electron-updater is CJS — must use dynamic import to avoid ESM named export errors
+const { autoUpdater } = await import("electron-updater");
+type UpdateInfo = { version: string; releaseDate: string; releaseNotes: string };
 import { createDatabase, seedDatabase } from "@oracle/db";
 import { OverlayWindow } from "@oracle/overlay";
 import { OcrPipeline } from "@oracle/ocr";
