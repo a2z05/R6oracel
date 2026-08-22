@@ -6,9 +6,13 @@ on:
       - "v*"
   workflow_dispatch:
 
+env:
+  npm_config_msvs_version: "2022"
+  npm_config_force: "true"
+
 jobs:
   release-win:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -18,12 +22,15 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Windows Build Tools
-        run: npm install -g windows-build-tools
-        continue-on-error: true
-
       - name: Install dependencies
-        run: npm install
+        run: npm install --ignore-scripts
+        env:
+          npm_config_msvs_version: "2022"
+
+      - name: Rebuild native modules
+        run: npm rebuild better-sqlite3
+        env:
+          npm_config_msvs_version: "2022"
 
       - name: Build Desktop
         run: npx electron-vite build
