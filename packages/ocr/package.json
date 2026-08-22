@@ -9,7 +9,7 @@
     "@oracle/domain": "*",
     "@oracle/shared": "*",
     "tesseract.js": "^5.1.0",
-    "sharp": "^0.33.0"
+    "sharp": "0.33.5"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

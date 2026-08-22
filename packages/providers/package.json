@@ -7,7 +7,7 @@
   "types": "./src/index.ts",
   "dependencies": {
     "@oracle/domain": "*",
-    "sharp": "^0.33.0"
+    "sharp": "0.33.5"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
