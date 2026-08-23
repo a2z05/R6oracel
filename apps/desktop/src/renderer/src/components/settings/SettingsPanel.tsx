@@ -3,7 +3,8 @@ import { X, Keyboard, Monitor, Eye, Palette, ToggleLeft, Database, Crosshair, Mo
 import { useUIStore } from "../../stores/ui-store.js";
 import { useSettingsStore } from "../../stores/settings-store.js";
 import { themes, type ThemeId } from "@oracle/ui-tokens";
-import { SideIndicator, ICON_SETS, type IconSetId } from "../side/SideIndicator.js";
+import { SideIndicator, ICON_SETS, invalidateCustomSideIcons, type IconSetId } from "../side/SideIndicator.js";
+import { CustomIconPicker } from "../settings/IconPicker.js";
 
 type SettingsTab = "hotkeys" | "overlay" | "ocr" | "calibrate" | "theme" | "modules" | "data";
 
@@ -439,6 +440,14 @@ function CalibrateTab() {
           <SideIndicator side="attack" iconSet={s.sideIconSet} />
           <SideIndicator side="defense" iconSet={s.sideIconSet} />
         </div>
+
+        {/* Player-made icons cropped from their own screenshots */}
+        <div className="pt-2 border-t border-[var(--oracle-border)]">
+          <p className="text-xs text-[var(--oracle-text-muted)] mb-2">
+            Want the exact icons from your game? Crop them out of a screenshot yourself.
+          </p>
+          <CustomIconPickerWrapper />
+        </div>
       </div>
 
       {/* Compass Region */}
@@ -574,6 +583,15 @@ function CalibrateTab() {
       </div>
     </div>
   );
+}
+
+/**
+ * Bridges the picker's changes into the shared side-icon cache so the
+ * title bar / preview refresh as soon as an icon is saved or cleared.
+ */
+function CustomIconPickerWrapper() {
+  const handleChange = useCallback(() => invalidateCustomSideIcons(), []);
+  return <CustomIconPicker onCustomChange={handleChange} />;
 }
 
 function Slider({ label, value, min, max, step, onChange }: {
