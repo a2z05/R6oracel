@@ -15,6 +15,7 @@ export function TitleBar() {
           ORACLE
         </span>
         <span className="text-[10px] text-[var(--oracle-text-muted)] ml-1">R6 SIEGE COMPANION</span>
+        <span className="text-[9px] text-[var(--oracle-text-muted)]/60 ml-1 font-mono">by Vnerxy</span>
       </div>
 
       {/* Center: OCR status */}

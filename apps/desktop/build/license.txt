@@ -1,0 +1,30 @@
+ORACLE — Rainbow Six Siege Companion
+Copyright (c) 2026 Vnerxy
+
+By installing ORACLE you agree to the following:
+
+1. ORACLE is a companion overlay. It does not modify game files,
+   inject code into Rainbow Six Siege, or automate any gameplay.
+   It only reads the room name shown on your own screen.
+
+2. Use of third-party overlays or companion tools may be subject
+   to Ubisoft's Terms of Service for Rainbow Six Siege. You are
+   responsible for how you use this software.
+
+3. Map callout data included with ORACLE draws on community
+   resources such as R6 Peekaboo, R6 Callouts, and SiegeCodex.
+   All map names and related content belong to Ubisoft.
+
+4. THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+   The author is not liable for any account action, damage, or loss
+   arising from use of this software.
+
+5. You may not sell or rebrand ORACLE as your own work.
+
+Credits
+-------
+Created by Vnerxy
+Map data inspired by the R6 community: r6peekaboo, r6callouts,
+siegecodex.com
+
+Full source: https://github.com/a2z05/R6oracel

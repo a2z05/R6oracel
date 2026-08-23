@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, Tray, Menu, globalShortcut, desktopCapturer, shell } from "electron";
+import { app, BrowserWindow, ipcMain, Tray, Menu, globalShortcut, desktopCapturer, net, shell } from "electron";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 // electron-updater is CJS — must use dynamic import to avoid ESM named export errors
@@ -230,6 +230,79 @@ function registerIpcHandlers(): void {
       "SELECT c.* FROM connections c JOIN rooms r1 ON r1.id = c.from_room_id JOIN rooms r2 ON r2.id = c.to_room_id WHERE r1.map_id = ? AND r2.map_id = ?",
       [mapId, mapId]
     );
+  });
+
+  // ── Map data packs ──────────────────────────────────────────────
+  // Community-sourced callout packs. Downloaded on demand, decoded
+  // into ORACLE's room format and stored in the local database.
+  // Sources: r6peekaboo / r6callouts / siegecodex.com (community projects).
+
+  const MAP_PACK_SOURCES: Record<string, string> = {
+    r6peekaboo: "https://raw.githubusercontent.com/r6peekaboo/data/main/maps/{mapId}.json",
+    r6callouts: "https://r6callouts.com/api/v1/maps/{mapId}.json",
+  };
+
+  ipcMain.handle("map:pack-status", (_e, args) => {
+    const { mapId } = args as { mapId: string };
+    if (!db) return { installed: false };
+    const row = db.get("SELECT COUNT(*) as n FROM rooms WHERE map_id = ? AND width > 0", [mapId]) as { n: number };
+    return { installed: row.n > 0, rooms: row.n };
+  });
+
+  ipcMain.handle("map:pack-download", async (_e, args) => {
+    const { mapId, source } = args as { mapId: string; source?: string };
+    if (!db) throw new Error("Database not ready");
+    const sources = source && MAP_PACK_SOURCES[source] ? [source] : Object.keys(MAP_PACK_SOURCES);
+    let lastError: unknown = null;
+
+    for (const src of sources) {
+      const url = MAP_PACK_SOURCES[src].replace("{mapId}", encodeURIComponent(mapId));
+      try {
+        const res = await net.fetch(url, { headers: { "User-Agent": "ORACLE-R6-Companion" } });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const pack = (await res.json()) as {
+          floors?: Array<{
+            floor: number;
+            image_url?: string;
+            imageUrl?: string;
+            rooms?: Array<{ name?: string; callout?: string; x?: number; y?: number; w?: number; h?: number; aliases?: string[] }>;
+          }>;
+        };
+        if (!pack?.floors?.length) throw new Error("No floor data in pack");
+
+        let inserted = 0;
+        for (const fl of pack.floors) {
+          for (const room of fl.rooms ?? []) {
+            const name = String(room.callout ?? room.name ?? "").trim();
+            if (!name) continue;
+            const id = `${mapId}_${fl.floor}_${name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+            db.run(
+              `INSERT OR REPLACE INTO rooms (id, map_id, floor, name, display_name, x, y, width, height)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+              [
+                id,
+                mapId,
+                fl.floor,
+                name,
+                name,
+                typeof room.x === "number" ? room.x : 0,
+                typeof room.y === "number" ? room.y : 0,
+                typeof room.w === "number" ? room.w : typeof room.x === "number" ? 0.08 : 0,
+                typeof room.h === "number" ? room.h : typeof room.y === "number" ? 0.08 : 0,
+              ]
+            );
+            inserted++;
+          }
+        }
+        db.save();
+        console.log(`[map-pack] ${src}: imported ${inserted} rooms for ${mapId}`);
+        return { ok: true, source: src, rooms: inserted };
+      } catch (err) {
+        lastError = err;
+        console.warn(`[map-pack] ${src} failed for ${mapId}:`, err);
+      }
+    }
+    return { ok: false, error: String((lastError as Error)?.message ?? "all sources failed") };
   });
 
   // Settings
