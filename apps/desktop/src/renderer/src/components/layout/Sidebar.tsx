@@ -170,6 +170,7 @@ export function Sidebar() {
                     <Check size={13} className="text-[var(--oracle-success)] shrink-0" />
                   ) : (
                     <button
+                      aria-label={pack?.error ? `Map data failed: ${pack.error}` : `Download ${MAP_LABELS[id] ?? id} callout data`}
                       title={pack?.error ?? "Download callout data"}
                       disabled={isDownloading}
                       onClick={(e) => {

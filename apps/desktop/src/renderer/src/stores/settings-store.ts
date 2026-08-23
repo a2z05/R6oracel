@@ -18,6 +18,7 @@ interface SettingsStore {
   overlayBlocks: OverlayBlocks;
   useCustomPlaceName: boolean;
   customPlaceName: string;
+  sideIconSet: "auto" | "sword-castle" | "crosshair-shield" | "swords-shield";
   ocrInterval: number;
   ocrSensitivity: number;
   debugMode: boolean;
@@ -33,6 +34,7 @@ interface SettingsStore {
   setOverlayBlock: (key: keyof OverlayBlocks, v: boolean) => void;
   setUseCustomName: (v: boolean) => void;
   setCustomPlaceName: (v: string) => void;
+  setSideIconSet: (v: "auto" | "sword-castle" | "crosshair-shield" | "swords-shield") => void;
   setOcrInterval: (v: number) => void;
   setOcrSensitivity: (v: number) => void;
   setDebugMode: (v: boolean) => void;
@@ -49,6 +51,7 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
   overlayBlocks: { showCallout: true, showMapName: true, showFloor: true, showNeighbors: false },
   useCustomPlaceName: false,
   customPlaceName: "",
+  sideIconSet: "auto",
   ocrInterval: 250,
   ocrSensitivity: 60,
   debugMode: false,
@@ -64,6 +67,7 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
   setOverlayBlock: (key, v) => set((s) => ({ overlayBlocks: { ...s.overlayBlocks, [key]: v } })),
   setUseCustomName: (useCustomPlaceName) => set({ useCustomPlaceName }),
   setCustomPlaceName: (customPlaceName) => set({ customPlaceName }),
+  setSideIconSet: (sideIconSet) => set({ sideIconSet }),
   setOcrInterval: (ocrInterval) => set({ ocrInterval }),
   setOcrSensitivity: (ocrSensitivity) => set({ ocrSensitivity }),
   setDebugMode: (debugMode) => set({ debugMode }),
