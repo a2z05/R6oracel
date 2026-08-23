@@ -36,6 +36,9 @@ contextBridge.exposeInMainWorld("oracle", {
   // Assets
   downloadAssets: (mapId: string) => ipcRenderer.invoke("assets:download", { mapId }),
 
+  // Spawn peeks (peekaboor6.com)
+  getSpawnPeeks: (mapId: string) => ipcRenderer.invoke("peeks:for-map", { mapId }),
+
   // Diagnostics
   getStats: () => ipcRenderer.invoke("diagnostics:stats"),
 

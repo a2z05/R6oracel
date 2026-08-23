@@ -1,0 +1,1252 @@
+{
+  "weapons": [
+    {
+      "name": ".44 Mag Semi-Auto",
+      "type": "handgun",
+      "country": "United States",
+      "operation": "WINDBASTION",
+      "descriptionParagraphs": [
+        "The .44 Auto Mag Pistol is a semi-automatic pistol designed in the late 1960's by Auto Mag Corporation and is chambered in .44 AMP."
+      ]
+    },
+    {
+      "name": ".44 Vendetta",
+      "type": "handgun",
+      "country": "United States",
+      "operation": "DEADLYOMEN",
+      "descriptionParagraphs": [
+        "The Smith and Wesson Model 629 \"Stealth Hunter\" is a variation of the more commonly known Model 629 Performance Center. It sports a matte black Stainless Steel finish, holds 6 rounds, and is chambered in .44 Magnum. Compared to the standard Model 629, the Stealth Hunter has a heavier barrel in order to mitigate recoil, a rubberized grip, as well as a Weaver dovetail mount built into the top of the barrel itself, which is used to attach scopes or other sights. Unlike the namesake however, it is not able to accept suppressors."
+      ]
+    },
+    {
+      "name": "1911 TACOPS",
+      "type": "handgun",
+      "country": "United States",
+      "operation": "GRIMSKY",
+      "descriptionParagraphs": [
+        "The 1911 TACOPS is a handgun."
+      ]
+    },
+    {
+      "name": "416-C Carbine",
+      "type": "assaultrifle",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The HK416 is a German Assault rifle developed by Heckler & Koch in 2004. The HK416 shares lower receiver, magazine, receiver extension, grip, trigger assembly and stock with normal AR-15 rifles, like the M16 and M4 carbine, leading to a level of parts commonality, weapon familiarity and relative low cost. The HK416 uses a short-stroke piston design from the G36 that cycles the bolt carrier, instead of the direct gas impingement system used by the AR-15, which prevents carbon build up inside the bolt carrier to avoid weapon failure and increase reliability and lifespan of the weapon.",
+        "The HK416C is a compact carbine variant of the HK416 assault rifle. It chambers the 5.56x45mm NATO round. It can be compared to the CQB-R/MARK 18 MOD 0 (An extremely short carbine variant of the M4A1 carbine) due to them both fitting the same ultra short carbine role."
+      ]
+    },
+    {
+      "name": "417",
+      "type": "marksmanrifle",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The HK417 is a battle rifle designed and manufactured by Heckler & Koch in Germany. It is a gas-operated, selective fire rifle with a rotating bolt. It's chambered for the full-power 7.62×51mm NATO round, instead of the less powerful 5.56×45mm NATO intermediate cartridge. The HK417 is intended for use in roles where the greater penetrative power and range of the 7.62×51mm NATO round are required. It has been adopted for service by a number of armed forces, special forces, and police organizations."
+      ]
+    },
+    {
+      "name": "5.7 USG",
+      "type": "handgun",
+      "country": "Belgium",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Five-seven, trademarked as the Five-seveN, is a semi-automatic pistol manufactured by FN Herstal that chambers the 5.7x28mm round. The pistol is named for the round it chambers. The trademark capitalization style is intended to emphasize the manufacturer's initials—FN. The Five-seveN was made as a companion weapon to the P90, since they both chamber the same round.",
+        "The Five-Seven USG, an abbreviation for United States Government, is a variant listed as a sporting firearm in 2004. It has either adustable or fixed iron sights, an attached Picatinny rail, a magazine safety mechanism and a reversible magazine release."
+      ]
+    },
+    {
+      "name": "5.7 USG Silencer",
+      "type": "handgun",
+      "country": "Belgium",
+      "operation": "SHADOWLEGACY",
+      "descriptionParagraphs": [
+        "The Five-seven, trademarked as the Five-seveN, is a semi-automatic pistol manufactured by FN Herstal that chambers the 5.7x28mm round. The pistol is named for the round it chambers. The trademark capitalization style is intended to emphasize the manufacturer's initials—FN. The Five-seveN was made as a companion weapon to the P90, since they both chamber the same round.",
+        "The Five-Seven USG, an abbreviation for United States Government, is a variant listed as a sporting firearm in 2004. It has either adustable or fixed iron sights, an attached Picatinny rail, a magazine safety mechanism and a reversible magazine release. Equips a silencer."
+      ]
+    },
+    {
+      "name": "552 Commando",
+      "type": "assaultrifle",
+      "country": "Switzerland",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The SG 552 Commando is a compact carbine variant of the original SIG SG 550. It has a shorter 8.9inch barrel with an open, three-prong flash suppressor and gas tube, ventilated handguards and a redesigned bolt carrier group that was integrated with the piston rod to form a single moving assembly."
+      ]
+    },
+    {
+      "name": "556xi",
+      "type": "assaultrifle",
+      "country": "Switzerland",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The SIG SG 556 is a civilian derivative of the SIG SG 550 assault rifle and is the latest generation of the rifle series. The SIG SG 556 is a semi-automatic rifle manufactured by Swiss Arms AG that chambers the 5.56x45mm NATO round. Unlike the 550, the 556 lacks full-auto capability and the overall length is 940 mm (37.0 in). One difference is a new aluminum lower receiver that accepts M16 STANAG magazines and an M4 telescoping buttstock."
+      ]
+    },
+    {
+      "name": "6P41",
+      "type": "lightmachinegun",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The PKP Pecheneg (Russian: ПКП Печенег) is a modernized version of the PKM machine gun designed by TsNIITochMash to be more accurate with the use of a non-interchangeable air-cooled barrel while firing the same 7.62×54mmR round of the PKM. Named after a tribe of Turkic nomads who previously inhabited the steppes, as well as Moldavia and Wallachia, the Pecheneg is capable of mounting telescopic sights to further improve its accuracy over range. Unlike the PKM, the weapon's barrel is not detachable but can still use the same box magazines that can hold 100, 200, or even 250 rounds of ammunition."
+      ]
+    },
+    {
+      "name": "9mm C1",
+      "type": "submachinegun",
+      "country": "Canada",
+      "operation": "BLACKICE",
+      "descriptionParagraphs": [
+        "The C1 submachine gun is a \"Canadianized\" version of the Sterling SMG. It was manufactured by Canadian Arsenals Ltd. The C1 SMG was very popular and remained in service until the mid-1980s, when it was withdrawn and placed in war reserve stock."
+      ]
+    },
+    {
+      "name": "9x19VSN",
+      "type": "submachinegun",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The PP-19 Vityaz (also known as the PP-19-01 \"Vityaz-SN\") is a 9×19mm Parabellum submachine gun developed in 2004 by Russian small arms manufacturer Izhmash. It is based on the AK-74 and offers a high degree of parts commonality with the AK-74. The gun is directly developed from the PP-19 Bizon."
+      ]
+    },
+    {
+      "name": "ACS12",
+      "type": "shotgun",
+      "country": "United States",
+      "operation": "PARABELLUM",
+      "descriptionParagraphs": [
+        "The Auto Assault-12 (AA-12) is a shotgun developed in 1972 by Maxwell Atchisson. The current 2005 version has been developed over 18 years since the patent was sold to Military Police Systems, Inc. The original design was the basis of several later weapons, including the USAS-12."
+      ]
+    },
+    {
+      "name": "AK-12",
+      "type": "assaultrifle",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The AK-12 (formerly the AK-200) is the newest derivative of the AK-pattern series of assault rifles. Originally developed by Kalashnikov Concern (formerly IZHMASH) in 2011, the AK-12 was designed for the Russian Army's \"Ratnik\" infantry combat system trials in the early 2010s. The AK-12 uses the traditional gas operated action of earlier Kalashnikov rifles, but with several redesigned components for improved accuracy under various conditions as well as integrated Picatinny rails for modern weapon attachments."
+      ]
+    },
+    {
+      "name": "AK-74M",
+      "type": "assaultrifle",
+      "country": "Russia",
+      "operation": "WINDBASTION",
+      "descriptionParagraphs": [
+        "The AK-74 (Russian: Автомат Калашникова образца 1974 года, lit. Kalashnikov's Automatic Rifle Model 1974) is an assault rifle developed in the early 1970s by Russian designer Mikhail Kalashnikov as the replacement for the earlier AKM (itself a refined version of the AK-47). It uses a smaller 5.45×39mm cartridge, replacing the 7.62×39mm chambering of earlier Kalashnikov-pattern weapons."
+      ]
+    },
+    {
+      "name": "ALDA 5.56",
+      "type": "lightmachinegun",
+      "country": "Spain",
+      "operation": "PARABELLUM",
+      "descriptionParagraphs": [
+        "The Ameli (abbreviated from Ametralladora Ligera; Spanish for \"Light Machine Gun\") is a 5.56mm light machine gun designed for the Spanish Army by the nationally owned and operated CETME small arms research institute."
+      ]
+    },
+    {
+      "name": "AR-15.50",
+      "type": "marksmanrifle",
+      "country": "United States",
+      "operation": "GRIMSKY",
+      "descriptionParagraphs": [
+        "The AR-15.50 is a semi-automatic home defense rifle."
+      ]
+    },
+    {
+      "name": "AR33",
+      "type": "assaultrifle",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The HK33 is a 5.56mm assault rifle developed in the 1960s by West German armament manufacturer Heckler & Koch GmbH (HK), primarily for export. It uses the G3 operating principle and basic design concept. The rifle was produced in four types: the first type, chambered in 7.62×51mm NATO; the second, using the Soviet 7.62×39mm M43 round; the third, chambered in .223 Remington and 5.56×45mm NATO; and the fourth type, chambered for the 9×19mm Parabellum pistol cartridge. Commercially the HK33 was a successful design but it did not sell as well as the G3."
+      ]
+    },
+    {
+      "name": "ARX200",
+      "type": "assaultrifle",
+      "country": "Italy",
+      "operation": "WINDBASTION",
+      "descriptionParagraphs": [
+        "The Beretta ARX200 is a battle rifle variant of the modular ARX160 rifle, which chambers 7.62×51mm NATO rounds. Introduced in 2015, it operates through a short-stroke gas piston system with a rotating bolt, capable of fully automatic and semi-automatic fire."
+      ]
+    },
+    {
+      "name": "AUG A2",
+      "type": "assaultrifle",
+      "country": "Austria",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The AUG (German:Armee-Universal-Gewehr), also known as the StG.77, is a bullpup assault rifle manufactured by Steyr Mannlicher that chambers the 5.56x45mm NATO round. The AUG features a progressive trigger that allows it to fire in semi-automatic and fully-automatic by the pressure exerted on the trigger. The AUG in this case, therefore lacks the conventional fire selector seen on other firearms. The AUG also features an integrated 1.5x magnification scope known as the Swarovski Scope, which is detachable in later variants.",
+        "The AUG A2 variant is similar to the original AUG but carries the ability to remove the telescopic scope attached to the top, to be replaced with a top rail."
+      ]
+    },
+    {
+      "name": "AUG A3",
+      "type": "submachinegun",
+      "country": "Austria",
+      "operation": "WINDBASTION",
+      "descriptionParagraphs": [
+        "The AUG (German:Armee-Universal-Gewehr), also known as the StG.77, is a bullpup assault rifle manufactured by Steyr Mannlicher that chambers the 5.56x45mm NATO round. The AUG features a progressive trigger that allows it to fire in semi-automatic and fully-automatic by the pressure exerted on the trigger. The AUG in this case, therefore lacks the conventional fire selector seen on other firearms. The AUG also features an integrated 1.5x magnification scope known as the Swarovski Scope, which is detachable in later variants.",
+        "The AUG A3 variant is similar to the AUG A2 but features an external bolt release and a top rail attached automatically."
+      ]
+    },
+    {
+      "name": "Bailiff 410",
+      "type": "handgun",
+      "country": "Brazil",
+      "operation": "PARABELLUM",
+      "descriptionParagraphs": [
+        "The Taurus Judge is a five shot revolver designed and produced by Taurus International, chambered for .410 bore shotshells and the .45 Colt cartridge."
+      ]
+    },
+    {
+      "name": "Ballistic Shield",
+      "type": "ballisticshield",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "Ballistic Shield is bulletproof.It Shield has a panel of bulletproof glass at eye level for vision. This glass is indestructible, but can be damaged and reduces vision.It is carried in front of the user, protecting the head and upper body. Some body parts are still exposed, notably the feet and the shoulder."
+      ]
+    },
+    {
+      "name": "Bearing 9",
+      "type": "machinepistol",
+      "country": "Japan",
+      "operation": "REDCROW",
+      "descriptionParagraphs": [
+        "The Minebea PM-9 (also known as 9mm Machine Pistol in the Japan Self-Defense Forces (JSDF) or as the M9) is a Japanese-made machine pistol manufactured by the Nippon Miniature Bearing Company, otherwise known as Minebea."
+      ]
+    },
+    {
+      "name": "BOSG.12.2",
+      "type": "shotgun",
+      "country": "Unknown",
+      "operation": "WHITENOISE",
+      "descriptionParagraphs": [
+        "The BOSG.12.2 is a fictional double-barrel shotgun."
+      ]
+    },
+    {
+      "name": "C75 Auto",
+      "type": "machinepistol",
+      "country": "Czech Republic",
+      "operation": "WHITENOISE",
+      "descriptionParagraphs": [
+        "The CZ 75 Automatic is a selective-fire variant of the CZ-75 that was introduced in 1992 for law enforcement and military use. One distinguishing characteristic of earlier models is its longer compensated barrel although later models may have a standard barrel. An extra magazine can be attached to the front to act as a makeshift foregrip."
+      ]
+    },
+    {
+      "name": "C7E",
+      "type": "assaultrifle",
+      "country": "Canada",
+      "operation": "VELVETSHELL",
+      "descriptionParagraphs": [
+        "The C7 is a Canadian cousin of the M16A2, made by Diemaco (later Colt Canada after Colt acquired the company). For the most part, the C7 functions and looks very similarly to it's American counterpart, except that it trades out the M16's 3 burst-fire mode for full-auto."
+      ]
+    },
+    {
+      "name": "C8-SFW",
+      "type": "assaultrifle",
+      "country": "Canada",
+      "operation": "BLACKICE",
+      "descriptionParagraphs": [
+        "The Colt Model 725 (or the C8[2] carbine) is a carbine variant of the C7 assault rifle. It is a carbine assault rifle manufactured by Colt Canada that chambers the 5.56×45mm NATO round. The C8 is smiliar to the American M4 carbine (The C8 has ambidexterous fire selectors). The C8-SFW (Special Forces Weapon) variant has a special 400 mm (15.7 inch) barrel that differs from the other variants of the rifle."
+      ]
+    },
+    {
+      "name": "CAMRS Skeleton Key",
+      "type": "marksmanrifle",
+      "country": "Canada",
+      "operation": "BLACKICE",
+      "descriptionParagraphs": [
+        "The L1A1 Self-Loading Rifle, officially Rifle, 7.62mm, L1A1, also known by the Canadian Army designation C1A1 is a a British Commonwealth derivative of the Belgian FN FAL. The main differences of this variant includes a rotating disc rear sight for 600 yards, a two-piece firing pin, and a shorter receiver cover than other Commonwealth variants to allow for refilling the magazine by charging it with stripper clips."
+      ]
+    },
+    {
+      "name": "CAMRS",
+      "type": "marksmanrifle",
+      "country": "Canada",
+      "operation": "COMMANDINGFORCE",
+      "descriptionParagraphs": [
+        "The L1A1 Self-Loading Rifle, officially Rifle, 7.62mm, L1A1, also known by the Canadian Army designation C1A1 is a a British Commonwealth derivative of the Belgian FN FAL. The main differences of this variant includes a rotating disc rear sight for 600 yards, a two-piece firing pin, and a shorter receiver cover than other Commonwealth variants to allow for refilling the magazine by charging it with stripper clips."
+      ]
+    },
+    {
+      "name": "Commando 9",
+      "type": "assaultrifle",
+      "country": "United States",
+      "operation": "BURNTHORIZON",
+      "descriptionParagraphs": [
+        "The Colt 9mm SMG is an M16-based submachine gun firing 9mm rounds. Unlike the M16, it uses a simple blowback operation. The magazines themselves are a copy of the Israeli Uzi SMG magazine, modified to fit the Colt and lock the bolt back after the last shot."
+      ]
+    },
+    {
+      "name": "CSRX 300",
+      "type": "marksmanrifle",
+      "country": "India",
+      "operation": "SHIFTINGTIDES",
+      "descriptionParagraphs": [
+        "Straight-pull bolt-action custom built rifle, with integrated mutli-zoom scope. Chambered in .300 Win Mag."
+      ]
+    },
+    {
+      "name": "D-50",
+      "type": "handgun",
+      "country": "Israel",
+      "operation": "DUSTLINE",
+      "descriptionParagraphs": [
+        "The Desert Eagle is a semi-automatic pistol manufactured by IWI (Israel Weapon Industries) and Magnum Research. The weapon can be chambered for either the .50 AE, .44 Magnum, or .357 Magnum cartridges, with a respective magazine capacity of seven, eight, or nine rounds. The Desert Eagle can be chambered for .357 Magnum or .50 AE in the Rainbow Six universe."
+      ]
+    },
+    {
+      "name": "DP27",
+      "type": "lightmachinegun",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Degtyaryov machine gun or DP-27 is a light machine gun designed for the Soviet Red Army in the 1920s and went into service in 1928. Designed to fire the 7.62×54mmR cartridge, it was the standard Soviet light machine gun during World War II and was commonly modified and used on aircraft and tanks. In 1946, it was replaced by the RP-46 which was a metallic-belt fed version adopted in 1946 with a heavier barrel to allow prolonged sustained fire. The RP-46 remained in Soviet service for 15 years before it was replaced by the PK machine gun."
+      ]
+    },
+    {
+      "name": "F2",
+      "type": "assaultrifle",
+      "country": "France",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The FAMAS (French: Fusil d'Assaut de la Manufacture d'Armes de Saint-Étienne) is a bullpup assault rifle manufactured by Nexter Systems (formerly GIAT Industries) that chambers the 5.56x45mm NATO round. The weapon has gone through many variants since its introduction, including the original FAMAS F1 variant, and the following G1, G2, and Felin variants.",
+        "The FAMAS G2 involves a changed magwell to accept 30-round STANAG magazines, as well as the regular 25-round straight F1 magazines. The additions of a larger trigger guard was also added, as well as fibreglass handguards."
+      ]
+    },
+    {
+      "name": "F90",
+      "type": "assaultrifle",
+      "country": "Australia",
+      "operation": "BURNTHORIZON",
+      "descriptionParagraphs": [
+        "The F90, also known as the EF88, is an Australian descendent of the AUG A1 design intended for export, licensed by Steyr to Lithgow Arms. The original F88 rifle is a licensed copy of the Austrian Steyr AUG rifle, and it was produced in Australia at Australian Defense Industries factory in Lithgow. Today this same factory is operated by the Thales Australia, which developed EF88 / F90 rifle as a next weapon for Australian army, as well as for export."
+      ]
+    },
+    {
+      "name": "FMG-9",
+      "type": "submachinegun",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Magpul FMG-9 (Folding submachine Gun) is a prototype foldable submachine gun developed by Magpul Industries. It is a lightweight weapon built around the Glock 18 and based off the design of older submachine guns like the UC-M21 and ARES FMG, where it is able to fold up into a small box like package. This, coupled with the weapon's small size, allows it to be easily concealable."
+      ]
+    },
+    {
+      "name": "FO-12",
+      "type": "shotgun",
+      "country": "United States",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "The Fostech Origin-12 is a semi-automatic magazine-fed combat/tactical shotgun, developed by Fostech Outdoors. It has been heralded as the fastest semi-auto shotgun on the planet. The adjustable gas system allows reliable cycling from low brass shells to high brass magnum shells."
+      ]
+    },
+    {
+      "name": "G36C",
+      "type": "assaultrifle",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The G36C is a subcarbine variant of the G36. Unlike the G36K, it has a shorter barrel and has either a four-prong open-type flash hider or a birdcage type flash hider. It is widely used by both the British and U.S. police departments and counter-terrorism units."
+      ]
+    },
+    {
+      "name": "G8A1",
+      "type": "lightmachinegun",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The HK21 is a general purpose machine gun made by Heckler & Koch in 1961. It, like many of H&K's weapons, is based on the successful G3 assault rifle. The weapon is in use with the armed forces of several Asian, African and Latin American countries. t is chambered in the 7.62x51mm NATO round is fed from a variety of disintegrating belt ammunition. It can be modified to accept the G3's 20-round box magazine, or a 50-round drum magazine designed for the weapon.",
+        "The G8A1 is a Bundeswehr and Bundespolizei designation of the Heckler & Koch HK11."
+      ]
+    },
+    {
+      "name": "Glaive-12",
+      "type": "shotgun",
+      "country": "Unknown",
+      "operation": "HIGHSTAKES",
+      "descriptionParagraphs": [
+        "The Glaive-12 is a slug shotgun for precise destruction and optimizing line-of-sight setups."
+      ]
+    },
+    {
+      "name": "GONNE-6",
+      "type": "handcannon",
+      "country": "Unknown",
+      "operation": "CRIMSONHEIST",
+      "descriptionParagraphs": [
+        "The GONNE-6 shoots explosive projectiles that detonate on impact with surfaces and destroy bulletproof gadgets."
+      ]
+    },
+    {
+      "name": "GSh-18",
+      "type": "handgun",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The GSh-18 is a semi-automatic pistol manufactured by the KBP Instrument Design Bureau that chambers the 9x19mm Parabellum round. The weapon was designed Tula by Gryazev and Shipunov which is also where the weapon's name is derived from. The number 18 denotes the magazine capacity."
+      ]
+    },
+    {
+      "name": "ITA12L",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "VELVETSHELL",
+      "descriptionParagraphs": [
+        "ITA12L is a lightweight pump action 12-gauge shotgun with a 22\" barrel. Packs a good punch."
+      ]
+    },
+    {
+      "name": "ITA12S",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "VELVETSHELL",
+      "descriptionParagraphs": [
+        "ITA12S is a compact pump action 12-gauge shotgun with close range stopping power. Optimal for CQB."
+      ]
+    },
+    {
+      "name": "K1A",
+      "type": "submachinegun",
+      "country": "South Korea",
+      "operation": "WHITENOISE",
+      "descriptionParagraphs": [
+        "The Daewoo Precision Industries K1 is a South Korean carbine assault rifle, the first modern firearm developed by Agency for Defense Development (ADD) and manufactured by Daewoo Precision Industries, and entered service in the Republic of Korea Armed Forces in 1981. Although the K1 uses 5.56x45mm NATO, it is classified as a submachine gun by the South Korean military and the current manufacturer S&T Motiv, because the K1 was intended to replace the M3 submachine gun.",
+        "Due to the design of its flash suppressor, the K1 exhibited serious problems in service with the ROK armed forces. The original version had excessive recoil, noise, flash, and weak stock due to increase in firepower. These problems caused difficulty in aiming especially during night operation. These shortcomings were later fixed by the development of the K1A which began production in 1982. The K1A featured a new flash suppressor with three holes in the top right quadrant to limit muzzle flip under rapid fire and reduces flash to one-third of that of the early K1. All K1 submachine guns in service were subsequently modified to the K1A standard."
+      ]
+    },
+    {
+      "name": "Keratos .357",
+      "type": "handgun",
+      "country": "Italy",
+      "operation": "PARABELLUM",
+      "descriptionParagraphs": [
+        "The Chiappa Rhino is a revolver produced by Chiappa Firearms of Italy. It is chambered for .357 Magnum, 9mm Parabellum, .40 S&W, or 9×21mm cartridges. The Rhino's most distinctive feature is that the barrel is on a low axis compared to other revolvers. The Rhino fires from the lowermost chamber of the cylinder, rather than firing from the topmost chamber."
+      ]
+    },
+    {
+      "name": "L85A2",
+      "type": "assaultrifle",
+      "country": "United Kingdom",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The L85 is a rifle variant of the SA80 small arms family, all of which are selective fire, gas-operated assault rifles. The L85A2 is an improved model that has undergone H&K upgrades."
+      ]
+    },
+    {
+      "name": "LFP586",
+      "type": "handgun",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Model 586, is a six or seven-shot revolver manufactured by Smith and Wesson that chambers the .357 Magnum round. The Model 686 is a near identical variant of the 586. The Model 586 is essentially the same weapon as the Model 686, albeit with a blued steel construction, while the 686 has a stainless steel construction. The 586 typically has a shorter barrel than the 686 due to being directed for use by law enforcement."
+      ]
+    },
+    {
+      "name": "LMG-E",
+      "type": "lightmachinegun",
+      "country": "United States",
+      "operation": "WHITENOISE",
+      "descriptionParagraphs": [
+        "The Ares Shrike 5.56 is an air-cooled, dual-feed rifle for semi or full-auto configurations that fires the 5.56×45mm NATO cartridge. The Shrike 5.56 can be supplied as a complete weapon, or as an upper receiver \"performance upgrade kit\" to existing M16-type service rifles and carbines."
+      ]
+    },
+    {
+      "name": "Luison",
+      "type": "handgun",
+      "country": "Brazil",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The Taurus PT92 is a double action/single action, double-stack-magazine fed, short recoil-operated, semi-automatic 9mm pistol manufactured by Taurus. It was originally produced at the former Beretta factory in São Paulo, Brazil as an almost exact copy of the Beretta 92. Despite the many design changes, such as the redesigned slide serrations, thickening of the trigger guard hook and addition of an accessory rail, the Taurus PT92 still retains many of the design elements from the original Beretta 92."
+      ]
+    },
+    {
+      "name": "M1014",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Benelli M4 Super 90, or more commonly known as the M1014, (The United States Marine Corps designation of the M4) is a semi-automatic shotgun manufactured by Benelli. The weapon was designed to replace the Remington 870 as the standard shotgun for the United States Military."
+      ]
+    },
+    {
+      "name": "M12",
+      "type": "submachinegun",
+      "country": "Italy",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The Beretta Model 12 is a 9×19mm Parabellum caliber Submachine gun designed by Beretta. Production began in 1962 and was first purchased by the Italian army that same year. It was first used in combat in 1968 during the Tet Offensive of the Vietnam War, when the Marines guarding the U.S. embassy in Saigon repelled the assault by the Viet Cong. It is also used by various South American and African countries, and made under license in Brazil by Taurus and in Indonesia by PT Pindad. The Model 12 was redesigned as the Model 12S in 1978, using a 32-round box magazine and chambered for the 9×19 mm NATO cartridge."
+      ]
+    },
+    {
+      "name": "M249 SAW",
+      "type": "lightmachinegun",
+      "country": "United States",
+      "operation": "BURNTHORIZON",
+      "descriptionParagraphs": [
+        "The M249 Light Machine Gun, formerly designated as the M249 Squad Automatic Weapon, is the US-produced version of the Belgian-made FN Minimi. The M249 is a light machine gun manufactured by FN Herstal that chambers the 5.56x45mm NATO round."
+      ]
+    },
+    {
+      "name": "M249",
+      "type": "lightmachinegun",
+      "country": "United States",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The M249 Light Machine Gun, formerly designated as the M249 Squad Automatic Weapon, is the US-produced version of the Belgian-made FN Minimi. The M249 is a light machine gun manufactured by FN Herstal that chambers the 5.56x45mm NATO round."
+      ]
+    },
+    {
+      "name": "M4",
+      "type": "assaultrifle",
+      "country": "United States",
+      "operation": "GRIMSKY",
+      "descriptionParagraphs": [
+        "The M4 is a compact American carbine developed in the 1990s as a shortened and more maneuverable variant of the M16 rifle. It became standard issue for many units of the United States Armed Forces and has been widely adopted by military and law-enforcement organizations around the world. Chambered in 5.56×45mm NATO, the M4 was designed to provide infantry with a lightweight, versatile weapon suitable for both close-quarters and conventional combat"
+      ]
+    },
+    {
+      "name": "M45 MEUSOC",
+      "type": "handgun",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The MEU(SOC), officially designated the M45 MEUSOC, is a semi-automatic pistol manufactured by Colt's Manufacturing company that chambers the .45 ACP round. The weapon is based on the original M1911 design."
+      ]
+    },
+    {
+      "name": "M590A1",
+      "type": "shotgun",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Mossberg 500 is a series of pump-action shotguns manufactured by O.F. Mossberg & Sons. The Mossberg 500 is the most sold shotgun in the world and is only second to the Remington 870 series of shotguns.",
+        "Although the Mossberg 500 itself did not appear in the Rainbow Six universe, there are several variants of the weapon that have. These are the Mossberg 500 Cruiser, 500 Tactical, and M590A1."
+      ]
+    },
+    {
+      "name": "M762",
+      "type": "assaultrifle",
+      "country": "Poland",
+      "operation": "WHITENOISE",
+      "descriptionParagraphs": [
+        "The FB Beryl is a Polish 5.56mm assault rifle, designed and produced by the Łucznik Arms Factory in the city of Radom. The rifle is to replace the 7.62×39mm AKM and 5.45×39mm FB Tantal used in the Polish Armed Forces. The Beryl M762 is a proposed export variant of the FB Beryl that is chambered for 7.62×39mm cartridges."
+      ]
+    },
+    {
+      "name": "M870",
+      "type": "shotgun",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Remington Model 870 is a pump-action shotgun manufactured by Remington Arms. The Model 870 is one of the most, if not the most widely used shotgun in the world. The shotgun to only second this weapon in terms of popularity is the Mossberg 500."
+      ]
+    },
+    {
+      "name": "Mk 14 EBR",
+      "type": "marksmanrifle",
+      "country": "United States",
+      "operation": "WHITENOISE",
+      "descriptionParagraphs": [
+        "The Mark I is a modern variant of the original Browning Hi-Power, also known as the P35, featuring some improvements as well as lacking the provision of the lanyard ring. It is among the best-known models of the P35 developed over the last 50 years."
+      ]
+    },
+    {
+      "name": "Mk1 9mm",
+      "type": "handgun",
+      "country": "Belgium",
+      "operation": "BLACKICE",
+      "descriptionParagraphs": [
+        "The Mark I is a modern variant of the original Browning Hi-Power, also known as the P35, featuring some improvements as well as lacking the provision of the lanyard ring. It is among the best-known models of the P35 developed over the last 50 years."
+      ]
+    },
+    {
+      "name": "Mk17 CQB",
+      "type": "assaultrifle",
+      "country": "Belgium",
+      "operation": "DUSTLINE",
+      "descriptionParagraphs": [
+        "The SCAR-H (Special Operations Forces Combat Assault Rifle) is a battle rifle variant of the FN SCAR that chambers 7.62×51mm NATO rounds. The CQC variation offers a shortened barrel, making it optimal for Close-Quarters Combat, hence the initials."
+      ]
+    },
+    {
+      "name": "MP5",
+      "type": "submachinegun",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The MP5 (German: Maschinenpistole 5; English: Machine Pistol Model 5) is a submachine gun derivative of the G3 assault rifle. The MP5 is a submachine gun manufactured by Heckler and Koch that chambers the 9x19mm Parabellum round. The MP5 is one of the most widely used submachine guns in the world."
+      ]
+    },
+    {
+      "name": "MP5K",
+      "type": "submachinegun",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The MP5K (German: Kurz; English: Short) is a shortened variant of the MP5 submachine gun. The MP5K is a submachine gun manufactured by Heckler and Koch that chambers the 9x19mm Parabellum round."
+      ]
+    },
+    {
+      "name": "MP5SD",
+      "type": "submachinegun",
+      "country": "Germany",
+      "operation": "REDCROW",
+      "descriptionParagraphs": [
+        "The MP5SD (German: Schalldämpfer; English: Sound suppressor) is a variant of the MP5 equipped with an integral suppressor. The MP5SD is a submachine gun manufactured by Heckler and Koch that chambers the 9x19mm Parabellum round."
+      ]
+    },
+    {
+      "name": "MP7",
+      "type": "submachinegun",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Heckler & Koch MP7 is a PDW (Personal Defense Weapon) manufactured by Heckler and Koch that chambers the 4.6x30mm round. The MP7 was made as a companion weapon to the UCP, since they both chamber the same round."
+      ]
+    },
+    {
+      "name": "MPX",
+      "type": "submachinegun",
+      "country": "Germany",
+      "operation": "DUSTLINE",
+      "descriptionParagraphs": [
+        "The SIG MPX is a gas-operated submachine gun designed and manufactured by SIG Sauer, and is primarily chambered in 9×19mm Parabellum cartridge. It is a gas-operated firearm featuring a closed, rotating bolt. It was designed in 2013 and was released to the general public in 2015."
+      ]
+    },
+    {
+      "name": "Mx4 Storm",
+      "type": "submachinegun",
+      "country": "Italy",
+      "operation": "PARABELLUM",
+      "descriptionParagraphs": [
+        "The Beretta Cx4 Storm is a pistol-calibre semi-automatic carbine aimed at the sporting, personal defense and law enforcement markets. It is available in two models: one that accepts 92/96 magazines, and one that accepts Px4 series magazines, each available in 9×19mm Parabellum, .40 S&W, .45 ACP, and 9×21mm. The Beretta Mx4 Storm is the military version of the Cx4 Storm, which is capable of fully automatic fire. It features a 12-inch barrel, and most commonly seen with a 30-round magazine.oc."
+      ]
+    },
+    {
+      "name": "OTs-03",
+      "type": "marksmanrifle",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Dragunov SVU (also known as the OTs-03) is a bullpup designated marksman rifle manufactured by the KBP Instrument Design Bureau that chambers the 7.62x54mmR round. The SVU is essentially an SVD Dragunov built in a bullpup configuration."
+      ]
+    },
+    {
+      "name": "P-10C",
+      "type": "handgun",
+      "country": "Czech Republic",
+      "operation": "GRIMSKY",
+      "descriptionParagraphs": [
+        "The firearm's real-life counterpart is the CZ P-10 C, a competitor to the Glock 19 designed for self-defense purposes."
+      ]
+    },
+    {
+      "name": "P10 RONI",
+      "type": "submachinegun",
+      "country": "Israel",
+      "operation": "BURNTHORIZON",
+      "descriptionParagraphs": [
+        "The CAA Tactical RONI is a frame for Glock and similar pistols that adds a stock and some attachment rails. The in-game model is, contrary to the description, modelled after a CZ P-09 instead of a P-10 in a RONI frame. Like the real-life CZ P-09, the in-game RONI has a magazine capacity of 15+1. Unlike its real-life counterpart, it is fully automatic."
+      ]
+    },
+    {
+      "name": "P12",
+      "type": "handgun",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The USP Tactical is a variant of the USP developed in Germany by Heckler & Koch GmbH. Designed to chamber 9mm Parabellum, .40 S&W, and .45 ACP, it incorporates a fully adjustable suppressor height sights, an extended, threaded barrel with O-ring, and a match grade trigger with adjustable trigger stop. A unique characteristic of the USP Tactical is that the barrel is left-hand threaded (counter-clockwise to tighten), which makes the pistol incompatible with suppressors designed for the MK23."
+      ]
+    },
+    {
+      "name": "P226 Mk 25",
+      "type": "handgun",
+      "country": "Switzerland",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The SIG P226 is a semi-automatic pistol manufactured by SIG Sauer that chambers the 9×19m Parabellum round. Its design is based on the P220, but the P226 has double-stacked magazines rather than the earlier single-stack magazines that the P220 had."
+      ]
+    },
+    {
+      "name": "P229",
+      "type": "handgun",
+      "country": "Switzerland",
+      "operation": "REDCROW",
+      "descriptionParagraphs": [
+        "The SIG P229 is a full-sized, service-type pistol made by SIG Sauer. Introduced in 1992, it is a variant of the P228 which itself is a variant of the P226. Developed specifically for the US market, the P229 features a heavier slide to tolerate more powerful rounds the P228 is incapable of. The P229 differs from the P226 in several respects, and was originally introduced to supplement and then replace the P228 by adding the .357 SIG and .40 S&W as available chamberings."
+      ]
+    },
+    {
+      "name": "P9",
+      "type": "handgun",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The FN FNP pistol is a series of semi-automatic pistols manufactured by FN Herstal USA, a division of Fabrique Nationale de Herstal. The FNP-9 (or P9) is a variation of FNP chambered for the 9x19mm Parabellum."
+      ]
+    },
+    {
+      "name": "P90",
+      "type": "submachinegun",
+      "country": "Belgium",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The P90 is a compact bullpup PDW (Personal Defense Weapon) designed in the 1990s and manufactured by FN Herstal that chambers the 5.7x28mm round. The P90 was made as the companion weapon to the Five-seveN, since they both chamber the same round. The P90 features an integrated reflex sight and a unique magazine that holds 50 rounds, loads from the top and ejects the casings out of the bottom of the weapon's stock."
+      ]
+    },
+    {
+      "name": "PARA-308",
+      "type": "assaultrifle",
+      "country": "Brazil",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The ParaFAL is a 7.62×51mm NATO battle rifle which is a lighter-weight modification of the 30-year-old Brazilian-licensed and built FN FAL. Existing FALs can be converted to the more modern ParaFAL specification by the Brazilian company IMBEL with a low-cost kit of parts. Amongst the changes is a shorter barrel, and replacement of aluminum by high-impact polymer parts."
+      ]
+    },
+    {
+      "name": "PCX-33",
+      "type": "assaultrifle",
+      "country": "Germany",
+      "operation": "TWINSHELLS",
+      "descriptionParagraphs": [
+        "Being a heavily modified variant of the G3 rifle, the PCX-33 features many parts from multiple different weapons, including:",
+        "The handguard from the SIG MCX assault rifle;",
+        "A longer version of the carry-handle from the H&K G36 assault rifle;",
+        "A custom pistol grip with a guard based off of the IWI TAR-21 assault rifle;",
+        "The buttstock from the Cadex Defense CDX-SS SEVEN S.T.A.R.S. Series sniper rifles."
+      ]
+    },
+    {
+      "name": "PDW9",
+      "type": "submachinegun",
+      "country": "United States",
+      "operation": "VELVETSHELL",
+      "descriptionParagraphs": [
+        "The UDP9 is a 9mm personal defence weapon developed by Angstadt Arms."
+      ]
+    },
+    {
+      "name": "PMM",
+      "type": "handgun",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The PMM, an acronym for Pistolet Makarova Modernizirovannyy (Cyrillic: Пистолет Макарова Модернизированный, English: Modernized Makarov Pistol) is a redesign of the original PM. This was done to increase the cartridge load which resulted in an increase of muzzle velocity and generation of 25% more gas pressure. The Makarov PMM has other minor modifications such as an improved hand grip as well as threaded grooves in the chamber."
+      ]
+    },
+    {
+      "name": "PMR90A2",
+      "type": "marksmanrifle",
+      "country": "Unknown",
+      "operation": "TENFOLDPURSUIT",
+      "descriptionParagraphs": [
+        "PMR90A2i a high-precision marksman rifle adapted for military specifications."
+      ]
+    },
+    {
+      "name": "POF9",
+      "type": "assaultrifle",
+      "country": "United States",
+      "operation": "VECTORGLARE",
+      "descriptionParagraphs": [
+        "The Patriot Ordnance Factory PSG (PSG stands for Patriot Sub Gun) is a 9mm AR-15-type semi-auto pistol/select-fire submachine gun manufactured by Patriot Ordnance Factory, or POF for short."
+      ]
+    },
+    {
+      "name": "PRB92",
+      "type": "handgun",
+      "country": "Brazil",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The Taurus PT92 is a double action/single action, double-stack-magazine fed, short recoil-operated, semi-automatic 9mm pistol manufactured by Taurus. It was originally produced at the former Beretta factory in São Paulo, Brazil as an almost exact copy of the Beretta 92. Despite the many design changes, such as the redesigned slide serrations, thickening of the trigger guard hook and addition of an accessory rail, the Taurus PT92 still retains many of the design elements from the original Beretta 92."
+      ]
+    },
+    {
+      "name": "Q-929",
+      "type": "handgun",
+      "country": "China",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "The QSZ-92 (Chinese: 92式手枪; Pinyin: Jiǔ Èr Shí Shoǔqiàng; Literally: \"Type 92 Handgun\") is a semi-automatic pistol designed by Norinco. It is a recoil-operated, locked-breech and has a rotating barrel locking system."
+      ]
+    },
+    {
+      "name": "R4-C",
+      "type": "assaultrifle",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Remington R4 is an M4 carbine designed and manufactured by Remington Arms. It is one of many AR-15 type rifles which uses a gas piston operating system in an attempt to improve the reliability of the weapon."
+      ]
+    },
+    {
+      "name": "Reaper MK2",
+      "type": "machinepistol",
+      "country": "Austria",
+      "operation": "PREPPHASE",
+      "descriptionParagraphs": [
+        "The Glock 18 is a select-fire variant of the Glock 17 pistol. The Glock 18 is a machine pistol manufactured by Glock Ges.m.b.H. that chambers the 9x19mm Parabellum round."
+      ]
+    },
+    {
+      "name": "RG15",
+      "type": "handgun",
+      "country": "Poland",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "The VIS 100, formerly called the PR-15 Ragun, is a semi-automatic pistol developed and manufactured by FB \"Łucznik\" Radom for military and law enforcement personnel."
+      ]
+    },
+    {
+      "name": "SASG-12",
+      "type": "shotgun",
+      "country": "Russia",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Saiga-12 is a 12-gauge shotgun available in a wide range of configurations, patterned after the Kalashnikov series of rifles and named for the saiga antelope. Like the Kalashnikov rifle variants, it is a rotating bolt, gas-operated gun that feeds from a box magazine. All Saiga-12 configurations are recognizable as Kalashnikov-pattern guns by the large lever-safety on the right side of the receiver, the optic mounting rail on the left side of the receiver and the large top-mounted dust cover held in place by the rear of the recoil spring assembly."
+      ]
+    },
+    {
+      "name": "SC3000K",
+      "type": "assaultrifle",
+      "country": "Belgium",
+      "operation": "SHADOWLEGACY",
+      "descriptionParagraphs": [
+        "The FN F2000 is a Belgian 5.56x45mm NATO bullpup assault rifle developed by FN Herstal, featuring modular parts. It fires from a closed bolt system and was designed with the same safety and trigger mechanisms as the earlier P90 submachine gun. The F2000 has many custom designed modular parts, including its own grenade launcher system (known as the FN EGLM) that it shares with the later SCAR series, and a custom fixed 1.6x magnification telescopic sight that can be used in low light conditions."
+      ]
+    },
+    {
+      "name": "Scorpion EVO 3 A1",
+      "type": "submachinegun",
+      "country": "Czech Republic",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "Scorpion EVO 3 A1 is a select-fire submachine gun manufactured by Česká zbrojovka Uherský Brod. The A1 variant features a select fire switch, giving the operator the choice of \"safe\", semi-automatic, three-round burst, or fully automatic fire."
+      ]
+    },
+    {
+      "name": "SDP 9mm",
+      "type": "handgun",
+      "country": "Switzerland",
+      "operation": "BURNTHORIZON",
+      "descriptionParagraphs": [
+        "The Sphinx SDP Compact Duty is part of the Sphinx SPD series of semi-automatic pistols produced by Sphinx Systems, a Swiss gun-manufacturing company known for their high-quality handguns. The Sphinx models are some of many variants of the CZ-75 pistols made by the Czech-based ČZUB firearms manufacturing company."
+      ]
+    },
+    {
+      "name": "SG-CQB",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Fabarm SDASS Tactical is a pump-action shotgun manufactured by FABARM (Fabbrica Bresciana Armi S.p.A.). It is designed for police and/or security uses and features a folding front sight, built-in Picatinny rails on the top of the receiver, and a lengthened forearm to provide better control over the gun. SDASS shotguns are manufactured in a variety of differing styles."
+      ]
+    },
+    {
+      "name": "SIX12 SD",
+      "type": "shotgun",
+      "country": "United States",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "SIX12 SDis a compact 12-gauge bullpup double action revolver shotgun. Good for CQC and fast reload. Integrated supressor."
+      ]
+    },
+    {
+      "name": "SIX12",
+      "type": "shotgun",
+      "country": "United States",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "SIX12 SDis a compact 12-gauge bullpup double action revolver shotgun. Good for CQC and fast reload."
+      ]
+    },
+    {
+      "name": "SMG-11",
+      "type": "machinepistol",
+      "country": "United States",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The MAC-11 (Military Armament Corporation Model 11) is a subcompact variant of the MAC-10 machine pistol. The MAC-11 is a machine pistol manufactured by the Military Armament Corporation that chambers the .380 ACP round."
+      ]
+    },
+    {
+      "name": "SMG-12",
+      "type": "machinepistol",
+      "country": "United States",
+      "operation": "WHITENOISE",
+      "descriptionParagraphs": [
+        "The MasterPiece Arms MPA935SST is a modified version of the MAC-11. It features an 8-inch fixed barrel pistol and is offered in 9mm with 30-round magazines standard. It also features a threaded barrel with ½ x28tpi threads making it suppressor ready. It also features adjustable front and rear sights, a side-cocker, scope mount, short handguard and angled foregrip and features all the accuracy, low recoil and performance expected from other weapons in Masterpiece Arms Defender series."
+      ]
+    },
+    {
+      "name": "SPAS-12",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "DUSTLINE",
+      "descriptionParagraphs": [
+        "The SPAS-12 is a dual-mode (both pump-action and semi-automatic) shotgun manufactured by Luigi Franchi SpA. It originally stood for Special Purpose Automatic Shotgun, but was the S was later changed to stand for Sporting Purpose Automatic Shotgun instead. The SPAS-12 contains a unique feature, being able to be in either pump-action or semi-automatic firing modes. The SPAS-12 also contains a foldable buttstock, equipped with a stock-end hook to assist with firing one-handed."
+      ]
+    },
+    {
+      "name": "SPAS-15",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The SPAS-15 is a successor to the SPAS-12 shotgun. The SPAS-15 is a dual-mode (both pump-action and semi-automatic) shotgun manufactured by Luigi Franchi SpA. The gun was made as an improvement to the SPAS-12 in just about every way, including a removable magazine, carry handle and weight reduction through liberal usage of polymers to address design issues of its predecessor."
+      ]
+    },
+    {
+      "name": "Spear .308",
+      "type": "assaultrifle",
+      "country": "Russia",
+      "operation": "CHIMERA",
+      "descriptionParagraphs": [
+        "The Saritch (Russian: Сарыч) is a concept bullpup rifle. It was designed by design school student Andrei Ovsyannikov (as a part of his graduation design project) as a modular civilian carbine, with semi-automatic fire and 10-round magazines. Military versions were also conceived with 30 round magazines and automatic fire. However, nothing really came out of the idea and no functional models exist, as the only model of the concept was a mock-up."
+      ]
+    },
+    {
+      "name": "SPSMG9",
+      "type": "machinepistol",
+      "country": "Switzerland",
+      "operation": "GRIMSKY",
+      "descriptionParagraphs": [
+        "The MP9 (Machine Pistol 9mm) is a derivative of the TMP machine pistol. The MP9 is a machine pistol manufactured by Brügger & Thomet that chambers the 9×19mm Parabellum round."
+      ]
+    },
+    {
+      "name": "SR-25",
+      "type": "marksmanrifle",
+      "country": "United States",
+      "operation": "DUSTLINE",
+      "descriptionParagraphs": [
+        "The SR-25 (Stoner Rifle-25) is a semi-automatic sniper rifle manufactured by Knight's Armament Company that chambers the 7.62x51mm NATO round. It was designed by Eugene Stoner, who also designed the AR-10 rifle and its successor, the AR-15."
+      ]
+    },
+    {
+      "name": "Super 90",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "BLACKICE",
+      "descriptionParagraphs": [
+        "The Super 90 is a series of pump-action and semi-automatic shotguns produced by Benelli Arms SpA."
+      ]
+    },
+    {
+      "name": "Super Shorty",
+      "type": "shotgun",
+      "country": "United States",
+      "operation": "BURNTHORIZON",
+      "descriptionParagraphs": [
+        "The Remington M870 MCS Breacher is a pump-action shotgun manufactured by Remington Arms. A variant of the M870, it is part of a the newer modular variants of the M870 which can be quickly modified with different barrels, magazine tubes, and stocks for different purposes, such as urban combat and door breaching. The Breacher model is the smallest MCS variant of the Model 870 with its 10 inch barrel and no stock. The Breacher is also commonly fitted to carbines such as the M4 to form the Masterkey system."
+      ]
+    },
+    {
+      "name": "SuperNova",
+      "type": "shotgun",
+      "country": "Italy",
+      "operation": "REDCROW",
+      "descriptionParagraphs": [
+        "The Benelli SuperNova is a pump-action shotgun manufactured by Benelli Armi SpA. It's based on the Benelli Nova, which was renowned for its Technopolymer one piece frame. The weapon is generally used for hunting, self-defense and law enforcement."
+      ]
+    },
+    {
+      "name": "T-5 SMG",
+      "type": "submachinegun",
+      "country": "China",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "The JS 9 mm (Chinese: JS 9 mm冲锋枪; Pinyin: JS 9 mm Chōngfēng Qiāng; Literally: \"JS 9 mm Submachine Gun\") is a commercial export version of the QCW-05 (with the exception of different chambering.) It is a submachine gun developed by the Jianshe Industries (Group) Corporation of Chongqing. The JS 9 mm is capable of using any 9×19mm round, including the popular 9×19mm Parabellum round but has specifically been chambered for the indigenous, armour-piercing 9×19mm DAP92-9 round."
+      ]
+    },
+    {
+      "name": "T-95 LSW",
+      "type": "lightmachinegun",
+      "country": "China",
+      "operation": "BLOODORCHID",
+      "descriptionParagraphs": [
+        "The QBB-95 is a light support weapon that is based on the QBZ-95. The longer, heavier barrel and 80-round drum magazine of the QBB-95 allows for sustained firing, although it's still compatible with the 30-round box magazines of the assault rifle it was based on."
+      ]
+    },
+    {
+      "name": "TCSG12",
+      "type": "shotgun",
+      "country": "Turkey",
+      "operation": "WINDBASTION",
+      "descriptionParagraphs": [
+        "The Akdal MKA 1919 is a Turkish gas-operated semi-automatic magazine-fed shotgun resembling the M16 that mimics its layout and controls. Manufactured by Akdal Arms in 2007, it is used by the Turkish Land Forces."
+      ]
+    },
+    {
+      "name": "Type-89",
+      "type": "assaultrifle",
+      "country": "Japan",
+      "operation": "REDCROW",
+      "descriptionParagraphs": [
+        "The Type 89 is an assault rifle manufactured by Howa that chambers the 5.56x45mm NATO round. The weapon is known as Buddy by the JGSDF (Japan Ground Self-Defense Service). The Type 89-F is a variant of the Type 89 with a folding stock rather than the fixed stock, which is what the original Type 89 had."
+      ]
+    },
+    {
+      "name": "UMP45",
+      "type": "submachinegun",
+      "country": "Germany",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The UMP (German: Universale Maschinenpistole; English: Universal Machine Pistol) is a submachine gun that was designed by Heckler and Koch as a lighter and cheaper successor to the MP5."
+      ]
+    },
+    {
+      "name": "USP40",
+      "type": "handgun",
+      "country": "Germany",
+      "operation": "VELVETSHELL",
+      "descriptionParagraphs": [
+        "The USP (German: Universelle Selbstladepistole; English: Universal Self-loading Pistol) is a family of semi-automatic pistols manufactured by Heckler & Koch since 1993 for use primarily in commercial and law enforcement markets. The USP eventually led to the design of the MK.23 that is currently in use by USSOCOM."
+      ]
+    },
+    {
+      "name": "UZK50Gi",
+      "type": "submachinegun",
+      "country": "Israel",
+      "operation": "HIGHCALIBRE",
+      "descriptionParagraphs": [
+        "The Uzi, named after its inventor Uziel Gal, is a submachine gun manufactured by IWI (Israel Weapon Industries) that chambers the 9x19mm Parabellum round. The Uzi is currently the most widely sold submachine gun in the world, and has been produced in many variants, including the Mini-Uzi and the Micro-Uzi."
+      ]
+    },
+    {
+      "name": "V308",
+      "type": "assaultrifle",
+      "country": "United States",
+      "operation": "CHIMERA",
+      "descriptionParagraphs": [
+        "The V308 is a fictional Battle Rifle based on the KRISS Vector submachine gun. The weapon uses the chassis and feed system of the Vector and is chambered in the 7.62x51 NATO cartridge. It utilizes the recoil mitigation system in the Vector to reduce vertical muzzle climb."
+      ]
+    },
+    {
+      "name": "Vector .45 ACP",
+      "type": "submachinegun",
+      "country": "United States",
+      "operation": "VELVETSHELL",
+      "descriptionParagraphs": [
+        "The KRISS Vector is a series of weapons based upon the parent submachine gun design developed by the American company KRISS USA. They use an unconventional delayed blowback system combined with in-line design to reduce perceived recoil and muzzle climb.",
+        "The Vector SMG is a selective-fire submachine gun developed by KRISS USA, formerly Transformational Defense Industries (TDI). It's the only weapon to feature full-automatic fire mode in the KRISS Vector series. The Vector is popular for its unique delayed blowback operation which allows using weapon's high rate of fire with the minimum recoil."
+      ]
+    },
+    {
+      "name": "Tacit .45",
+      "type": "handgun",
+      "country": "United States",
+      "operation": "SILENTHUNT",
+      "descriptionParagraphs": [
+        "The TACIT .45 is a compact, semi-automatic pistol customized for covert operations. This weapon is unique to Snake."
+      ]
+    },
+    {
+      "name": "XK23",
+      "type": "assaultrifle",
+      "country": "South Korea",
+      "operation": "SYSTEMOVERRIDE",
+      "descriptionParagraphs": [
+        "Experimental bullpup rifle chambered in 6.8 SPC with superior maneuverability. Best for mid-range combat."
+      ]
+    }
+  ],
+  "gadgets": [
+    {
+      "name": "Barbed Wire",
+      "type": "groundcontrol",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The main feature of Barbed Wire is to slow the movement of any Attackers and Drones that enter it. On top of that, when enemies do enter Barbed Wire, they create rustling sounds which Defenders can take advantage of."
+      ]
+    },
+    {
+      "name": "Breach Charge",
+      "type": "opening",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "A breach charge is an explosive device used by military, police, or emergency services to force open closed and/or locked doors. A wide range of breaching methods may be used in any given situation, but explosive breaching can be the fastest method, though it is also the most dangerous, to both the breachers and the room occupants. Depending on the situation, explosive breaching is potentially slower than a ballistic breach due to the large standoff required when using explosives, if there is no cover available. Breaching can be performed with a specially formed breaching charge placed in contact with the door, or with various standoff breaching devices."
+      ]
+    },
+    {
+      "name": "Bulletproof Camera",
+      "type": "intel",
+      "operation": "PARABELLUM",
+      "descriptionParagraphs": [
+        "A bulletproof camera that defenders can deploy on floors and walls to maintain surveiliance on areas. It can see through thick smoke and it can survive direct shots to its front plate."
+      ]
+    },
+    {
+      "name": "Claymore",
+      "type": "explosive",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The M18 Claymore is an anti-personnel mine that consists of a curved rectangular plastic shell with a layer of ¾ of a pound of composition C3 explosive. It has a fragmentation face of rectangular steel fragments designed to blow out in a fan-shaped pattern. Because of the explosive charge, there is a small area of lethality directly behind the mine, as well as the area of devastation in front of the blast."
+      ]
+    },
+    {
+      "name": "Deployable Shield",
+      "type": "groundcontrol",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The Deployable Shield is a collapsible waist-high bulletproof metal shield that can be placed by Defenders to create additional cover.",
+        "Tiny bulletproof window slits are built into the Deployable Shield, allowing both sides to see through the Shield."
+      ]
+    },
+    {
+      "name": "Frag Grenade",
+      "type": "explosive",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "A hand grenade is a small, light-weight, timed explosive device. Grenades can inflict severe damage against infantry and other soft targets. Most hand grenades used are fragmentation grenades, often abbreviated to \"frags\", which litter an area with shrapnel, inflicting severe damage on infantry and lightly armored targets. The M67 grenade is a development of the M33 grenade, itself an improvement of the M26 series of grenades, that was designed in the late 1950s and adopted in 1968 for use by the US Army. It is also known as a \"baseball\" grenade due to its shape."
+      ]
+    },
+    {
+      "name": "Hard Breach Charge",
+      "type": "opening",
+      "operation": "SHADOWLEGACY",
+      "descriptionParagraphs": [
+        "A hard breach charge is an explosive device used by military, police, or emergency services to force open closed and/or locked doors. A wide range of breaching methods may be used in any given situation, but explosive breaching can be the fastest method, though it is also the most dangerous, to both the breachers and the room occupants. Depending on the situation, explosive breaching is potentially slower than a ballistic breach due to the large standoff required when using explosives, if there is no cover available. Breaching can be performed with a specially formed breaching charge placed in contact with the door, or with various standoff breaching devices."
+      ]
+    },
+    {
+      "name": "Impact EMP Grenade",
+      "type": "gadgetdeny",
+      "operation": "BRUTALSWARM",
+      "descriptionParagraphs": [
+        "Impact EMP grenade disables Defender gadgets caught within it's 5.2 meter radius. The EMP passes through surfaces, allowing players to disable devices on the other side of a wall."
+      ]
+    },
+    {
+      "name": "Impact Grenade",
+      "type": "explosive",
+      "operation": "SKULLRAIN",
+      "descriptionParagraphs": [
+        "The Impact Grenade is an explosive grenade that, as its name implies, detonates on impact and deals light damage, designed to efficiently create rotation routes and lines of sight. Once thrown, Impact Grenades can travel up to 20 meters before hitting a surface or detonating mid-air."
+      ]
+    },
+    {
+      "name": "Nitro Cell",
+      "type": "explosive",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "Composition 4, often shortened to C4, is a plastic explosive composed of RDX, plastic binder, plasticizer, and a marker chemical to identify its source. It is 1.34 times as explosive as TNT and has been used since the 1960s when it was developed. C4 is often used in breaching obstacles or demolition of large structures."
+      ]
+    },
+    {
+      "name": "Observation Blocker",
+      "type": "intel",
+      "operation": "DREADFACTOR",
+      "descriptionParagraphs": [
+        "Once deployed, the Observation Blocker will project a digital barrier screen that will block the line of sight of observation tools like the Drone or CCTV. This prevents players from seeing anything on the other side of the screen unless the gadget is destroyed or the drone moves past it. The gadget's digital barrier is only visible from observation tools and cannot be seen by Operators. This is useful for concealing any traps or fortifications in an area as well as Defender locations."
+      ]
+    },
+    {
+      "name": "Proximity Alarm",
+      "type": "groundcontrol",
+      "operation": "STEELWAVE",
+      "descriptionParagraphs": [
+        "Once thrown the Proximity Alarm will indicate its effective radius and must fill the radius in order to be activated. The gadget will emit an alarm once an enemy enters its 3 meter radius, alerting Defenders to their general location. The Proximity Alarm activates nearly as soon as the effective radius is reached, taking a short delay to activate. The alarm the device makes is a beeping noise that can be heard by both Attackers and Defenders. A HUD icon will appear on Attackers who enter the Proximity Alarm's radius. The Proximity Alarm's beeping can be heard a great distance away, even through surfaces."
+      ]
+    },
+    {
+      "name": "Smoke Grenade",
+      "type": "explosive",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "The M18 smoke grenade is the standard issue smoke grenade of the United States Army since its development in 1942, for use in World War II and the Vietnam Wars. The M18 smoke grenade is produced in three colors - red, green and yellow, and was formerly produced in violet until the 1990s."
+      ]
+    },
+    {
+      "name": "Stun Grenade",
+      "type": "explosive",
+      "operation": "PATHFINDER",
+      "descriptionParagraphs": [
+        "A stun grenade (also known as a flashbang) is a small explosive device that, when thrown, emits a large flash of light and a very loud bang that temporarily blinds and deafens those affected in the vicinity. They are commonly used by military and special police forces in house clearing and surgical raids."
+      ]
+    }
+  ],
+  "types": [
+    {
+      "id": "assaultrifle",
+      "name": "Assault Rifle"
+    },
+    {
+      "id": "submachinegun",
+      "name": "Submachine Gun"
+    },
+    {
+      "id": "shotgun",
+      "name": "Shotgun"
+    },
+    {
+      "id": "marksmanrifle",
+      "name": "Marksman Rifle"
+    },
+    {
+      "id": "lightmachinegun",
+      "name": "Light Machine Gun"
+    },
+    {
+      "id": "handgun",
+      "name": "Handgun"
+    },
+    {
+      "id": "machinepistol",
+      "name": "Machine Pistol"
+    },
+    {
+      "id": "handcannon",
+      "name": "Hand Cannon"
+    },
+    {
+      "id": "ballisticshield",
+      "name": "Ballistic Shield"
+    },
+    {
+      "id": "explosive",
+      "name": "Explosive"
+    },
+    {
+      "id": "groundcontrol",
+      "name": "Ground Control"
+    },
+    {
+      "id": "opening",
+      "name": "Opening"
+    },
+    {
+      "id": "intel",
+      "name": "Intel"
+    },
+    {
+      "id": "gadgetdeny",
+      "name": "Gadget Deny"
+    }
+  ],
+  "classes": [
+    {
+      "id": "primary",
+      "name": "Primary"
+    },
+    {
+      "id": "secondary",
+      "name": "Secondary"
+    },
+    {
+      "id": "primaryandsecondary",
+      "name": "Primary and Secondary"
+    }
+  ],
+  "featuresLabels": [
+    "Description"
+  ]
+}
