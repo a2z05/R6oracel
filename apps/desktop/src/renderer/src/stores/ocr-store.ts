@@ -6,6 +6,7 @@ interface OcrStore {
   currentText: string | null;
   currentRoomId: string | null;
   currentMapId: string | null;
+  currentSide: "attacker" | "defender" | "unknown";
   confidence: number;
   history: OcrResult[];
   start: () => void;
@@ -19,6 +20,7 @@ export const useOcrStore = create<OcrStore>((set) => ({
   currentText: null,
   currentRoomId: null,
   currentMapId: null,
+  currentSide: "unknown",
   confidence: 0,
   history: [],
   start: () => {
@@ -34,6 +36,7 @@ export const useOcrStore = create<OcrStore>((set) => ({
       currentText: result.rawText,
       currentRoomId: result.roomId,
       currentMapId: result.mapId ?? state.currentMapId,
+      currentSide: result.side ?? "unknown",
       confidence: result.confidence,
       history: [result, ...state.history].slice(0, 50),
     })),

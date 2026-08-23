@@ -6,9 +6,9 @@
 
 ---
 
-![Version](https://img.shields.io/badge/version-1.0.0-gold?style=for-the-badge&logo=semver)
+![Version](https://img.shields.io/badge/version-1.0.6-gold?style=for-the-badge&logo=semver)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=opensource)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge&logo=windows)
+![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-lightgrey?style=for-the-badge&logo=windows)
 ![Electron](https://img.shields.io/badge/Electron-33-47848F?style=for-the-badge&logo=electron)
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript)
@@ -18,6 +18,20 @@
 **[📥 Download Latest Release](https://github.com/a2z05/R6oracel/releases/latest)**
 
 </div>
+
+---
+
+## ⚠️ Disclaimer
+
+ORACLE is a **passive companion tool**. It does not inject code into Rainbow Six Siege, modify game files, read game memory, or automate any gameplay — it only reads the room name already displayed on your own screen via screen capture.
+
+That said, **third-party overlays and screen-reading tools may be restricted by Ubisoft's Terms of Service**, and enforcement can change at any time. By using ORACLE you accept full responsibility for any consequences, including account sanctions.
+
+ORACLE is unofficial. Rainbow Six Siege, its maps, and all related content are trademarks of Ubisoft Entertainment. This project is not affiliated with or endorsed by Ubisoft.
+
+Map callout data draws on community resources (r6peekaboo, r6callouts, siegecodex.com) — thanks to those communities.
+
+**Use at your own risk.**
 
 ---
 

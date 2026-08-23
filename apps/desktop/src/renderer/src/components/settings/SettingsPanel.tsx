@@ -3,6 +3,7 @@ import { X, Keyboard, Monitor, Eye, Palette, ToggleLeft, Database, Crosshair, Mo
 import { useUIStore } from "../../stores/ui-store.js";
 import { useSettingsStore } from "../../stores/settings-store.js";
 import { themes, type ThemeId } from "@oracle/ui-tokens";
+import { SideIndicator, ICON_SETS, type IconSetId } from "../side/SideIndicator.js";
 
 type SettingsTab = "hotkeys" | "overlay" | "ocr" | "calibrate" | "theme" | "modules" | "data";
 
@@ -403,6 +404,40 @@ function CalibrateTab() {
               {preset.label}
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Side Icons */}
+      <div className="glass-card p-4 space-y-3">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Side Icons</h3>
+        <p className="text-xs text-[var(--oracle-text-muted)]">
+          How your team's side is shown (your team appears on the left of the title bar). Pick a style or let ORACLE match icons to the detected side automatically.
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {(Object.keys(ICON_SETS) as IconSetId[]).map((id) => {
+            const set = ICON_SETS[id];
+            return (
+              <button
+                key={id}
+                onClick={() => s.setSideIconSet(id)}
+                className={`flex items-center justify-between py-2.5 px-3 rounded-lg border transition-all cursor-pointer hover:bg-white/5 ${
+                  s.sideIconSet === id ? "border-[var(--oracle-accent)] bg-[var(--oracle-accent)]/10" : "border-[var(--oracle-border)]"
+                }`}
+              >
+                <span className="text-xs text-[var(--oracle-text-secondary)]">{set.label}</span>
+                <span className="flex items-center gap-2">
+                  <set.attack size={14} className="text-[var(--oracle-danger)]" />
+                  <set.defense size={14} className="text-[var(--oracle-info)]" />
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        {/* Live preview */}
+        <div className="flex items-center gap-3 pt-1">
+          <span className="text-xs text-[var(--oracle-text-muted)]">Preview:</span>
+          <SideIndicator side="attack" iconSet={s.sideIconSet} />
+          <SideIndicator side="defense" iconSet={s.sideIconSet} />
         </div>
       </div>
 
