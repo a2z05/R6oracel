@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Map, Search, Clock, Star, Play, Pause, ChevronDown, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Map, Search, Clock, Star, Play, Pause, ChevronDown, ChevronRight, Download, Check } from "lucide-react";
 import { useOcrStore } from "../../stores/ocr-store.js";
 import { useMapStore } from "../../stores/map-store.js";
 import { useUIStore } from "../../stores/ui-store.js";
@@ -39,6 +39,8 @@ const MODULE_LIST = [
 export function Sidebar() {
   const [mapsOpen, setMapsOpen] = useState(true);
   const [modulesOpen, setModulesOpen] = useState(false);
+  const [packStatus, setPackStatus] = useState<Record<string, { installed: boolean; error?: string }>>({});
+  const [downloading, setDownloading] = useState<string | null>(null);
   const isRunning = useOcrStore((s) => s.isRunning);
   const start = useOcrStore((s) => s.start);
   const stop = useOcrStore((s) => s.stop);
@@ -50,6 +52,45 @@ export function Sidebar() {
   const setSearchQuery = useUIStore((s) => s.setSearchQuery);
   const modules = useSettingsStore((s) => s.modules);
   const toggleModule = useSettingsStore((s) => s.toggleModule);
+
+  // Load pack install state for all maps
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      const entries: Record<string, { installed: boolean; error?: string }> = {};
+      for (const id of MAPS) {
+        try {
+          entries[id] = (await window.oracle?.invoke("map:pack-status", { mapId: id })) as never;
+        } catch {
+          entries[id] = { installed: false };
+        }
+      }
+      if (!cancelled) setPackStatus(entries);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const downloadPack = async (id: string) => {
+    setDownloading(id);
+    try {
+      const result = (await window.oracle?.invoke("map:pack-download", { mapId: id })) as {
+        ok: boolean; rooms?: number; error?: string;
+      };
+      setPackStatus((prev) => ({
+        ...prev,
+        [id]: result.ok
+          ? { installed: true }
+          : { installed: false, error: result.error ?? "Download failed" },
+      }));
+      if (result.ok) void loadMap(id);
+    } catch {
+      setPackStatus((prev) => ({ ...prev, [id]: { installed: false, error: "Download failed" } }));
+    } finally {
+      setDownloading(null);
+    }
+  };
 
   return (
     <div className="w-60 h-full flex flex-col bg-[var(--oracle-bg-surface)] border-r border-[var(--oracle-border)] overflow-y-auto shrink-0">
@@ -82,7 +123,7 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Map Selector */}
+      {/* Map Selector — each map shows its thumbnail + name */}
       <div className="border-b border-[var(--oracle-border)]">
         <button
           onClick={() => setMapsOpen(!mapsOpen)}
@@ -93,20 +134,64 @@ export function Sidebar() {
           {mapsOpen ? <ChevronDown size={12} className="ml-auto" /> : <ChevronRight size={12} className="ml-auto" />}
         </button>
         {mapsOpen && (
-          <div className="px-2 pb-2 max-h-48 overflow-y-auto">
-            {MAPS.map((id) => (
-              <button
-                key={id}
-                onClick={() => void loadMap(id)}
-                className={`w-full text-left px-2.5 py-1 rounded text-sm transition-colors ${
-                  selectedMapId === id
-                    ? "bg-[var(--oracle-accent)]/15 text-[var(--oracle-accent)]"
-                    : "text-[var(--oracle-text-secondary)] hover:bg-white/5 hover:text-[var(--oracle-text-primary)]"
-                }`}
-              >
-                {MAP_LABELS[id] ?? id}
-              </button>
-            ))}
+          <div className="px-2 pb-2 max-h-72 overflow-y-auto space-y-1">
+            {MAPS.map((id) => {
+              const pack = packStatus[id];
+              const isDownloading = downloading === id;
+              return (
+                <div
+                  key={id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => void loadMap(id)}
+                  onKeyDown={(e) => e.key === "Enter" && void loadMap(id)}
+                  className={`w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg cursor-pointer transition-colors group ${
+                    selectedMapId === id
+                      ? "bg-[var(--oracle-accent)]/15"
+                      : "hover:bg-white/5"
+                  }`}
+                >
+                  <img
+                    src={`./maps/${id}.png`}
+                    alt=""
+                    className="w-8 h-8 rounded border border-[var(--oracle-border)] shrink-0"
+                    draggable={false}
+                  />
+                  <span
+                    className={`flex-1 text-left text-sm truncate ${
+                      selectedMapId === id
+                        ? "text-[var(--oracle-accent)] font-medium"
+                        : "text-[var(--oracle-text-secondary)] group-hover:text-[var(--oracle-text-primary)]"
+                    }`}
+                  >
+                    {MAP_LABELS[id] ?? id}
+                  </span>
+                  {pack?.installed ? (
+                    <Check size={13} className="text-[var(--oracle-success)] shrink-0" />
+                  ) : (
+                    <button
+                      title={pack?.error ?? "Download callout data"}
+                      disabled={isDownloading}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        downloadPack(id);
+                      }}
+                      className={`p-1 rounded shrink-0 transition-colors cursor-pointer ${
+                        isDownloading
+                          ? "opacity-50"
+                          : "opacity-40 hover:opacity-100 hover:bg-white/10"
+                      }`}
+                    >
+                      {isDownloading ? (
+                        <span className="block w-3 h-3 border-[1.5px] border-[var(--oracle-accent)] border-t-transparent rounded-full animate-spin" />
+                      ) : (
+                        <Download size={13} className={pack?.error ? "text-[var(--oracle-danger)]" : "text-[var(--oracle-text-secondary)]"} />
+                      )}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>

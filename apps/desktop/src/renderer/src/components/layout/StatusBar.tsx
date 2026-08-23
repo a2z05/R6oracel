@@ -1,9 +1,15 @@
+import { useEffect, useState } from "react";
 import { useOcrStore } from "../../stores/ocr-store.js";
 
 export function StatusBar() {
   const confidence = useOcrStore((s) => s.confidence);
   const currentText = useOcrStore((s) => s.currentText);
   const isRunning = useOcrStore((s) => s.isRunning);
+  const [version, setVersion] = useState("");
+
+  useEffect(() => {
+    window.oracle?.getVersion().then(setVersion).catch(() => {});
+  }, []);
 
   return (
     <div className="h-7 flex items-center justify-between px-4 bg-[var(--oracle-bg-surface)] border-t border-[var(--oracle-border)] text-[11px] text-[var(--oracle-text-muted)] select-none">
@@ -27,7 +33,8 @@ export function StatusBar() {
         )}
       </div>
       <div className="flex items-center gap-4">
-        <span>ORACLE v0.1.0</span>
+        <span className="font-mono text-[10px]">by Vnerxy</span>
+        <span>ORACLE v{version || "…"}</span>
       </div>
     </div>
   );
