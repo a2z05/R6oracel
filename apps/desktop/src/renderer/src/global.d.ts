@@ -16,6 +16,32 @@ interface OracleApi {
   getMapList: () => Promise<Array<{ id: string; name: string }>>;
   getMapRooms: (mapId: string, floor?: number) => Promise<Array<Record<string, unknown>>>;
   downloadAssets: (mapId: string) => Promise<{ status: string }>;
+  getSpawnPeeks: (
+    mapId: string
+  ) => Promise<{
+    ok: boolean;
+    available?: boolean;
+    mapName?: string;
+    error?: string;
+    siteUrl?: string;
+    peeks?: Array<{
+      id: string;
+      name: string;
+      floorName: string | null;
+      floorOrder: number | null;
+      birdsEyeUrl: string | null;
+      xPct: number | null;
+      yPct: number | null;
+      instructions: string[];
+      tip: string | null;
+      difficulty: number | null;
+      risk: string | null;
+      successRate: number | null;
+      votes: number | null;
+      mediaUrl: string | null;
+      url: string;
+    }>;
+  }>;
   getStats: () => Promise<{ rss: number; heapUsed: number; heapTotal: number }>;
   getMobileQr: () => Promise<{ qr: string | null; url: string | null }>;
   getVersion: () => Promise<string>;

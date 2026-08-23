@@ -1,0 +1,864 @@
+{
+  "operations": [
+    {
+      "id": "PATHFINDER",
+      "color": "black",
+      "name": "Pathfinder",
+      "year": 0,
+      "season": 1,
+      "releaseMonth": 12,
+      "releaseYear": 2015,
+      "doc": "Game release."
+    },
+    {
+      "id": "BLACKICE",
+      "color": "#2e93b3",
+      "name": "Black Ice",
+      "year": 1,
+      "season": 1,
+      "releaseMonth": 2,
+      "releaseYear": 2016,
+      "doc": "Continue the Siege with our first major content update, Operation Black Ice, which gives you access to the new Yacht map, two new JTF2 operators, new weapon skins, a spectator camera on all platforms and more."
+    },
+    {
+      "id": "DUSTLINE",
+      "color": "#d0a344",
+      "name": "Dust Line",
+      "year": 1,
+      "season": 2,
+      "releaseMonth": 5,
+      "releaseYear": 2016,
+      "doc": "In Operation Dust Line, two Navy SEAL Operators join Team Rainbow to secure the \"Border\" - our new free map. This second major content update also introduces new weapon skins, advanced customisation options, the ability to change your loadouts between rounds and lots more."
+    },
+    {
+      "id": "SKULLRAIN",
+      "color": "#47893b",
+      "name": "Skull Rain",
+      "year": 1,
+      "season": 3,
+      "releaseMonth": 8,
+      "releaseYear": 2016,
+      "doc": "In Operation Skull Rain, two BOPE Operators join Team Rainbow to pacify the Favela, our new free map. This third major content update aims to improve the game experience by adding countermeasures for toxic behavior, a new weapon attachment, several game enhancements, customisation content and lots more."
+    },
+    {
+      "id": "REDCROW",
+      "color": "#bd1e2c",
+      "name": "Red Crow",
+      "year": 1,
+      "season": 4,
+      "releaseMonth": 11,
+      "releaseYear": 2016,
+      "doc": "In Operation Red Crow, two S.A.T. Operators join Team Rainbow to neutralize the threat residing in our new free map, \"Skyscraper\". This fourth major content update aims to improve game experience, offers new customization opportunities and lots more. The new map Skyscraper also offers fresh tactical opportunities for group-based assaults."
+    },
+    {
+      "id": "VELVETSHELL",
+      "color": "#723093",
+      "name": "Velvet Shell",
+      "year": 2,
+      "season": 1,
+      "releaseMonth": 2,
+      "releaseYear": 2017,
+      "doc": "In Operation Velvet Shell, two G.E.O. Operators join Team Rainbow to regain control of the \"Coastline\". Following a year of post-launch content, this major update aims to improve player comfort with an upgraded navigation interface, customisation selections and lots more."
+    },
+    {
+      "id": "HEALTH",
+      "color": "#0050b3",
+      "name": "Health",
+      "year": 2,
+      "season": 2,
+      "releaseMonth": 5,
+      "releaseYear": 2017,
+      "doc": "Operation Health has been all about fixing several issues and investing in better technology to make sure we keep growing strong in the upcoming years. It focused on three main pillars: technical improvements, a new deployment process and addressing top community reported bugs."
+    },
+    {
+      "id": "BLOODORCHID",
+      "color": "#ca361c",
+      "name": "Blood Orchid",
+      "year": 2,
+      "season": 3,
+      "releaseMonth": 8,
+      "releaseYear": 2017,
+      "doc": "In Operation Blood Orchid, two Special Duties Unit Operators join Team Rainbow to raid Theme Park. This third season will showcase a reworking of the Operators and maps following an optimization of our data, namely a rework of textures, polished dynamic and static lighting, richer sky domes, new customization, and much more."
+    },
+    {
+      "id": "WHITENOISE",
+      "color": "#006543",
+      "name": "White Noise",
+      "year": 2,
+      "season": 4,
+      "releaseMonth": 11,
+      "releaseYear": 2017,
+      "doc": "In White Noise, Team Rainbow premieres two Operators from the 707th Special Mission Battalion for a rescue mission high up Mok Myeok Tower, our new free map. Joining them is our second GROM Specialist turned Rainbow Operator."
+    },
+    {
+      "id": "CHIMERA",
+      "color": "#ffc113",
+      "name": "Chimera",
+      "year": 3,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2018,
+      "doc": "With Operation Chimera, we are exploring a new fantasy: quarantine and biohazard. The two operators are biohazard specialists from France and Russia. During this first Season, our first major coop event, Outbreak, will take place over four weeks"
+    },
+    {
+      "id": "PARABELLUM",
+      "color": "#949f39",
+      "name": "Para Bellum",
+      "year": 3,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2018,
+      "doc": "In Operation Para Bellum, two G.I.S. Operators thrive under the blaze of the Tuscan sun. Team Rainbow is deploying Maestro and Alibi in the villa of one of the most dangerous crime families."
+    },
+    {
+      "id": "GRIMSKY",
+      "color": "#81a0c1",
+      "name": "Grim Sky",
+      "year": 3,
+      "season": 3,
+      "releaseMonth": 9,
+      "releaseYear": 2018,
+      "doc": "For Operation Grim Sky, Rainbow Six is deploying Clash and Maverick. Experts in mob behavior and high-precision strikes respectively, they'll also assess the new training facilities at the reworked Hereford Base. Out with the old and in with the new."
+    },
+    {
+      "id": "WINDBASTION",
+      "color": "#aa854f",
+      "name": "Wind Bastion",
+      "year": 3,
+      "season": 4,
+      "releaseMonth": 12,
+      "releaseYear": 2018,
+      "doc": "New to Rainbow Six are Kaid and Nomad for Operation Wind Bastion. These two Operators are right at home at the reputable Kasbah Sekhra Mania, the featured Fortress map in Morocco. Join the very best at this elite training ground."
+    },
+    {
+      "id": "BURNTHORIZON",
+      "color": "#d2005a",
+      "name": "Burnt Horizon",
+      "year": 4,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2019,
+      "doc": "Rainbow Six goes to the land Down Under for Operation Burnt Horizon. Protection specialists with the SASR Mobility Platoon, Gridlock and Mozzie are assigned protection detail for a high-value convoy across sunburnt country."
+    },
+    {
+      "id": "PHANTOMSIGHT",
+      "color": "#304395",
+      "name": "Phantom Sight",
+      "year": 4,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2019,
+      "doc": "Sharpen your eyes with Operation Phantom Sight! Become invisible to cameras and drones and move quietly with Nøkk and her Hel gadget. Watch your enemies through smokes and be immune to flashes with Warden and his Glance Smart Glasses. Rediscover Kafe as you have never seen it with the rework of the map."
+    },
+    {
+      "id": "EMBERRISE",
+      "color": "#156309",
+      "name": "Ember Rise",
+      "year": 4,
+      "season": 3,
+      "releaseMonth": 9,
+      "releaseYear": 2019,
+      "doc": "Something new is on the horizon, and Operation Ember Rise will shed light on it. Two operators, Amaru and Goyo, were recruited from Peru and Mexico, bringing with them innovation and change to Rainbow Six, along with a thrilling rework to Kanal."
+    },
+    {
+      "id": "SHIFTINGTIDES",
+      "color": "#089eb3",
+      "name": "Shifting Tides",
+      "year": 4,
+      "season": 4,
+      "releaseMonth": 12,
+      "releaseYear": 2019,
+      "doc": "Rise from the depths this season with Operation Shifting Tides. Try Kali and her explosive underbarrel gadget that lets her use it for more than just punching holes in walls and Operators. On the other side of the action, strange things happening to grenades, as Wamai deploys a new gadget with magnetic appeal. With them, expect a newly reworked Theme Park to surface."
+    },
+    {
+      "id": "VOIDEDGE",
+      "color": "#946a97",
+      "name": "Void Edge",
+      "year": 5,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2020,
+      "doc": "For the fifth year of Rainbow 6 Siege, give some space to our two new operators as they break into this season with their unique abilities. Thanks to her Gemini Replicator, attacker Iana can create a usable clone of herself, while Defender Oryx can use his Remah Dash against enemies and walls."
+    },
+    {
+      "id": "STEELWAVE",
+      "color": "#2b7f9b",
+      "name": "Steel Wave",
+      "year": 5,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2020,
+      "doc": "Don't miss a beat with Operation Steel Wave. Discover the new hard-breacher Ace and his S.EL.M.A Aqua Breacher that combines the demolitionist's explosive force with the humanitarian's care. On the other side of the action, don't be too alarmed if you find yourself slowed when there's no barbed wire underfoot. This is the Banshee Sonic Defence that will alert Melusi of your presence. With them, expect a newly reworked House coming into the game."
+    },
+    {
+      "id": "SHADOWLEGACY",
+      "color": "#6ca511",
+      "name": "Shadow Legacy",
+      "year": 5,
+      "season": 3,
+      "releaseMonth": 7,
+      "releaseYear": 2020,
+      "doc": "Get out from the dark with this season Operation Shadow Legacy. Test Zero and his Argus Launcher and get your eyes where you are not supposed to see. Explore the newly reworked Chalet and discover all the new features brought to you with Operation Shadow Legacy."
+    },
+    {
+      "id": "NEONDAWN",
+      "color": "#d14007",
+      "name": "Neon Dawn",
+      "year": 5,
+      "season": 4,
+      "releaseMonth": 12,
+      "releaseYear": 2020,
+      "doc": "You can find confort or hardship in the light. Operator Aruni and her Surya Gate will be waiting fordrones, Operators and their gadgets to come through. Defenders are free to roam, while Attackers should move with extra caution. Plus, a newly reworked Skyscraper is about to surface."
+    },
+    {
+      "id": "CRIMSONHEIST",
+      "color": "#ac0000",
+      "name": "Crimson Heist",
+      "year": 6,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2021,
+      "doc": "In life, you have to commit to the things that make you happy. For Operator Flores and his RCE-Ratero, it's stealing the corrupt to help his fellow citizens. Additionally, you will be able to roam the newly reworked Border."
+    },
+    {
+      "id": "NORTHSTAR",
+      "color": "#009cbe",
+      "name": "North Star",
+      "year": 6,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2021,
+      "doc": "Guided by the spirits, Thunderbird uses her ability to protect and heal. She can deploy Kóna stations at several places on the map and operators standing next to them can absorb their charge to heal themselves. The Kóna stations can overheal and even revive a downed operator. But be careful though, both allies and enemies can use them! Additionally, Favela sees big changes with a rework."
+    },
+    {
+      "id": "CRYSTALGUARD",
+      "color": "#ffa200",
+      "name": "Crystal Guard",
+      "year": 6,
+      "season": 3,
+      "releaseMonth": 9,
+      "releaseYear": 2021,
+      "doc": "Innovation is natural for Osa while she reinforces the attacking team's position. She can deploy the Talon-8 clear shields on doors, door or window frames or keep it in hands to navigate through the map. The Talon-8 shields ere bulletproof but transparent and let both side see through so be careful when positionning them. Additionally, Bank, Club House and Coastline see some changes to add more comfort."
+    },
+    {
+      "id": "HIGHCALIBRE",
+      "color": "#587624",
+      "name": "High Calibre",
+      "year": 6,
+      "season": 4,
+      "releaseMonth": 11,
+      "releaseYear": 2021,
+      "doc": "Thorn, an inspirational leader from the National Police Service of the Republic of Ireland is ready to trap the Attacking Team. She is always ready to deploy the Razorbloom Shell, a special gadget which initiates a timed explosion once triggered. You can play as Thorn on the newly reworked Outback map and prevent the Attackers from defusing the objective!"
+    },
+    {
+      "id": "DEMONVEIL",
+      "color": "#2861ca",
+      "name": "Demon Veil",
+      "year": 7,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2022,
+      "doc": "Demon Veil introduces exciting new content like Azami, a new Defender from Japan, a brand new map, and a permanent game mode: Team Deathmatch. Azami's Kiba Barrier can shut down sightlines, block off entry points, and create entirely new angles of defense all with a flick of her wrist. Also coming with this season is the Attacker Repick which brings another strategic option to the Prep Phase, a balancing change for Goyo, Match Replay for console and more."
+    },
+    {
+      "id": "VECTORGLARE",
+      "color": "#60cdb0",
+      "name": "Vector Glare",
+      "year": 7,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2022,
+      "doc": "Divert enemy attention and gain the upper hand with Sens, the new Operator from the Belgian Special Forces Group. Sens comes equipped with the brand-new POF9 assault rifle and the R.O.U. Projector System ability, allowing them to break line of sight and turn the tide of battle. Operation Vector Glare also introduces the Shooting Range and a new Team Deathmatch map set in Greece, offering fresh venues to hone your skills and put them to the test."
+    },
+    {
+      "id": "BRUTALSWARM",
+      "color": "#dac925",
+      "name": "Brutal Swarm",
+      "year": 7,
+      "season": 3,
+      "releaseMonth": 9,
+      "releaseYear": 2022,
+      "doc": "Operation Brutal Swarm clears the way for our new Singaporean Attacker: Grim. Discover his gadget, the Kawan Hive Launcher: with no reload and a low fire rate, it allows for Intel-Gathering and Area Denial. Stadium will now be a permanent map where you can defy your opponents in ranked matches. This season also brings major balancing updates that will shake things up."
+    },
+    {
+      "id": "SOLARRAID",
+      "color": "#d03314",
+      "name": "Solar Raid",
+      "year": 7,
+      "season": 4,
+      "releaseMonth": 12,
+      "releaseYear": 2022,
+      "doc": "Meet our new intel-gathering Defender, Solis, and her SPEC-IO Electro-Sensor. This season also marks the release of long-awaited improvements like Cross-play, Cross-progression and Reputation Score (beta). In addition, Operation Solar Raid includes a brand-new competitive Map, Nighthaven Labs, a completely revamped Battle Pass, Ranked 2.0, and much more."
+    },
+    {
+      "id": "COMMANDINGFORCE",
+      "color": "#45abf3",
+      "name": "Commanding Force",
+      "year": 8,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2023,
+      "doc": "Sabotage enemy drones and make them your own with Brava, our newest Brazilian Attacker joining Siege! Her Kludge Drone disrupts hostile surveillance and converts enemy technology them to her own. Year 8 Season 1 also brings exciting new updates, like the new immersive reload system that rewards tactical play, a mouse and keyboard penalty that will make the console environment more fair, as well as more balance changes, anti-toxicity efforts, and much more."
+    },
+    {
+      "id": "DREADFACTOR",
+      "color": "#6432ef",
+      "name": "Dread Factor",
+      "year": 8,
+      "season": 2,
+      "releaseMonth": 5,
+      "releaseYear": 2023,
+      "doc": "This season introduces Fenrir, an expert in Neuroscience, armed with mines that when triggered induces terror in his enemies and impairs their vision. Year 8 Season 2 also brings exciting new updates like the rework of Consulate from the ground up, a new aiming lane in the Shooting Range that allows customization of target speed, movement, and quantity, plus the permanent arcade playlist that includes many favorite modes such as Headhshot and Golden Gun!"
+    },
+    {
+      "id": "HEAVYMETTLE",
+      "color": "#fe7e00",
+      "name": "Heavy Mettle",
+      "year": 8,
+      "season": 3,
+      "releaseMonth": 8,
+      "releaseYear": 2023,
+      "doc": "Discover new breaching strategies with South Korean powerhouse, Ram equipped with the deployable BU-GI Auto Breacher, a mini tank capable of forging a path of destruction. Year 8 Season 3 brings exciting new updates to the Siege playlist like the upgraded Quick Match 2.0 and a redesigned Unranked(now called Standard), offering a streamlined Siege experience. Heavy Mettle will also introduce a fresh Player Commendation system allowing players to rate otherplayers on the experience they had playing together, and an all-new Arcade game mode in the form of Weapon Roulette to keep you adapting to your arsenal on the fly!"
+    },
+    {
+      "id": "DEEPFREEZE",
+      "color": "#55a1aa",
+      "name": "Deep Freeze",
+      "year": 8,
+      "season": 4,
+      "releaseMonth": 11,
+      "releaseYear": 2023,
+      "doc": "Play it cool and control the battle with the new Portuguese Operator, Tubarão. He is equipped with Zoto Canisters, throwable devices that can stick to any surface and freezes the area, temporarily disabling all gadgets affected by the ice. Enemies stepping into the frozen area are slowed and leave footprints, revealing their location to Tubarão. Deep Freeze also introduces a brand new Ranked map, Lair, item trading with the Marketplace (beta), full launch of the Reputation system, balancing updates, and controller remapping."
+    },
+    {
+      "id": "DEADLYOMEN",
+      "color": "#f14b37",
+      "name": "Deadly Omen",
+      "year": 9,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2024,
+      "doc": "Operation Deadly Omen marks a historic moment as the first villain Operator, Deimos, joins the roster. Track down your enemies with his DeathMARK gadget, a flying probe which reveals both a designated target and Deimos' locations until one is eliminated. Year 9 Season 1 also brings an impactful upgrade for attachments &amp; ADS, and revamped shield mechanics to reinforce Siege's tactical gameplay. Additionally Deadly Omen introduces player protection improvements as well as an inventory management menu for you to optimize your gear, and much more."
+    },
+    {
+      "id": "NEWBLOOD",
+      "color": "#f58223",
+      "name": "New Blood",
+      "year": 9,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2024,
+      "doc": "Operation New Blood introduces the first Operator Remaster in Siege, and who better to inaugurate this event than the iconic Recruit. Meet Striker, the attacker recruit, and Sentry, the defender recruit, who will be unlocked for all players and in all modes, including Ranked. All Battle Pass owners will receive an Operator Voucher that they can redeem for any Operator. Season 2 also brings the new Rainbow Six Siege Membership which gives players a monthly drop of exclusive content and full access to the Battle Pass. In addition, Operator balance updates for Fenrir and Solis as well as the Marketplace full release, and a Map preset feature will be introduced."
+    },
+    {
+      "id": "TWINSHELLS",
+      "color": "#c028d6",
+      "name": "Twin Shells",
+      "year": 9,
+      "season": 3,
+      "releaseMonth": 9,
+      "releaseYear": 2024,
+      "doc": "Operation Twin Shells introduces a game-changing operator. Meet Skopós, the tactical mastermind deploying modern robotics technology to outmaneuver her foes. Operation Twin Shells also brings enhanced player protection with improved encryption, the ingame tournament Siege Cup (Beta) offering exclusive rewards, and increased player comfort through a redesigned After Action Report and the new Drone Boost mechanic for faster intel gathering. Additionally, the Versus AI 2.0 update will allow new players to defend against AI and new items will be added to the Marketplace."
+    },
+    {
+      "id": "COLLISIONPOINT",
+      "color": "#c1922c",
+      "name": "Collision Point",
+      "year": 9,
+      "season": 4,
+      "releaseMonth": 12,
+      "releaseYear": 2024,
+      "doc": "This season brings exciting new features to Rainbow Six Siege, including crossplay between PC and console, strengthened player protection with the Cheater Match Cancellation system and Mousetrap V2, balancing update for shields, a remaster of Blackbeard and the full release of the Siege Cup tournament."
+    },
+    {
+      "id": "PREPPHASE",
+      "color": "#ff6d20",
+      "name": "Prep Phase",
+      "year": 10,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2025,
+      "doc": "Seize control over the flow of battle in Operation Prep Phase. The new Attack Operator, Rauora, lets you provide cover and open new tactical paths to victory with the unique D.O.M. Panel gadget. The first season also includes the full release of the Reputation System and a update."
+    },
+    {
+      "id": "DAYBREAK",
+      "color": "#70808f",
+      "name": "Daybreak",
+      "year": 10,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2025,
+      "doc": "Operation Daybreak marks a historical moment for Rainbow Six Siege with the launch of Siege X. Get ready to explore modernized maps, plan new strategies with destructible ingredients and advanced rappel, play the new Dual Front game mode and so much more! The new season also introduces the Clash Operator Remaster, and a set of new anti-cheat and balancing updates."
+    },
+    {
+      "id": "HIGHSTAKES",
+      "color": "#ca0b0b",
+      "name": "High Stakes",
+      "year": 10,
+      "season": 3,
+      "releaseMonth": 9,
+      "releaseYear": 2025,
+      "doc": "Operation High Stakes brings the heat! Get ready for Denari, the first new R6 Siege X Operator joining the ranks with a powerful gadget and a new secondary weapon. Season 3 also introduces the modernized versions of Consulate, Nighthaven Labs and Lair, alongside R6 ShieldGuard updates, Operator balancing updates and more."
+    },
+    {
+      "id": "TENFOLDPURSUIT",
+      "color": "#906f79",
+      "name": "Tenfold Pursuit",
+      "year": 10,
+      "season": 4,
+      "releaseMonth": 12,
+      "releaseYear": 2025,
+      "doc": "Operation Tenfold Pursuit kicks off R6 Siege's 10th Anniversary celebrations. Expect a new special in-game event, a new primary weapon, a Fortress map rework coming to Ranked mode, a Thatcher remaster and more. Season 4 also includes Player Protection updates and multiple Balancing changes for Operators."
+    },
+    {
+      "id": "SILENTHUNT",
+      "color": "#8adcad",
+      "name": "Silent Hunt",
+      "year": 11,
+      "season": 1,
+      "releaseMonth": 3,
+      "releaseYear": 2026,
+      "doc": "Operation Silent Hunt welcomes the iconic Solid Snake Operator, joining R6 Siege with his powerful abilities and a new weapon. This season also brings a new in-game event inspired by the Metal Gear Solid universe, balancing updates, a 1v1 Arcade mode, new modernized maps and more !"
+    },
+    {
+      "id": "SYSTEMOVERRIDE",
+      "color": "#fd6e72",
+      "name": "System Override",
+      "year": 11,
+      "season": 2,
+      "releaseMonth": 6,
+      "releaseYear": 2026,
+      "doc": "Operation System Override delivers a major content update including the Ranked Overhaul [3.0] and the new Calypso Casino map. Dokkaebi brings in the new XK23 Assault Rifle and receives a remaster with the Jegeo Payload ability. Get ready for the new season, launching June 2."
+    }
+  ],
+  "organizations": [
+    {
+      "id": "SAS",
+      "color": "rgb(144, 111, 121)",
+      "short": "SAS",
+      "name": "Special Air Service",
+      "doc": "Founded in 1941, the Special Air Service (S.A.S) was a unit of the British Army during WW2. The S.A.S. moved from obscurity in 1980 when they successfully rescued hostages from the Iranian Embassy siege. Their focus is on counter terrorism, hostage rescues and covert operations.",
+      "operation": "PATHFINDER"
+    },
+    {
+      "id": "FBISWAT",
+      "color": "rgb(215, 91, 43)",
+      "short": "FBI SWAT",
+      "name": "FBI Special Weapons and Tactics Teams",
+      "doc": "Created in 1983, The FBI Enhanced Special Weapons and Tactics (SWAT) Teams are trained to intervene in high-risk situations. Their expertise varies from hostage rescues, aircraft hijackings, tracking fugitives, stronghold and tubular assaults, to specialized sniper operations.",
+      "operation": "PATHFINDER"
+    },
+    {
+      "id": "GIGN",
+      "color": "rgb(27, 54, 82)",
+      "short": "GIGN",
+      "name": "Groupe d'intervention de la Gendarmerie nationale",
+      "doc": "The National Gendarmerie Intervention Group (GIGN) created in 1973, specializes in counter-terrorist and rescue operations. They've taken part in over 1000 operations and have been selected by the ICAO to teach other member states Spec Ops hostage-rescue exercises abroad planes.",
+      "operation": "PATHFINDER"
+    },
+    {
+      "id": "SPETSNAZ",
+      "color": "rgb(170, 21, 18)",
+      "short": "SPETSNAZ",
+      "name": "Spetsial'noïe Naznatchéniyé",
+      "doc": "Created in 1974, Spetsnaz are members of Russian units dedicated to counter-terrorism, paramilitary and covert operations. They're tasked with protecting Russia's strategic installations, both domestic and international, though little is known is about the exact nature of their mission.",
+      "operation": "PATHFINDER"
+    },
+    {
+      "id": "GSG9",
+      "color": "rgb(248, 168, 40)",
+      "short": "GSG 9",
+      "name": "Grenzschutzgruppe 9",
+      "doc": "After the 1972 Munich Massacre, GSG 9 was formed to combat the growing threat of terrorism. Due to a problematic military history, GSG 9 grew from the German Federal Border Guard Service/Police. GSG 9 specializes in mitigating crisis situations, such as hostage-taking, kidnapping, terrorism, and extortion.",
+      "operation": "PATHFINDER"
+    },
+    {
+      "id": "JTF2",
+      "color": "rgb(17, 126, 163)",
+      "short": "JTF2",
+      "name": "Joint Task Force 2",
+      "doc": "Due to public concern over the RCMP SERT police officers being taught to use primarily lethal means, the Joint Task Force 2 (JTF2) was activated in 1992. The Government of Canada does not comment on JTF2 and much of the information regarding the unit is classified.",
+      "operation": "BLACKICE"
+    },
+    {
+      "id": "NAVYSEALS",
+      "color": "rgb(206, 160, 36)",
+      "short": "NAVY SEALS",
+      "name": "Sea, Air and Land",
+      "doc": "Commissioned in 1942, the Amphibious Scouts and Raiders saw combat in November 1942 during Operation Torch. Comprised of small highly trained teams, this group would evolve into the NAVY SEAL, who get their name from the environments in which they operate: sea, air and land.",
+      "operation": "DUSTLINE"
+    },
+    {
+      "id": "BOPE",
+      "color": "rgb(76, 141, 64)",
+      "short": "BOPE",
+      "name": "Batalhão de Operações Policiais Especiais",
+      "doc": "Rio de Janeiro State's Military Police BOPE units have extensive experience in guerilla and urban warfare. Working in the Favelas makes them experts in close quarter combat. BOPE's primary focus is supporting local law enforcement in the suppression of crime and drug trafficking.",
+      "operation": "SKULLRAIN"
+    },
+    {
+      "id": "SAT",
+      "color": "rgb(154, 39, 62)",
+      "short": "SAT",
+      "name": "Special Assault Teams",
+      "doc": "Officially classified until 1996. Japan's Special Assault Team (S.A.T.) has since been collaborating with the S.A.S., GIGN, GSG-9 and FBI SWAT. Comprised of highly trained teams spread throughout Japan, the S.A.T. is a paramilitary counter-terrorism unit.",
+      "operation": "REDCROW"
+    },
+    {
+      "id": "GEO",
+      "color": "rgb(111, 46, 140)",
+      "short": "GEO",
+      "name": "Grupo Especial de Operaciones",
+      "doc": "The Spanish Grupo Especial de Operaciones (G.E.O.) was founded in 1977 to counter the increasing threat of terror during Spain's transition to a Democratic government. Today, the unit prides itself on hostage rescue, disrupting terrorist plots and neutralizing organized crime.",
+      "operation": "VELVETSHELL"
+    },
+    {
+      "id": "SDU",
+      "color": "rgb(174, 83, 50)",
+      "short": "SDU",
+      "name": "Special Duties Unit",
+      "doc": "Hong Kong's Special Duties Unit (S.D.U.) was formed in 1974. Through training with the S.A.S it has become one of the most potent Special Forces units in the world. The S.D.U. handles police and military operations over the sea, air, and land, specializing in anti-terrorism and hostage rescue.",
+      "operation": "BLOODORCHID"
+    },
+    {
+      "id": "GROM",
+      "color": "rgb(84, 157, 155)",
+      "short": "GROM",
+      "name": "Grupa Reagowania Operacyjno-Manewrowego",
+      "doc": "JW GROM was officially activated in 1990, but the elusive unit only went public in 1994. Their namesake is derived from the legendary WWII Silent Unseen. Specialists in unconventional warfare roles, they are famous for leading anti-terrorist operations deep behind enemy lines.",
+      "operation": "BLOODORCHID"
+    },
+    {
+      "id": "SMB",
+      "color": "rgb(196, 206, 207)",
+      "short": "707th SMB",
+      "name": "707th Special Mission Battalion",
+      "doc": "The 707th Special Mission Battalion was created to protect the 1988 Seoul Olympics. The \"White Tigers\", named for the revered legend, train in subzero temperatures, engaged in joint peacekeeping operations, maintain an all-female division, and neutralize threats to Korea. Their operators possess black belts in multiple martial arts.",
+      "operation": "WHITENOISE"
+    },
+    {
+      "id": "CBRN",
+      "color": "rgb(250, 174, 27)",
+      "short": "CBRN",
+      "name": "Chemical, Biological, Radiological, Nuclear Threat Unit",
+      "doc": "The growing threat of biological and chemical attacks propelled all Special Forces Units to receive training to function under extreme conditions and to handle hazardous materials. Six created the Chemical, Biological, Radiological, Nuclear (CBRN) Threat Unit, formalizing a standard in best practices in the event of such attacks. CBRN operators are experts at handling Level 4 crisis hotzones.",
+      "operation": "CHIMERA"
+    },
+    {
+      "id": "GIS",
+      "color": "rgb(102, 109, 35)",
+      "short": "GIS",
+      "name": "Gruppo di Intervento Speciale",
+      "doc": "The GIS is headquartered in Livorno and falls under the authority of Comando interforze per le Operazioni delle Forze Speciali (COFS). Both the Ministry of Defense and the Ministry of the Interior can call them into action without a judge's approval. Their combat section includes three detachments of four-operative teams. The exploration, reconnaissance, and scouting section uses three operator-teams that include: two fighters, one explorer. They also maintain a sniper/recon team with two snipers and one scout.",
+      "operation": "PARABELLUM"
+    },
+    {
+      "id": "GSUTR",
+      "color": "rgb(111, 128, 143)",
+      "short": "GSUTR",
+      "name": "Grim Sky Urban Tactical Response Team",
+      "doc": "The Urban Tactical Response Team, codenamed Grim Sky (or GSUTR) is Rainbow's testbed for operations in dense urban centers. It draws on such expertise as riot-officers for mob behavior and intelligence operators for converting local assets and building allied networks. The core operators are Maverick and Clash, but the unit also employs the expertise of Caveira, Bandit, Alibi, Castle, and Ying. Grim Sky trains operators on navigating and surviving in hostile cities or evading and diverting mobs.",
+      "operation": "GRIMSKY"
+    },
+    {
+      "id": "GIGR",
+      "color": "rgb(168, 131, 79)",
+      "short": "GIGR",
+      "name": "Groupe d'Intervention de La Gendarmerie Royale",
+      "doc": "GIGR (Groupe d'Intervention de La Gendarmerie Royale) is a regiment consisting of specialized military units within the Royal Moroccan Gendarmerie. Their base of operations and missions have been kept top secret, while part of their special training has involved dealing with extremist ideologies and negotiation tactics. Their primary function: dismantle insurgent operations and intervene in emergency crises.",
+      "operation": "WINDBASTION"
+    },
+    {
+      "id": "SASR",
+      "color": "rgb(207, 1, 88)",
+      "short": "SASR",
+      "name": "Special Air Service Regiment",
+      "doc": "The Special Air Service Regiment (SASR or SAS) shares the name of the unit that inspired its creation back in 1957. This Australian Army's Special Forces unit consists of 4 Sabre Squadrons and specialists at counter-insurgency operations,special reconnaissance,counter-terrorism,mobility operations,unconventional warfare and hvt manhunting operations.",
+      "operation": "BURNTHORIZON"
+    },
+    {
+      "id": "JAEGERCORPS",
+      "color": "rgb(46, 62, 134)",
+      "short": "JAEGER CORPS",
+      "name": "Jægerkorpset",
+      "doc": "Denmark's Jægerkorpset (Jaeger Corps) was minted in the early Sixties as a Cold War unit since turned counter-terrorism specialists. They are specialized in long-range reconnaissance and parachuting, as well as counter-terrorism, combat swimming, and demolitions to name a few of their skills. They have served with distinction alongside the U.S. Navy SEALS and British SAS.",
+      "operation": "PHANTOMSIGHT"
+    },
+    {
+      "id": "SECRETSERVICE",
+      "color": "rgb(46, 62, 134)",
+      "short": "SECRET SERVICE",
+      "name": "U.S. Secret Service",
+      "doc": "The U.S. Secret Service (or simply Secret Service) is a Federal Law Enforcement Agency formed in 1865 to investigate counterfeiting during the American Civil War. The Secret Service has the dual role of protecting its nation's leaders as well as safeguarding the U.S. financial infrastructure. Since 2003, they have been under the aegis of the Department of Homeland Security.",
+      "operation": "PHANTOMSIGHT"
+    },
+    {
+      "id": "APCA",
+      "color": "rgb(17, 87, 7)",
+      "short": "APCA",
+      "name": "Asociación de Patrimonio Cultural Arqueológico",
+      "doc": "The Asociación de Patrimonio Cultural Arqueológico (lit. Archaeological Cultural Patrimony Association) or APCA is a paramilitary Anti Archaeological Looting organization in Peru. It was established by Azucena Rocío \"Amaru\" Quispe.",
+      "operation": "EMBERRISE"
+    },
+    {
+      "id": "FES",
+      "color": "rgb(17, 87, 7)",
+      "short": "FES",
+      "name": "Fuerzas Especiales",
+      "doc": "The Fuerzas Especiales (Special Forces), also known as FES (the initials of their motto, Fuerza, Espíritu, Sabiduría), is a Special forces unit of the Mexican Navy officially established in late 2001.",
+      "operation": "EMBERRISE"
+    },
+    {
+      "id": "NIGHTHAVEN",
+      "color": "rgb(45, 198, 210)",
+      "short": "NIGHTHAVEN",
+      "name": "NIGHTHAVEN Private Military Company",
+      "doc": "NIGHTHAVEN is a Private Military Company that was founded and is currently led by Jaimini Kalimohan Shah.",
+      "operation": "SHIFTINGTIDES"
+    },
+    {
+      "id": "REU",
+      "color": "rgb(149, 108, 149)",
+      "short": "REU",
+      "name": "REU organization",
+      "doc": "The REU is a space development organization in Europe",
+      "operation": "VOIDEDGE"
+    },
+    {
+      "id": "UNAFFILIATED",
+      "color": "rgb(0, 0, 0)",
+      "short": "UNAFFILIATED",
+      "name": "UNAFFILIATED",
+      "doc": "Freelance operators who work independently and are not affiliated with any specific organization.",
+      "operation": "VOIDEDGE"
+    },
+    {
+      "id": "ITF",
+      "color": "rgb(74, 142, 156)",
+      "short": "ITF",
+      "name": "Inkaba Task Force",
+      "doc": "The Inkaba Task Force Anti-Poaching Unit (ITF) is an conservation group based in South Africa. Founded in 2008, it is led by Thandiwe Ndlovu",
+      "operation": "STEELWAVE"
+    },
+    {
+      "id": "ROS",
+      "color": "rgb(112, 177, 60)",
+      "short": "ROS",
+      "name": "Rainbow Operation Staff",
+      "doc": "The Rainbow Operation Staff is a training division of Team Rainbow",
+      "operation": "SHADOWLEGACY"
+    },
+    {
+      "id": "SNA",
+      "color": "rgb(81, 161, 74)",
+      "short": "SNA",
+      "name": "STAR-NET Aviation",
+      "doc": "STAR-NET Aviation is an aviation company",
+      "operation": "NORTHSTAR"
+    },
+    {
+      "id": "ERU",
+      "color": "rgb(35, 45, 15)",
+      "short": "GARDA SÍOCHÁNA",
+      "name": "Emergency Response Unit",
+      "doc": "The Emergency Response Unit (ERU) (Irish: Aonad Práinnfhreagartha) is the police tactical unit of the Garda Síochána, Ireland's national police and security service. The Garda ERU provides the highest tier of firearms response to Irish law enforcement, specialising in weapons tactics, counter-terrorism, execution of high-risk missions, crisis negotiation, hostage rescue and close protection, among other roles. The unit was formed in 1977 as the \"Special Task Force\" to assist ordinary members of the force in extraordinary situations. The ERU regularly trains with the Irish Army Ranger Wing (ARW), the country's military special operations forces, sharing facilities and equipment.",
+      "operation": "HIGHCALIBRE"
+    },
+    {
+      "id": "SFG",
+      "color": "rgb(41, 77, 68)",
+      "short": "SFG",
+      "name": "Special Forces Group",
+      "doc": "The Special Forces Group (SFG) is the special forces unit in the Land Component of the Belgian Armed Forces. Tracing its history back to the 5th Special Air Service of World World II, the SFG was established from the 3rd Regiment Lanciers Parachutisten in April 2000. In February 2003, the Special Forces Group became an independent unit when the 3rd Regiment Lanciers was disbanded. In December 2011 the unit's banner, flag, insignia and traditions were officially handed over to SFG to carry on from the 5th SAS and 1 Para linage. In July 2018, the SFG and other units were reorganized to fall under the newly inaugurated Special Operations Regiment (SOR).",
+      "operation": "VECTORGLARE"
+    },
+    {
+      "id": "AFEAU",
+      "color": "rgb(207, 51, 20)",
+      "short": "AFEAU",
+      "name": "Agrupación de Fuerzas Especiales Antiterroristas Urbanas",
+      "doc": "The Urban Counter-Terrorism Special Forces Group - Alpha, otherwise known as AFEUR or AFEAU (Spanish: Agrupación de Fuerzas Especiales Antiterroristas Urbanas) is the army detachment of the elite AFEAU special operations group within the Colombian Armed Forces, dedicated to performing counter-terrorism operations, HVT acquisition or elimination, and hostage rescue.",
+      "operation": "SOLARRAID"
+    },
+    {
+      "id": "COT",
+      "color": "rgb(100, 65, 16)",
+      "short": "COT",
+      "name": "Comando de Operações Táticas",
+      "doc": "The Comando de Operações Táticas (Portuguese for Command Of Tactical Operations), mostly known by its acronym COT, is the tactical unit of the Federal Police of Brazil. It was created after Brazilian parliament recommendations, in an attempt to have a specialized counter-terrorism force. It was placed in service in 1987",
+      "operation": "COMMANDINGFORCE"
+    },
+    {
+      "id": "35CB",
+      "color": "rgb(100, 65, 16)",
+      "short": "35CB",
+      "name": "35th Commando Battalion",
+      "doc": "35th Special Mission Battalion is directly subordinate to the ROK Army Capital Defense Command responsible for defense of Seoul and serves as its primary counter-terrorism force.",
+      "operation": "HEAVYMETTLE"
+    },
+    {
+      "id": "DAE",
+      "color": "rgb(22, 44, 46)",
+      "short": "DAE",
+      "name": "Destacamento de Ações Especiais",
+      "doc": "The Destacamento de Ações Especiais (Portuguese for Special Actions Detachment) or DAE is the tier one special force maritime unit of the Portuguese Navy. It is part of the Portuguese Marine Corps.",
+      "operation": "DEEPFREEZE"
+    },
+    {
+      "id": "KERESLEGION",
+      "color": "rgb(94, 30, 22)",
+      "short": "KERES LEGION",
+      "name": "Mercenary Organization",
+      "doc": "The Keres Legion are a mysterious Mercenary Organization with terrorist ties led by former Rainbow Operator Deimos. They have carried out multiple attacks against Rainbow, including the assassination of Masayuki Yahata, the incrimination of Nighthaven for the deed, as well as the assassination of Harry \"Six\" Pandey, the later being carried out by Deimos himself.",
+      "operation": "DEADLYOMEN"
+    },
+    {
+      "id": "EKAM",
+      "color": "rgb(76, 16, 84)",
+      "short": "EKAM",
+      "name": "Eidikí Katastaltikí Antitromokratikí Monáda",
+      "doc": "The Special Suppressive Antiterrorist Unit is the police tactical unit of the Hellenic Police. EKAM was formed in 1978 by the merger of two tactical units, one from each of the police organizations (the Hellenic Gendarmerie and the Cities Police) that existed at the time. The first units operational in 1978 were the Special Missions Unit (MEA) of the City Police and the Special Missions Department (TEIDA) of the Hellenic Gendarmerie. EKAM originally had 150 operators. however, when Greece became the host country of the 2004 Summer Olympics, their number increased to 200 due to the magnitude of the event.",
+      "operation": "TWINSHELLS"
+    },
+    {
+      "id": "NZSAS",
+      "color": "rgb(94, 42, 13)",
+      "short": "NZSAS",
+      "name": "New Zealand Special Air Service",
+      "doc": "The NZSAS can trace its roots back to the famous Long Range Desert Group, a British/Commonwealth army unit which fought in the North African desert in World War II. New Zealanders also served in the original Special Air Service force during World War II. In February 1955, it was decided by the New Zealand Government that a squadron based on the British Special Air Service should be formed as part of the New Zealand Army, as an effective and economic contribution to the Far East Strategic Reserve and the British counter-insurgency effort in Malaya. Major Frank Rennie was appointed to form and command the unit, with the decision having been made to recruit mainly from the general public around a cadre of Regular Force personnel. Over 800 applied, from which 182, including 138 civilians (though 101 had previous military experience) were selected for training beginning in June 1955. In late 1957, soon after the squadron's return to New Zealand from Malaya, the unit was disbanded, having been operationally replaced by an infantry battalion. The NZSAS was re-established in October 1959, with the unit celebrating its 50th Jubilee from 3-12 June 2005.",
+      "operation": "PREPPHASE"
+    },
+    {
+      "id": "ARCHNET",
+      "color": "rgb(51, 51, 51)",
+      "short": "ARCHNET",
+      "name": "ArchNet Cyber Security Task Force",
+      "doc": "ArchNet is a cyber security task force",
+      "operation": "SYSTEMOVERRIDE"
+    },
+    {
+      "id": "RAINBOW",
+      "color": "rgb(51, 51, 51)",
+      "short": "RAINBOW",
+      "name": "Team Rainbow",
+      "doc": "Team Rainbow (also known as RAINBOW) is an elite international counterterrorism unit that falls under the direct supervision of NATO. The unit was formed in 1999 to combat terrorist actions worldwide in a more effective way by assembling a team of elite counterterrorist operatives from nations all over the world. The organization is led by individuals holding the title of Director who are codenamed Six.",
+      "operation": "SYSTEMOVERRIDE"
+    },
+    {
+      "id": "ARASSAS",
+      "color": "rgb(30, 30, 30)",
+      "short": "ARASSAS",
+      "name": "Arassas",
+      "doc": "ARASSAS is a Private Military Company that was founded and is currently led by Leon \"Denari\" Winzenried",
+      "operation": "SYSTEMOVERRIDE"
+    },
+    {
+      "id": "NIGHTHAVENLABS",
+      "color": "rgb(100, 100, 100)",
+      "short": "NIGHTHAVEN LABS",
+      "name": "Nighthaven Labs",
+      "doc": "NIGHTHAVEN's R&D labs team",
+     "operation": "SYSTEMOVERRIDE"
+    },
+    {
+      "id": "GSAC",
+      "color": "rgb(7, 7, 20)",
+      "short": "G.S.A.C.",
+      "name": "Global Security Alliance Council",
+      "doc": "The Global Security Alliance Council (GSAC) is an international oversight body responsible for the strategic direction and operational control of Rainbow following the death of director Harry Pandey. Composed of high-ranking officials from various global intelligence and military organizations, GSAC ensures rainbow's actions align with international security objectives while maintaining secrecy and efficiency.",
+     "operation": "SYSTEMOVERRIDE"
+    },
+    {
+      "id": "YAHATADATASECURITY",
+      "color": "rgb(52, 52, 52)",
+      "short": "YAHATA DATA SECURITY",
+      "name": "Yahata Data Security",
+      "doc": "Yahata Data Security is a company that was founded by Masayuki Yahata.",
+      "operation": "SYSTEMOVERRIDE"
+    }
+  ],
+  "squads": [
+    {
+      "id": "NIGHTHAVEN",
+      "color": "rgb(45, 198, 210)",
+      "short": "NIGHTHAVEN",
+      "name": "NIGHTHAVEN Private Military Company",
+      "quote": "",
+      "doc": "NIGHTHAVEN is a Private Military Company that was founded and is currently led by Jaimini Kalimohan Shah.",
+      "operation": "SHIFTINGTIDES"
+    },
+    {
+      "id": "ROS",
+      "color": "rgb(112, 177, 60)",
+      "short": "ROS",
+      "name": "Rainbow Operation Staff",
+      "quote":"",
+      "doc": "The Rainbow Operation Staff is a training division of Team Rainbow",
+      "operation": "SHADOWLEGACY"
+    },
+    {
+      "id": "GHOSTEYES",
+      "color": "rgb(67, 131, 73)",
+      "short": "GHOSTEYES",
+      "name": "Caveira's specialized squad of Team Rainbow",
+      "quote": "\"The most insidious enemies have to be met in the darkness where they hide. - Caveira\"",
+      "doc": "People and information are two of the world's most powerful resources. To obtain, leverage, or even eliminate them, Rainbow needs a unit specialized in stealth and intelligence. Ghosteyes operate in the shadows, slipping in where others can't, doing the work that requires discretion and reveals unpleasant truths. Specialist Taina \"Caveira\" Pereira is the prime example of a covert specialist who excels in cooperative context. She's the perfect commanding officer for this squad, who will make good use of her fearless and inquisitive nature. Ghosteyes is not about loyalty or rigid hierarchy; it's about asking questions, constantly evaluating and re-evaluating, and acting on information that likely hasn't reached top brass yet. Their motto: \"Do all the work, let others take all the credit\".",
+      "operation": "SOLARRAID"
+    },
+    {
+      "id": "REDHAMMER",
+      "color": "rgb(175, 20, 22)",
+      "short": "REDHAMMER",
+      "name": "Thermite's specialized squad of Team Rainbow",
+      "quote": "\"You can't always keep things in a straight line. Sometimes you need an explosion. - Thermite\"",
+      "doc": "Redhammer is not known for its delicate touch; when they are called in, all bets are off. They tear down anything and eliminate anyone that stands in their way. They are unshakeable and unstoppable, best suited for high-risk operations where casualties are all but guaranteed. They bring everything sharp and volatile, inflicting as much damage as necessary before the enemy can retaliate. Specialist Jordan \"Thermite\" Trace and his squad are some of the most resilient individuals, having been evaluated as the most likely to survive dangerous missions through their strength, unquestioning natures, and trust in each other. Their reports come with a warning: when Redhammer is sent in, it's implied that one should not look too closely at what they had to do.",
+      "operation": "SOLARRAID"
+    },
+    {
+      "id": "VIPERSTRIKE",
+      "color": "rgb(226, 188, 30)",
+      "short": "VIPERSTRIKE",
+      "name": "Hibana's specialized squad of Team Rainbow",
+      "quote": "\"Precision and discipline are the hallmarks of excellence, and Viperstrike cannot accept anything less. - Hibana\"",
+      "doc": "With a multi-disciplinary roster, Viperstrike serves as a versatile unit, suited for any operation. Operating by the book, they guarantee that any task they take on will be done exactly as expected, regardless of the complications. They are the first choice for a mission that needs to be done quickly and cleanly, like surgical strikes. Specialist Yumiko \"Hibana\" Imagawa heads Viperstrike with dedication and precision, using her years of international experience to keep Rainbow connected and ever-expanding. Among most countries' elite military and police forces, her squad is unofficially known as the face of Rainbow, and she carries that weight with confidence.",
+      "operation": "SOLARRAID"
+    },
+    {
+      "id": "WOLFGUARD",
+      "color": "rgb(0, 66, 106)",
+      "short": "WOLFGUARD",
+      "name": "Doc's specialized squad of Team Rainbow",
+      "quote": "\"To be of service is why so many of us are dedicated to what we do. - Doc\"",
+      "doc": "Described as the world's foremost humanitarian military unit, Wolfguard is known for its compassionate and careful approach. It's a sound choice for high-visibility operations that occur in close proximity with civilian populations where collateral damage is not an option. Most of its members are trained in field medicine and specialize in protection of some kind. Specialist Gustave \"Doc\" Kateb leads this squad, having good relationships with his subordinates and an immaculate image with world governments and the press. While he and the rest of Wolfguard were brought together to apply their skills in sensitive missions for the good of all, their popularity cannot be overlooked. It will always be a factor for their deployment.",
+      "operation": "SOLARRAID"
+    },
+    {
+      "id": "KERESLEGION",
+      "color": "rgb(94, 30, 22)",
+      "short": "KERES LEGION",
+      "name": "Mercenary Organization",
+      "quote": "",
+      "doc": "The Keres Legion are a mysterious Mercenary Organization with terrorist ties led by former Rainbow Operator Deimos. They have carried out multiple attacks against Rainbow, including the assassination of Masayuki Yahata, the incrimination of Nighthaven for the deed, as well as the assassination of Harry \"Six\" Pandey, the later being carried out by Deimos himself.",
+      "operation": "DREADFACTOR"
+    },
+    {
+      "id": "UNAFFILIATED",
+      "color": "rgb(0, 0, 0)",
+      "short": "UNAFFILIATED",
+      "name": "UNAFFILIATED",
+      "quote": "",
+      "doc": "Freelance operators who work independently and are not affiliated with any specific squad.",
+      "operation": "SILENTHUNT"
+    }
+  ],
+  "sides": [
+    {
+      "id": "attackers",
+      "name": "Attackers"
+    },
+    {
+      "id": "defenders",
+      "name": "Defenders"
+    }
+  ]
+}

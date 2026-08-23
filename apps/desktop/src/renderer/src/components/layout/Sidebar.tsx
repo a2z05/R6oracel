@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Map, Search, Clock, Star, Play, Pause, ChevronDown, ChevronRight, Download, Check } from "lucide-react";
+import { Map, Search, Clock, Star, Play, Pause, ChevronDown, ChevronRight, Download, Check, BookOpen, Crosshair } from "lucide-react";
 import { useOcrStore } from "../../stores/ocr-store.js";
 import { useMapStore } from "../../stores/map-store.js";
 import { useUIStore } from "../../stores/ui-store.js";
@@ -52,6 +52,8 @@ export function Sidebar() {
   const setSearchQuery = useUIStore((s) => s.setSearchQuery);
   const modules = useSettingsStore((s) => s.modules);
   const toggleModule = useSettingsStore((s) => s.toggleModule);
+  const toggleIntel = useUIStore((s) => s.toggleIntel);
+  const togglePeeks = useUIStore((s) => s.togglePeeks);
 
   // Load pack install state for all maps
   useEffect(() => {
@@ -121,6 +123,26 @@ export function Sidebar() {
             className="w-full pl-8 pr-3 py-1.5 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)] placeholder:text-[var(--oracle-text-muted)] focus:outline-none focus:border-[var(--oracle-accent)]/50 transition-colors"
           />
         </div>
+      </div>
+
+      {/* R6 Intel + Spawn Peeks */}
+      <div className="px-3 pt-3 grid grid-cols-2 gap-2">
+        <button
+          onClick={togglePeeks}
+          title="Spawn peek suggestions from peekaboor6.com for the selected map"
+          className="flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer bg-[var(--oracle-accent)]/10 text-[var(--oracle-accent)] border border-[var(--oracle-accent)]/25 hover:bg-[var(--oracle-accent)]/20"
+        >
+          <Crosshair size={13} />
+          Peeks
+        </button>
+        <button
+          onClick={toggleIntel}
+          title="Operators, arsenal & operations — data from r6calls.com"
+          className="flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer bg-[var(--oracle-accent)]/10 text-[var(--oracle-accent)] border border-[var(--oracle-accent)]/25 hover:bg-[var(--oracle-accent)]/20"
+        >
+          <BookOpen size={13} />
+          Intel
+        </button>
       </div>
 
       {/* Map Selector — each map shows its thumbnail + name */}

@@ -45,6 +45,8 @@ export const useMapStore = create<MapStore>((set, get) => ({
     try {
       const rooms = (await window.oracle?.invoke("map:rooms", { mapId })) as unknown[];
       const conns = (await window.oracle?.invoke("map:connections", { mapId }).catch(() => [])) as unknown[];
+      // Keep the OCR matcher's alias table in sync with the selected map
+      void window.oracle?.invoke("map:aliases-refresh", { mapId }).catch(() => {});
       set({
         loading: false,
         rooms: (rooms ?? []) as MapRoom[],

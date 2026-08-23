@@ -124,7 +124,8 @@ export function SetupWizard({ onComplete }: { onComplete: () => void }) {
               </ul>
               <p className="text-xs text-[var(--oracle-text-muted)]">
                 Created by <a href="https://github.com/a2z05/R6oracel" target="_blank" rel="noreferrer" className="text-[var(--oracle-accent)] hover:underline">Vnerxy</a>.
-                Map data inspired by r6peekaboo, r6callouts &amp; siegecodex.com. Takes under a minute — everything is changeable later in Settings.
+                Map callouts &amp; intel data from{" "}
+                <a href="https://www.r6calls.com" target="_blank" rel="noreferrer" className="text-[var(--oracle-accent)] hover:underline">r6calls.com</a>. Takes under a minute — everything is changeable later in Settings.
               </p>
             </div>
           )}
