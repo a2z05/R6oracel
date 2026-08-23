@@ -3,6 +3,7 @@ productName: ORACLE
 copyright: Copyright © 2026 ORACLE
 npmRebuild: false
 nodeGypRebuild: false
+forceCodeSigning: false
 
 directories:
   buildResources: build
@@ -19,7 +20,18 @@ files:
 asarUnpack:
   - resources/**
 
+extraResources:
+  - from: ../../packages/db/drizzle
+    to: drizzle
+    filter:
+      - "**/*"
+  - from: assets/icons
+    to: assets/icons
+    filter:
+      - "**/*"
+
 win:
+  sign: false
   executableName: ORACLE
   target:
     - target: nsis
