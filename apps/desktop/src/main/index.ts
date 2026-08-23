@@ -1,5 +1,6 @@
-import { app, BrowserWindow, ipcMain, Tray, Menu, globalShortcut, desktopCapturer, net, shell } from "electron";
+import { app, BrowserWindow, ipcMain, Tray, Menu, globalShortcut, desktopCapturer, net, shell, dialog, nativeImage } from "electron";
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 // electron-updater is CJS — must use dynamic import to avoid ESM named export errors
 const { autoUpdater } = await import("electron-updater");
@@ -209,6 +210,94 @@ function registerIpcHandlers(): void {
     return { ok: true };
   });
   ipcMain.handle("overlay:get-config", () => overlay?.getConfig() ?? null);
+
+  // ── Custom side icons: crop from the user's own in-game screenshots ──
+  const iconDir = () => path.join(app.getPath("userData"), "side-icons");
+  const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "webp", "bmp"];
+
+  // Open a file dialog and hand back a downscaled preview so the renderer
+  // can show the screenshot for region picking without moving megabytes.
+  ipcMain.handle("icons:open-image", async () => {
+    const result = await dialog.showOpenDialog({
+      title: "Choose an in-game screenshot",
+      filters: [{ name: "Images", extensions: IMAGE_EXTENSIONS }],
+      properties: ["openFile"],
+    });
+    const filePath = result.filePaths[0];
+    if (result.canceled || !filePath) return { ok: false };
+    try {
+      const img = nativeImage.createFromPath(filePath);
+      if (img.isEmpty()) throw new Error("Could not read image");
+      const { width } = img.getSize();
+      const preview = width > 1280 ? img.resize({ width: 1280 }) : img;
+      return { ok: true, path: filePath, dataUrl: preview.toDataURL() };
+    } catch (err) {
+      return { ok: false, error: String((err as Error).message) };
+    }
+  });
+
+  // Cut a fractional rectangle out of the chosen screenshot and save it as
+  // a 32×32 icon for the side slot. Returns a data URL for instant preview
+  // (renderer can't read file:// paths directly).
+  ipcMain.handle("icons:crop-from-path", (_e, args) => {
+    const { slot, imagePath, crop } = args as {
+      slot: "attack" | "defense";
+      imagePath: string;
+      crop: { x: number; y: number; width: number; height: number }; // fractions 0..1
+    };
+    try {
+      if (!IMAGE_EXTENSIONS.includes(path.extname(imagePath).slice(1).toLowerCase())) {
+        throw new Error("Not an image file");
+      }
+      const img = nativeImage.createFromPath(imagePath);
+      if (img.isEmpty()) throw new Error("Could not read image");
+      const { width, height } = img.getSize();
+      // Crop rect in real pixels from the fractional selection
+      const rect = {
+        x: Math.max(0, Math.round(crop.x * width)),
+        y: Math.max(0, Math.round(crop.y * height)),
+        width: Math.max(1, Math.min(width, Math.round(crop.width * width))),
+        height: Math.max(1, Math.min(height, Math.round(crop.height * height))),
+      };
+      const cropped = img.crop(rect).resize({ width: 32, height: 32 });
+
+      const dir = iconDir();
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, `${slot}.png`), cropped.toPNG());
+      return { ok: true, dataUrl: cropped.toDataURL() };
+    } catch (err) {
+      return { ok: false, error: String((err as Error).message) };
+    }
+  });
+
+  // Existing custom icons as data URLs (safe to drop straight into <img src>)
+  ipcMain.handle("icons:get-custom", () => {
+    const dir = iconDir();
+    const out: Record<string, string> = {};
+    try {
+      for (const slot of ["attack", "defense"] as const) {
+        const p = path.join(dir, `${slot}.png`);
+        if (fs.existsSync(p)) {
+          const img = nativeImage.createFromPath(p);
+          if (!img.isEmpty()) out[slot] = img.toDataURL();
+        }
+      }
+    } catch {
+      /* ignore */
+    }
+    return out;
+  });
+
+  ipcMain.handle("icons:clear", (_e, args) => {
+    const { slot } = args as { slot: "attack" | "defense" };
+    const p = path.join(iconDir(), `${slot}.png`);
+    try {
+      if (fs.existsSync(p)) fs.unlinkSync(p);
+    } catch {
+      /* ignore */
+    }
+    return { ok: true };
+  });
 
   // Maps
   ipcMain.handle(IPC.MAP_LIST, () => {
