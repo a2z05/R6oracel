@@ -136,13 +136,123 @@ function HotkeysTab() {
 
 function OverlayTab() {
   const s = useSettingsStore();
+
+  // Push a partial overlay config to the main process
+  const pushConfig = useCallback((patch: Record<string, unknown>) => {
+    void window.oracle?.invoke("overlay:config", patch);
+  }, []);
+
+  const setOpacity = (v: number) => { s.setOverlayOpacity(v); pushConfig({ opacity: v }); };
+  const setScale = (v: number) => { s.setOverlayScale(v); pushConfig({ scale: v }); };
+  const setBlur = (v: number) => { s.setOverlayBlur(v); pushConfig({ blur: v }); };
+
+  const anchors: Array<{ id: string; label: string }> = [
+    { id: "bottom-center", label: "Above Compass" },
+    { id: "top-center", label: "Top Center" },
+    { id: "top-left", label: "Top Left" },
+    { id: "top-right", label: "Top Right" },
+    { id: "bottom-left", label: "Bottom Left" },
+    { id: "bottom-right", label: "Bottom Right" },
+  ];
+
+  const infoToggles: Array<{ key: "showCallout" | "showMapName" | "showFloor" | "showNeighbors"; label: string; desc: string }> = [
+    { key: "showCallout", label: "Callout", desc: "Room callout name" },
+    { key: "showMapName", label: "Map Name", desc: "Which map you're on" },
+    { key: "showFloor", label: "Floor", desc: "B1 / G / 1F / 2F" },
+    { key: "showNeighbors", label: "Neighbors", desc: "Adjacent rooms list" },
+  ];
+
   return (
-    <div>
-      <h2 className="text-sm font-semibold text-[var(--oracle-text-primary)] mb-4">Overlay</h2>
-      <div className="space-y-4">
-        <Slider label="Opacity" value={s.overlayOpacity} min={0.1} max={1} step={0.05} onChange={s.setOverlayOpacity} />
-        <Slider label="Scale" value={s.overlayScale} min={0.5} max={2} step={0.1} onChange={s.setOverlayScale} />
-        <Slider label="Blur" value={s.overlayBlur} min={0} max={30} step={1} onChange={s.setOverlayBlur} />
+    <div className="space-y-6">
+      <h2 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Overlay</h2>
+
+      {/* Position */}
+      <div className="glass-card p-4 space-y-3">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Position</h3>
+        <p className="text-xs text-[var(--oracle-text-muted)]">
+          Pick where the overlay sits on screen. "Above Compass" places it right above the in-game compass.
+        </p>
+        <div className="grid grid-cols-3 gap-2">
+          {anchors.map((a) => (
+            <button
+              key={a.id}
+              onClick={() => {
+                s.setOverlayAnchor(a.id);
+                void window.oracle?.invoke("overlay:anchor", { anchor: a.id });
+              }}
+              className={`py-2 px-2 rounded-lg text-xs border transition-colors ${
+                s.overlayAnchor === a.id
+                  ? "border-[var(--oracle-accent)] bg-[var(--oracle-accent)]/10 text-[var(--oracle-accent)]"
+                  : "border-[var(--oracle-border)] text-[var(--oracle-text-secondary)] hover:bg-white/5"
+              }`}
+            >
+              {a.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Appearance */}
+      <div className="glass-card p-4 space-y-4">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Appearance</h3>
+        <Slider label="Opacity" value={s.overlayOpacity} min={0.1} max={1} step={0.05} onChange={setOpacity} />
+        <Slider label="Scale" value={s.overlayScale} min={0.5} max={2} step={0.1} onChange={setScale} />
+        <Slider label="Blur" value={s.overlayBlur} min={0} max={30} step={1} onChange={setBlur} />
+      </div>
+
+      {/* Info blocks — turn specific ones off */}
+      <div className="glass-card p-4 space-y-2">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)] mb-1">Show on Overlay</h3>
+        <p className="text-xs text-[var(--oracle-text-muted)] mb-2">Turn individual info blocks on or off.</p>
+        {infoToggles.map((t) => {
+          const enabled = s.overlayBlocks[t.key];
+          return (
+            <label key={t.key} className="flex items-center justify-between py-2 px-3 rounded-lg bg-[var(--oracle-bg-surface)] border border-[var(--oracle-border)] cursor-pointer">
+              <span>
+                <span className="text-sm text-[var(--oracle-text-secondary)] block">{t.label}</span>
+                <span className="text-xs text-[var(--oracle-text-muted)]">{t.desc}</span>
+              </span>
+              <div
+                onClick={() => {
+                  const next = { ...s.overlayBlocks, [t.key]: !enabled };
+                  s.setOverlayBlock(t.key, !enabled);
+                  void window.oracle?.invoke("overlay:config", { [t.key]: !enabled });
+                  void next;
+                }}
+                className={`w-9 h-5 rounded-full transition-colors cursor-pointer shrink-0 ${enabled ? "bg-[var(--oracle-accent)]" : "bg-[var(--oracle-text-muted)]"}`}
+              >
+                <div className={`w-4 h-4 rounded-full bg-white shadow transition-transform mt-0.5 ${enabled ? "translate-x-4.5" : "translate-x-0.5"}`} />
+              </div>
+            </label>
+          );
+        })}
+      </div>
+
+      {/* Custom place name */}
+      <div className="glass-card p-4 space-y-3">
+        <h3 className="text-sm font-semibold text-[var(--oracle-text-primary)]">Place Name</h3>
+        <label className="flex items-center justify-between py-2 px-3 rounded-lg bg-[var(--oracle-bg-surface)] border border-[var(--oracle-border)] cursor-pointer">
+          <span className="text-sm text-[var(--oracle-text-secondary)]">Use custom place name</span>
+          <div
+            onClick={() => {
+              s.setUseCustomName(!s.useCustomPlaceName);
+              void window.oracle?.invoke("overlay:config", { useCustomPlaceName: !s.useCustomPlaceName });
+            }}
+            className={`w-9 h-5 rounded-full transition-colors cursor-pointer shrink-0 ${s.useCustomPlaceName ? "bg-[var(--oracle-accent)]" : "bg-[var(--oracle-text-muted)]"}`}
+          >
+            <div className={`w-4 h-4 rounded-full bg-white shadow transition-transform mt-0.5 ${s.useCustomPlaceName ? "translate-x-4.5" : "translate-x-0.5"}`} />
+          </div>
+        </label>
+        <input
+          type="text"
+          value={s.customPlaceName}
+          placeholder="e.g. MY SPOT"
+          disabled={!s.useCustomPlaceName}
+          onChange={(e) => s.setCustomPlaceName(e.target.value)}
+          onBlur={(e) => void window.oracle?.invoke("overlay:config", { customPlaceName: e.target.value })}
+          className="w-full px-3 py-2 rounded-lg bg-[var(--oracle-bg-primary)] border border-[var(--oracle-border)] text-sm text-[var(--oracle-text-primary)] placeholder:text-[var(--oracle-text-muted)] focus:outline-none focus:border-[var(--oracle-accent)]/50 disabled:opacity-40"
+        />
+        <p className="text-xs text-[var(--oracle-text-muted)]">Replaces the detected room name with your own label.</p>
       </div>
     </div>
   );

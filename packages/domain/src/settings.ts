@@ -36,6 +36,17 @@ export interface OverlayConfig {
   accentColor: string;
   autoHide: boolean;
   clickThrough: boolean;
+  /** Which info blocks are visible on the overlay */
+  showCallout: boolean;
+  showMapName: boolean;
+  showFloor: boolean;
+  showNeighbors: boolean;
+  /** Anchor preset for quick positioning */
+  anchor: "top-left" | "top-center" | "top-right" | "bottom-left" | "bottom-center" | "bottom-right";
+  /** Custom place-name override (empty = use OCR-detected name) */
+  customPlaceName: string;
+  /** Show the custom place name instead of detected room */
+  useCustomPlaceName: boolean;
 }
 
 export const DEFAULT_OVERLAY: OverlayConfig = {
@@ -49,6 +60,13 @@ export const DEFAULT_OVERLAY: OverlayConfig = {
   accentColor: "#f0b132",
   autoHide: true,
   clickThrough: true,
+  showCallout: true,
+  showMapName: true,
+  showFloor: true,
+  showNeighbors: false,
+  anchor: "bottom-center",
+  customPlaceName: "",
+  useCustomPlaceName: false,
 };
 
 export interface ModuleToggles {

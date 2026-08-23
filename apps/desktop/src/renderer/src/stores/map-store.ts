@@ -15,33 +15,48 @@ interface MapRoom {
 interface MapStore {
   selectedMapId: string | null;
   currentFloor: number;
+  loading: boolean;
   rooms: MapRoom[];
   connections: Array<{ fromRoomId: string; toRoomId: string; type: string }>;
   highlightedRoomId: string | null;
   zoom: number;
   pan: { x: number; y: number };
-  setMap: (mapId: string) => void;
+  loadMap: (mapId: string) => Promise<void>;
   setFloor: (floor: number) => void;
-  setRooms: (rooms: MapRoom[]) => void;
-  setConnections: (conns: Array<{ fromRoomId: string; toRoomId: string; type: string }>) => void;
   highlightRoom: (roomId: string | null) => void;
   setZoom: (zoom: number) => void;
   setPan: (pan: { x: number; y: number }) => void;
   resetView: () => void;
 }
 
-export const useMapStore = create<MapStore>((set) => ({
+export const useMapStore = create<MapStore>((set, get) => ({
   selectedMapId: null,
   currentFloor: 0,
+  loading: false,
   rooms: [],
   connections: [],
   highlightedRoomId: null,
   zoom: 1,
   pan: { x: 0, y: 0 },
-  setMap: (mapId) => set({ selectedMapId: mapId, currentFloor: 0, highlightedRoomId: null, zoom: 1, pan: { x: 0, y: 0 } }),
+  loadMap: async (mapId) => {
+    // Skip if already loaded
+    if (get().selectedMapId === mapId && get().rooms.length > 0) return;
+    set({ selectedMapId: mapId, loading: true, rooms: [], connections: [], highlightedRoomId: null, currentFloor: 0, zoom: 1, pan: { x: 0, y: 0 } });
+    try {
+      const rooms = (await window.oracle?.invoke("map:rooms", { mapId })) as unknown[];
+      const conns = (await window.oracle?.invoke("map:connections", { mapId }).catch(() => [])) as unknown[];
+      set({
+        loading: false,
+        rooms: (rooms ?? []) as MapRoom[],
+        connections: (conns ?? []) as Array<{ fromRoomId: string; toRoomId: string; type: string }>,
+      });
+      console.log(`[map] Loaded ${(rooms ?? []).length} rooms for ${mapId}`);
+    } catch (err) {
+      console.error("[map] Failed to load rooms:", err);
+      set({ loading: false });
+    }
+  },
   setFloor: (floor) => set({ currentFloor: floor }),
-  setRooms: (rooms) => set({ rooms }),
-  setConnections: (conns) => set({ connections: conns }),
   highlightRoom: (roomId) => set({ highlightedRoomId: roomId }),
   setZoom: (zoom) => set({ zoom: Math.max(0.5, Math.min(3, zoom)) }),
   setPan: (pan) => set({ pan }),
