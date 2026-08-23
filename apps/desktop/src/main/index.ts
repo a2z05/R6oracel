@@ -8,7 +8,7 @@ import { createDatabase, seedDatabase, runMigrations } from "@oracle/db";
 import { OverlayWindow } from "@oracle/overlay";
 import { OcrPipeline } from "@oracle/ocr";
 import type { OcrResult, OverlayConfig } from "@oracle/domain";
-import { IPC } from "@oracle/domain";
+import { DEFAULT_OVERLAY, IPC } from "@oracle/domain";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isDev = !app.isPackaged;
@@ -203,6 +203,12 @@ function registerIpcHandlers(): void {
   // Overlay
   ipcMain.handle(IPC.OVERLAY_TOGGLE, () => { overlay?.toggle(); return { visible: overlay?.isVisible ?? false }; });
   ipcMain.handle(IPC.OVERLAY_CONFIG, (_e, args) => { overlay?.updateConfig(args as Partial<OverlayConfig>); return { ok: true }; });
+  ipcMain.handle("overlay:anchor", (_e, args) => {
+    const { anchor } = args as { anchor: NonNullable<OverlayConfig["anchor"]> };
+    overlay?.applyAnchor(anchor);
+    return { ok: true };
+  });
+  ipcMain.handle("overlay:get-config", () => overlay?.getConfig() ?? null);
 
   // Maps
   ipcMain.handle(IPC.MAP_LIST, () => {
@@ -216,6 +222,14 @@ function registerIpcHandlers(): void {
       return db.all("SELECT * FROM rooms WHERE map_id = ? AND floor = ?", [mapId, floor]);
     }
     return db.all("SELECT * FROM rooms WHERE map_id = ?", [mapId]);
+  });
+  ipcMain.handle("map:connections", (_e, args) => {
+    const { mapId } = args as { mapId: string };
+    if (!db) return [];
+    return db.all(
+      "SELECT c.* FROM connections c JOIN rooms r1 ON r1.id = c.from_room_id JOIN rooms r2 ON r2.id = c.to_room_id WHERE r1.map_id = ? AND r2.map_id = ?",
+      [mapId, mapId]
+    );
   });
 
   // Settings
@@ -296,18 +310,7 @@ app.whenReady().then(async () => {
   globalShortcut.register("Ctrl+Shift+P", () => { pipeline ? stopOcr() : startOcr(); });
 
   // Overlay
-  overlay = new OverlayWindow({
-    position: { x: 100, y: 100 },
-    width: 320,
-    height: 200,
-    opacity: 0.9,
-    scale: 1,
-    blur: 12,
-    borderRadius: 12,
-    accentColor: "#f0b132",
-    autoHide: true,
-    clickThrough: true,
-  });
+  overlay = new OverlayWindow({ ...DEFAULT_OVERLAY });
 
   console.log(`[main] ORACLE v${app.getVersion()} ready`);
 });

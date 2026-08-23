@@ -107,14 +107,50 @@ export class OverlayWindow {
       this.config.height = h;
       this.win?.setSize(w, h);
     }
+    if (config.anchor !== undefined) {
+      this.applyAnchor(config.anchor);
+    }
     if (config.position !== undefined) {
       this.config.position = config.position;
       this.win?.setPosition(config.position.x, config.position.y);
     }
+    if (config.showCallout !== undefined) this.config.showCallout = config.showCallout;
+    if (config.showMapName !== undefined) this.config.showMapName = config.showMapName;
+    if (config.showFloor !== undefined) this.config.showFloor = config.showFloor;
+    if (config.showNeighbors !== undefined) this.config.showNeighbors = config.showNeighbors;
+    if (config.customPlaceName !== undefined) this.config.customPlaceName = config.customPlaceName;
+    if (config.useCustomPlaceName !== undefined) this.config.useCustomPlaceName = config.useCustomPlaceName;
+    if (config.accentColor !== undefined) this.config.accentColor = config.accentColor;
+    if (config.blur !== undefined) this.config.blur = config.blur;
+    if (config.scale !== undefined) this.config.scale = config.scale;
+    // Push updated display config to the overlay renderer
+    this.send("overlay:config-changed", this.getConfig());
     if (config.clickThrough !== undefined) {
       this.config.clickThrough = config.clickThrough;
       this.win?.setIgnoreMouseEvents(config.clickThrough, { forward: true });
     }
+  }
+
+  /** Position the overlay at a screen anchor (e.g. above compass = bottom-center). */
+  applyAnchor(anchor: NonNullable<OverlayConfig["anchor"]>): void {
+    this.config.anchor = anchor;
+    const win = this.win;
+    if (!win) return;
+    const { workArea } = screen.getPrimaryDisplay();
+    const [w, h] = win.getSize();
+    const margin = 24;
+    let x: number, y: number;
+    switch (anchor) {
+      case "top-left": x = margin; y = margin; break;
+      case "top-center": x = workArea.x + (workArea.width - w) / 2; y = margin; break;
+      case "top-right": x = workArea.x + workArea.width - w - margin; y = margin; break;
+      case "bottom-left": x = margin; y = workArea.y + workArea.height - h - margin; break;
+      // Sits just above the in-game compass at bottom center of the screen
+      case "bottom-center": x = workArea.x + (workArea.width - w) / 2; y = workArea.y + workArea.height - h - margin - 60; break;
+      case "bottom-right": x = workArea.x + workArea.width - w - margin; y = workArea.y + workArea.height - h - margin; break;
+    }
+    this.config.position = { x: Math.round(x), y: Math.round(y) };
+    win.setPosition(Math.round(x), Math.round(y));
   }
 
   /** Enable drag mode (disable click-through temporarily). */

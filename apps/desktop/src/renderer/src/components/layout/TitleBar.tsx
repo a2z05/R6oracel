@@ -1,4 +1,4 @@
-import { Minus, Square, X, Scan, Settings } from "lucide-react";
+import { Minus, Square, X, Settings } from "lucide-react";
 import { useOcrStore } from "../../stores/ocr-store.js";
 import { useUIStore } from "../../stores/ui-store.js";
 
@@ -10,9 +10,7 @@ export function TitleBar() {
     <div className="h-10 flex items-center justify-between px-4 bg-[var(--oracle-bg-surface)] border-b border-[var(--oracle-border)] app-region-drag select-none">
       {/* Left: Brand */}
       <div className="flex items-center gap-2 app-region-no-drag">
-        <div className="w-6 h-6 rounded bg-[var(--oracle-accent)] flex items-center justify-center">
-          <Scan size={14} className="text-[var(--oracle-bg-primary)]" />
-        </div>
+        <img src="./icons/logo.png" alt="ORACLE" className="w-6 h-6 rounded" draggable={false} />
         <span className="font-[var(--oracle-font-heading)] text-sm font-bold tracking-wider text-[var(--oracle-text-primary)]">
           ORACLE
         </span>

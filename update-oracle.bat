@@ -14,12 +14,22 @@ set "BUILD_DIR=%SCRIPT_DIR%apps\desktop\release\win-unpacked"
 set "INSTALL_DIR=%LOCALAPPDATA%\Programs\ORACLE"
 
 if not exist "%BUILD_DIR%\ORACLE.exe" (
-    echo  [X] Build not found:
-    echo      %BUILD_DIR%
-    echo  Build it first:  cd apps/desktop ^&^& npm run build:unpack
+    echo  [!] No build found - building now...
     echo.
-    pause
-    exit /b 1
+    cd /d "%SCRIPT_DIR%apps\desktop"
+    call npx electron-vite build
+    if errorlevel 1 (
+        echo  [X] Build failed.
+        pause
+        exit /b 1
+    )
+    set "ELECTRON_BUILDER_ARGS=--dir"
+    call npx electron-builder --win --dir
+    if errorlevel 1 (
+        echo  [X] Packaging failed. If this is a signing error, run once as admin.
+        pause
+        exit /b 1
+    )
 )
 
 echo  [1/4] Closing ORACLE if running...

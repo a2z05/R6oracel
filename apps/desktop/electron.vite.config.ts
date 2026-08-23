@@ -41,6 +41,8 @@ export default defineConfig({
   },
   renderer: {
     root: resolve(__dirname, "src/renderer"),
+    base: "./",
+    publicDir: resolve(__dirname, "src/renderer/public"),
     build: {
       rollupOptions: {
         input: {

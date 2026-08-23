@@ -44,7 +44,7 @@ export function Sidebar() {
   const stop = useOcrStore((s) => s.stop);
   const selectedMapId = useMapStore((s) => s.selectedMapId);
   const currentFloor = useMapStore((s) => s.currentFloor);
-  const setMap = useMapStore((s) => s.setMap);
+  const loadMap = useMapStore((s) => s.loadMap);
   const setFloor = useMapStore((s) => s.setFloor);
   const searchQuery = useUIStore((s) => s.searchQuery);
   const setSearchQuery = useUIStore((s) => s.setSearchQuery);
@@ -97,7 +97,7 @@ export function Sidebar() {
             {MAPS.map((id) => (
               <button
                 key={id}
-                onClick={() => setMap(id)}
+                onClick={() => void loadMap(id)}
                 className={`w-full text-left px-2.5 py-1 rounded text-sm transition-colors ${
                   selectedMapId === id
                     ? "bg-[var(--oracle-accent)]/15 text-[var(--oracle-accent)]"

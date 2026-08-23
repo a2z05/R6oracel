@@ -6,16 +6,39 @@ import { useMapStore } from "../../stores/map-store.js";
 export function TacticalMap() {
   const selectedMapId = useMapStore((s) => s.selectedMapId);
   const currentFloor = useMapStore((s) => s.currentFloor);
+  const loading = useMapStore((s) => s.loading);
+  const rooms = useMapStore((s) => s.rooms);
+
+  if (loading) {
+    return (
+      <div className="h-full flex items-center justify-center bg-[var(--oracle-bg-primary)]">
+        <div className="text-center">
+          <div className="w-8 h-8 mx-auto mb-3 border-2 border-[var(--oracle-accent)] border-t-transparent rounded-full animate-spin" />
+          <p className="text-sm text-[var(--oracle-text-muted)]">Loading map…</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (selectedMapId && rooms.length === 0) {
+    return (
+      <div className="h-full flex items-center justify-center bg-[var(--oracle-bg-primary)]">
+        <div className="text-center px-6">
+          <img src="./icons/logo.png" alt="" className="w-16 h-16 mx-auto mb-4 opacity-50 rounded-xl" draggable={false} />
+          <h3 className="text-lg font-semibold text-[var(--oracle-text-primary)] mb-1">No map data</h3>
+          <p className="text-sm text-[var(--oracle-text-muted)] max-w-xs">
+            Detailed floor plans for this map aren't available yet. Room detection still works via OCR.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (!selectedMapId) {
     return (
       <div className="h-full flex items-center justify-center bg-[var(--oracle-bg-primary)]">
         <div className="text-center">
-          <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-[var(--oracle-accent)]/10 flex items-center justify-center">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-[var(--oracle-accent)]">
-              <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
-          </div>
+          <img src="./icons/logo.png" alt="" className="w-20 h-20 mx-auto mb-4 rounded-2xl opacity-80" draggable={false} />
           <h3 className="text-lg font-semibold text-[var(--oracle-text-primary)] mb-1">Select a Map</h3>
           <p className="text-sm text-[var(--oracle-text-muted)]">Choose a map from the sidebar to begin</p>
         </div>

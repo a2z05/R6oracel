@@ -1,12 +1,23 @@
 import { create } from "zustand";
 import type { ThemeId } from "@oracle/ui-tokens";
 
+interface OverlayBlocks {
+  showCallout: boolean;
+  showMapName: boolean;
+  showFloor: boolean;
+  showNeighbors: boolean;
+}
+
 interface SettingsStore {
   theme: ThemeId;
   accentColor: string;
   overlayOpacity: number;
   overlayScale: number;
   overlayBlur: number;
+  overlayAnchor: string;
+  overlayBlocks: OverlayBlocks;
+  useCustomPlaceName: boolean;
+  customPlaceName: string;
   ocrInterval: number;
   ocrSensitivity: number;
   debugMode: boolean;
@@ -18,6 +29,10 @@ interface SettingsStore {
   setOverlayOpacity: (v: number) => void;
   setOverlayScale: (v: number) => void;
   setOverlayBlur: (v: number) => void;
+  setOverlayAnchor: (anchor: string) => void;
+  setOverlayBlock: (key: keyof OverlayBlocks, v: boolean) => void;
+  setUseCustomName: (v: boolean) => void;
+  setCustomPlaceName: (v: string) => void;
   setOcrInterval: (v: number) => void;
   setOcrSensitivity: (v: number) => void;
   setDebugMode: (v: boolean) => void;
@@ -30,6 +45,10 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
   overlayOpacity: 0.9,
   overlayScale: 1.0,
   overlayBlur: 12,
+  overlayAnchor: "bottom-center",
+  overlayBlocks: { showCallout: true, showMapName: true, showFloor: true, showNeighbors: false },
+  useCustomPlaceName: false,
+  customPlaceName: "",
   ocrInterval: 250,
   ocrSensitivity: 60,
   debugMode: false,
@@ -41,6 +60,10 @@ export const useSettingsStore = create<SettingsStore>((set) => ({
   setOverlayOpacity: (overlayOpacity) => set({ overlayOpacity }),
   setOverlayScale: (overlayScale) => set({ overlayScale }),
   setOverlayBlur: (overlayBlur) => set({ overlayBlur }),
+  setOverlayAnchor: (overlayAnchor) => set({ overlayAnchor }),
+  setOverlayBlock: (key, v) => set((s) => ({ overlayBlocks: { ...s.overlayBlocks, [key]: v } })),
+  setUseCustomName: (useCustomPlaceName) => set({ useCustomPlaceName }),
+  setCustomPlaceName: (customPlaceName) => set({ customPlaceName }),
   setOcrInterval: (ocrInterval) => set({ ocrInterval }),
   setOcrSensitivity: (ocrSensitivity) => set({ ocrSensitivity }),
   setDebugMode: (debugMode) => set({ debugMode }),
