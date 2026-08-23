@@ -31,7 +31,6 @@ extraResources:
       - "**/*"
 
 win:
-  sign: false
   executableName: ORACLE
   target:
     - target: nsis
