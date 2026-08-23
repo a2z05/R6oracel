@@ -20,8 +20,9 @@ export default defineConfig({
         input: {
           index: resolve(__dirname, "src/main/index.ts"),
         },
-        // Keep electron/electron-updater external, bundle everything else
-        external: ["electron", "electron-updater", "sharp"],
+        // Keep native/CJS deps external (they break when bundled as ESM),
+        // bundle everything else incl. @oracle/* workspace packages
+        external: ["electron", "electron-updater", "sharp", "tesseract.js", "sql.js", "drizzle-orm"],
       },
     },
     resolve: {

@@ -1,5 +1,5 @@
 import { sqliteTable, text, integer, real, uniqueIndex, index } from "drizzle-orm/sqlite-core";
-import { sql } from "drizzle-orm";
+import { sql, desc } from "drizzle-orm";
 
 /** Current Unix timestamp in milliseconds (Drizzle helper). */
 const tsMs = integer("created_at", { mode: "timestamp_ms" })
@@ -132,7 +132,7 @@ export const roomHistory = sqliteTable(
     detectedAt: integer("detected_at", { mode: "timestamp_ms" }).notNull(),
     confidence: real("confidence").notNull(),
   },
-  (t) => [index("room_history_recent_idx").on(t.detectedAt.desc())]
+  (t) => [index("room_history_recent_idx").on(desc(t.detectedAt))]
 );
 
 // ─── OCR Cache ────────────────────────────────────────────────────────
@@ -148,7 +148,7 @@ export const ocrCache = sqliteTable(
   },
   (t) => [
     uniqueIndex("ocr_cache_normalized_idx").on(t.normalized),
-    index("ocr_cache_hits_idx").on(t.hitCount.desc()),
+    index("ocr_cache_hits_idx").on(desc(t.hitCount)),
   ]
 );
 

@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 // electron-updater is CJS — must use dynamic import to avoid ESM named export errors
 const { autoUpdater } = await import("electron-updater");
 type UpdateInfo = { version: string; releaseDate: string; releaseNotes: string };
-import { createDatabase, seedDatabase } from "@oracle/db";
+import { createDatabase, seedDatabase, runMigrations } from "@oracle/db";
 import { OverlayWindow } from "@oracle/overlay";
 import { OcrPipeline } from "@oracle/ocr";
 import type { OcrResult, OverlayConfig } from "@oracle/domain";
@@ -91,6 +91,19 @@ async function initDatabase(): Promise<void> {
   const dbPath = path.join(app.getPath("userData"), "oracle.db");
   console.log(`[main] Database: ${dbPath}`);
   db = await createDatabase(dbPath);
+  // Create tables if missing (idempotent), then seed on first run
+  const hasMapsTable = db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='maps'");
+  if (!hasMapsTable) {
+    console.log("[db] First run — creating schema via migrations...");
+    const { migrate } = await import("drizzle-orm/sql-js/migrator");
+    // Dev: monorepo packages dir. Prod: extraResources copies drizzle/ next to the asar.
+    const migrationsFolder = isDev
+      ? path.resolve(app.getAppPath(), "../../packages/db/drizzle")
+      : path.join(process.resourcesPath, "drizzle");
+    console.log(`[db] Migrations folder: ${migrationsFolder}`);
+    migrate(db.orm, { migrationsFolder });
+    db.save();
+  }
   seedDatabase(db);
 }
 
@@ -103,6 +116,7 @@ function createMainWindow(): void {
     minWidth: 900,
     minHeight: 600,
     frame: false,
+    icon: path.join(__dirname, "../../assets/icons/icon.ico"),
     backgroundColor: "#0a0a0f",
     show: false,
     webPreferences: {
@@ -132,7 +146,7 @@ function createMainWindow(): void {
 // ─── Tray ─────────────────────────────────────────────────────────────
 
 function createTray(): void {
-  const iconPath = path.join(__dirname, "../../assets/icons/icon.png");
+  const iconPath = path.join(__dirname, "../../assets/icons/tray.png");
   try {
     tray = new Tray(iconPath);
   } catch {
