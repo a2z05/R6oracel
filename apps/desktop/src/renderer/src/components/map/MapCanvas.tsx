@@ -12,7 +12,10 @@ export function MapCanvas() {
   const [dims, setDims] = useState({ w: 800, h: 600 });
   const [dragging, setDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  // r6calls embedded floor-plan blueprint for the current map+floor
+  const [floorImg, setFloorImg] = useState<string | null>(null);
 
+  const selectedMapId = useMapStore((s) => s.selectedMapId);
   const rooms = useMapStore((s) => s.rooms);
   const connections = useMapStore((s) => s.connections);
   const currentFloor = useMapStore((s) => s.currentFloor);
@@ -24,6 +27,23 @@ export function MapCanvas() {
   const highlightRoom = useMapStore((s) => s.highlightRoom);
 
   const floorRooms = rooms.filter((r) => r.floor === currentFloor);
+
+  // Fetch the real floor plan (r6calls.com imagery, credited in-app)
+  useEffect(() => {
+    if (!selectedMapId) return;
+    let cancelled = false;
+    window.oracle
+      ?.getFloorImage(selectedMapId, currentFloor)
+      .then((res) => {
+        if (!cancelled) setFloorImg(res?.ok ? (res.dataUrl ?? null) : null);
+      })
+      .catch(() => {
+        if (!cancelled) setFloorImg(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedMapId, currentFloor]);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -82,6 +102,19 @@ export function MapCanvas() {
           </filter>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
+
+        {/* Real floor plan — r6calls.com blueprint imagery */}
+        {floorImg && (
+          <image
+            href={floorImg}
+            x={0}
+            y={0}
+            width="100%"
+            height="100%"
+            preserveAspectRatio="xMidYMid meet"
+            opacity={0.92}
+          />
+        )}
 
         {/* Connection lines */}
         {connections.map((conn, i) => {

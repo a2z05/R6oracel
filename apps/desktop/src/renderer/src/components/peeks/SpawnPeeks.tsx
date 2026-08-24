@@ -198,6 +198,16 @@ export function SpawnPeeks() {
       </div>
 
       <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+        {!selectedMapId && !loading && (
+          <div className="h-full flex flex-col items-center justify-center gap-3 py-16 text-center px-6">
+            <Crosshair size={28} className="text-[var(--oracle-text-muted)]" />
+            <p className="text-sm font-semibold text-[var(--oracle-text-primary)]">No map selected</p>
+            <p className="text-xs text-[var(--oracle-text-muted)] max-w-xs leading-relaxed">
+              Pick a map in the sidebar first — spawn peek suggestions from peekaboor6.com will show up here for that map.
+            </p>
+          </div>
+        )}
+
         {loading && (
           <div className="h-full flex flex-col items-center justify-center gap-3 py-16">
             <div className="w-8 h-8 border-2 border-[var(--oracle-accent)] border-t-transparent rounded-full animate-spin" />
@@ -221,6 +231,13 @@ export function SpawnPeeks() {
                 Check peekaboor6.com <ExternalLink size={10} />
               </a>
             )}
+          </div>
+        )}
+
+        {!loading && selectedMapId && peeks.length === 0 && data?.ok && data.available !== false && (
+          <div className="text-center py-16 space-y-2">
+            <MapPin size={24} className="mx-auto text-[var(--oracle-text-muted)]" />
+            <p className="text-sm text-[var(--oracle-text-secondary)]">No spawn peeks available for this map.</p>
           </div>
         )}
 

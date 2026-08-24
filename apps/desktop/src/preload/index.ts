@@ -39,6 +39,10 @@ contextBridge.exposeInMainWorld("oracle", {
   // Spawn peeks (peekaboor6.com)
   getSpawnPeeks: (mapId: string) => ipcRenderer.invoke("peeks:for-map", { mapId }),
 
+  // Floor-plan imagery (r6calls.com embedded blueprints)
+  getFloorImage: (mapId: string, floor: number) =>
+    ipcRenderer.invoke("map:floor-image", { mapId, floor }),
+
   // Diagnostics
   getStats: () => ipcRenderer.invoke("diagnostics:stats"),
 

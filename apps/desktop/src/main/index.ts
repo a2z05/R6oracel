@@ -517,6 +517,69 @@ function registerIpcHandlers(): void {
     return { installed: row.n > 0, rooms: row.n };
   });
 
+  // ── Floor-plan images ────────────────────────────────────────────
+  // r6calls SVGs embed each floor's blueprint as a base64 PNG inside
+  // `<g id="Floor N"><image xlink:href="data:image/png;base64,...."
+  // id="{floor}-pic" width=W height=H x=X y=Y ...>`. We serve those to
+  // the renderer so the map view shows the real floor plan under the
+  // callout markers (all imagery belongs to r6calls.com).
+  const floorImageCache = new Map<string, string | null>(); // key: `${mapId}:${floor}`
+  let cachedSvgKey: string | null = null;
+  let cachedSvgText: string | null = null;
+
+  const loadR6CallsSvg = async (mapId: string): Promise<string | null> => {
+    const remoteId = R6CALLS_ID_MAP[mapId] ?? mapId;
+    if (cachedSvgKey === mapId && cachedSvgText) return cachedSvgText;
+    try {
+      const url = R6CALLS_MAP_URL.replace("{id}", encodeURIComponent(remoteId));
+      const res = await net.fetch(url, { headers: { "User-Agent": "ORACLE-R6-Companion" } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const svg = await res.text();
+      cachedSvgKey = mapId;
+      cachedSvgText = svg;
+      return svg;
+    } catch (err) {
+      console.warn(`[map-image] failed to fetch r6calls SVG for ${mapId}:`, err);
+      return null;
+    }
+  };
+
+  /**
+   * Extract one floor's embedded blueprint PNG as a data URL.
+   * Returns geometry too — the image lives in SVG user units inside a
+   * `<g transform="translate(...)">`, but every floor group observed
+   * uses the same translate and images span the full viewBox, so we
+   * normalize by viewBox and skip nested transforms.
+   */
+  const extractFloorImage = (svg: string, floor: number): string | null => {
+    const marker = `id="Floor ${floor}"`;
+    const start = svg.indexOf(marker);
+    if (start < 0) return null;
+    const imgStart = svg.indexOf("<image", start);
+    if (imgStart < 0) return null;
+    // Base64 payloads never contain '>' — first '>' ends the tag.
+    let end = imgStart;
+    while (end < svg.length && svg[end] !== ">") end++;
+    const tag = svg.slice(imgStart, end + 1);
+    const href = /(?:xlink:href|href)="data:image\/(png|jpe?g|webp);base64,([^"]+)"/.exec(tag);
+    if (!href) return null;
+    return `data:image/${href[1] === "jpg" ? "jpeg" : href[1]};base64,${href[2].replace(/\s+/g, "")}`;
+  };
+
+  ipcMain.handle("map:floor-image", async (_e, args) => {
+    const { mapId, floor } = args as { mapId: string; floor: number };
+    const key = `${mapId}:${floor}`;
+    if (floorImageCache.has(key)) {
+      const hit = floorImageCache.get(key);
+      return hit ? { ok: true, dataUrl: hit } : { ok: false };
+    }
+    const svg = await loadR6CallsSvg(mapId);
+    if (!svg) return { ok: false };
+    const dataUrl = extractFloorImage(svg, floor);
+    floorImageCache.set(key, dataUrl);
+    return dataUrl ? { ok: true, dataUrl } : { ok: false };
+  });
+
   /** Push all aliases for a map into the OCR pipeline matcher.
    * Called after pack download and on map load so compass text
    * like "2F Construction" resolves to the right callout room. */

@@ -42,6 +42,10 @@ interface OracleApi {
       url: string;
     }>;
   }>;
+  getFloorImage: (
+    mapId: string,
+    floor: number
+  ) => Promise<{ ok: boolean; dataUrl?: string }>;
   getStats: () => Promise<{ rss: number; heapUsed: number; heapTotal: number }>;
   getMobileQr: () => Promise<{ qr: string | null; url: string | null }>;
   getVersion: () => Promise<string>;

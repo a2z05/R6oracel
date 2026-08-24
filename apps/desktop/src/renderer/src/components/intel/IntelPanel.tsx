@@ -59,8 +59,8 @@ const SideBadge = ({ side }: { side: "attackers" | "defenders" }) => (
   <span
     className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded font-mono text-[9px] uppercase tracking-wider ${
       side === "attackers"
-        ? "bg-[var(--oracle-info)]/15 text-[var(--oracle-info)]"
-        : "bg-[var(--oracle-danger)]/15 text-[var(--oracle-danger)]"
+        ? "bg-[var(--oracle-danger)]/15 text-[var(--oracle-danger)]"
+        : "bg-[var(--oracle-info)]/15 text-[var(--oracle-info)]"
     }`}
   >
     {side === "attackers" ? <Sword size={9} /> : <Shield size={9} />}
@@ -70,6 +70,39 @@ const SideBadge = ({ side }: { side: "attackers" | "defenders" }) => (
 
 // ─── Operators ───────────────────────────────────────────────────────
 
+function FullBodyPortrait({ nickName }: { nickName: string }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return (
+    <img
+      src={`https://www.r6calls.com/img/operators/${encodeURIComponent(nickName)}/fullBody.webp`}
+      alt={nickName}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="max-h-56 w-auto rounded-lg border border-[var(--oracle-border)] bg-black/20 object-contain"
+      draggable={false}
+    />
+  );
+}
+
+function OperatorAvatar({ nickName, size = 28 }: { nickName: string; size?: number }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return (
+    <img
+      src={`https://www.r6calls.com/img/operators/${encodeURIComponent(nickName)}/avatar.webp`}
+      alt=""
+      width={size}
+      height={size}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="rounded shrink-0 border border-[var(--oracle-border)] object-cover"
+      style={{ width: size, height: size }}
+      draggable={false}
+    />
+  );
+}
+
 function OperatorCard({ op }: { op: Operator }) {
   const [open, setOpen] = useState(false);
   return (
@@ -78,6 +111,7 @@ function OperatorCard({ op }: { op: Operator }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center gap-2.5 px-3 py-2 hover:bg-white/5 transition-colors cursor-pointer text-left"
       >
+        <OperatorAvatar nickName={op.nickName} size={28} />
         <SideBadge side={op.side} />
         <span className="text-sm font-semibold text-[var(--oracle-text-primary)]">{op.nickName}</span>
         <span className="text-xs text-[var(--oracle-text-muted)] truncate">
@@ -87,6 +121,10 @@ function OperatorCard({ op }: { op: Operator }) {
       </button>
       {open && (
         <div className="px-4 pb-3 pt-1 space-y-3 border-t border-[var(--oracle-border)]">
+          {/* Full body portrait — r6calls.com */}
+          <div className="flex justify-center py-2">
+            <FullBodyPortrait nickName={op.nickName} />
+          </div>
           {isKnown(op.quote) && (
             <p className="text-xs italic text-[var(--oracle-text-muted)]">"{op.quote.replace(/^"|"$/g, "")}"</p>
           )}
@@ -144,7 +182,11 @@ function OperatorsTab() {
             onClick={() => setSideFilter(s)}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
               sideFilter === s
-                ? "bg-[var(--oracle-accent)]/20 text-[var(--oracle-accent)] border border-[var(--oracle-accent)]/30"
+                ? s === "attackers"
+                  ? "bg-[var(--oracle-danger)]/20 text-[var(--oracle-danger)] border border-[var(--oracle-danger)]/30"
+                  : s === "defenders"
+                    ? "bg-[var(--oracle-info)]/20 text-[var(--oracle-info)] border border-[var(--oracle-info)]/30"
+                    : "bg-[var(--oracle-accent)]/20 text-[var(--oracle-accent)] border border-[var(--oracle-accent)]/30"
                 : "bg-[var(--oracle-bg-primary)] text-[var(--oracle-text-secondary)] border border-[var(--oracle-border)] hover:bg-white/5"
             }`}
           >
