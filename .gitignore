@@ -50,3 +50,4 @@ assets/rooms/*
 !assets/rooms/.gitkeep
 !assets/icons/.gitkeep
 .claude/
+CC-Session-Logs/
